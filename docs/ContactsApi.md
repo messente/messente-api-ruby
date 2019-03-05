@@ -278,7 +278,7 @@ end
 
 api_instance = MessenteApi::ContactsApi.new
 opts = {
-  group_ids: ['group_ids_example'] # Array<String> | Group id string in uuid format.
+  group_ids: ['group_ids_example'] # Array<String> | Optional one or many group id strings in uuid format. For example: \"/contacts?groupIds=group_id_one&groupIds=group_id_two\" 
 }
 
 begin
@@ -294,7 +294,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_ids** | [**Array&lt;String&gt;**](String.md)| Group id string in uuid format. | [optional] 
+ **group_ids** | [**Array&lt;String&gt;**](String.md)| Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot;  | [optional] 
 
 ### Return type
 

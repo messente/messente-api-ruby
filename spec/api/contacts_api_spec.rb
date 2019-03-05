@@ -91,7 +91,7 @@ describe 'ContactsApi' do
   # unit tests for fetch_contacts
   # Returns all contacts.
   # @param [Hash] opts the optional parameters
-  # @option opts [Array<String>] :group_ids Group id string in uuid format.
+  # @option opts [Array<String>] :group_ids Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; 
   # @return [ContactListEnvelope]
   describe 'fetch_contacts test' do
     it 'should work' do

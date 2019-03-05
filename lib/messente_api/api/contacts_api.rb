@@ -283,7 +283,7 @@ module MessenteApi
 
     # Returns all contacts.
     # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :group_ids Group id string in uuid format.
+    # @option opts [Array<String>] :group_ids Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; 
     # @return [ContactListEnvelope]
     def fetch_contacts(opts = {})
       data, _status_code, _headers = fetch_contacts_with_http_info(opts)
@@ -292,7 +292,7 @@ module MessenteApi
 
     # Returns all contacts.
     # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :group_ids Group id string in uuid format.
+    # @option opts [Array<String>] :group_ids Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; 
     # @return [Array<(ContactListEnvelope, Fixnum, Hash)>] ContactListEnvelope data, response status code and response headers
     def fetch_contacts_with_http_info(opts = {})
       if @api_client.config.debugging
