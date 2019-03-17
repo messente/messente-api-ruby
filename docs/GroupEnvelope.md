@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**group** | [**GroupResponseFields**](.md) |  | [optional] 
+**group** | [**GroupResponseFields**](GroupResponseFields.md) |  | [optional] 
 
 
