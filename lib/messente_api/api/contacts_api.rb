@@ -329,7 +329,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Remove a contact from a group.
+    # Removes a contact from a group.
     # @param group_id String in uuid format.
     # @param phone A phone number
     # @param [Hash] opts the optional parameters
@@ -339,7 +339,7 @@ module MessenteApi
       nil
     end
 
-    # Remove a contact from a group.
+    # Removes a contact from a group.
     # @param group_id String in uuid format.
     # @param phone A phone number
     # @param [Hash] opts the optional parameters

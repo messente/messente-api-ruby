@@ -100,7 +100,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for remove_contact_from_group
-  # Remove a contact from a group.
+  # Removes a contact from a group.
   # @param group_id String in uuid format.
   # @param phone A phone number
   # @param [Hash] opts the optional parameters

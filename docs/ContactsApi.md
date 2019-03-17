@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**fetch_contact**](ContactsApi.md#fetch_contact) | **GET** /contacts/{phone} | Lists a contact.
 [**fetch_contact_groups**](ContactsApi.md#fetch_contact_groups) | **GET** /contacts/{phone}/groups | Lists groups of a contact.
 [**fetch_contacts**](ContactsApi.md#fetch_contacts) | **GET** /contacts | Returns all contacts.
-[**remove_contact_from_group**](ContactsApi.md#remove_contact_from_group) | **DELETE** /groups/{groupId}/contacts/{phone} | Remove a contact from a group.
+[**remove_contact_from_group**](ContactsApi.md#remove_contact_from_group) | **DELETE** /groups/{groupId}/contacts/{phone} | Removes a contact from a group.
 [**update_contact**](ContactsApi.md#update_contact) | **PATCH** /contacts/{phone} | Updates a contact.
 
 
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 # **remove_contact_from_group**
 > remove_contact_from_group(group_id, phone)
 
-Remove a contact from a group.
+Removes a contact from a group.
 
 ### Example
 ```ruby
@@ -332,7 +332,7 @@ group_id = 'group_id_example' # String | String in uuid format.
 phone = 'phone_example' # String | A phone number
 
 begin
-  #Remove a contact from a group.
+  #Removes a contact from a group.
   api_instance.remove_contact_from_group(group_id, phone)
 rescue MessenteApi::ApiError => e
   puts "Exception when calling ContactsApi->remove_contact_from_group: #{e}"
