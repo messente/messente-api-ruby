@@ -7,7 +7,7 @@
 
 ## Installation
 
-Install Messente API library with `TODO`.
+Install Messente API library with `gem install messente_api`.
 
 ## Features
 
