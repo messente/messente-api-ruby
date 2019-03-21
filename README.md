@@ -62,9 +62,50 @@ Read the [external getting-started article](https://messente.com/documentation/g
 ## Getting started: sending an omnimessage
 
 ```ruby
-say = "Hello!"
-puts say
-# TODO
+require 'messente_api'
+
+# setup authorization
+MessenteApi.configure do |config|
+    # Configure HTTP basic authorization: basicAuth
+    config.username = '<MESSENTE_API_USERNAME>'
+    config.password = '<MESSENTE_API_PASSWORD>'
+end
+
+api_instance = MessenteApi::OmnimessageApi.new
+omnimessage = MessenteApi::Omnimessage.new
+omnimessage.to = '<phone number in e.164 format>'
+omnimessage.messages = [
+    MessenteApi::SMS.new(
+        {
+            :sender => "<sender name or phone number in e.164 format>",
+            :text => "Hello SMS!"
+        }
+    ),
+    MessenteApi::WhatsApp.new(
+        {
+            :sender => "<sender name or phone number in e.164 format>",
+            :text => MessenteApi::WhatsAppText.new(
+                {
+                    :body => "Hello from WhatsApp!",
+                    :preview_url => false
+                }
+            )
+        }
+    ),
+    MessenteApi::Viber.new(
+        {
+            :sender => "<sender name or phone number in e.164 format>",
+            :text => "Hello from Viber!"
+        }
+    )
+]
+
+begin
+    result = api_instance.send_omnimessage(omnimessage)
+rescue MessenteApi::ApiError => e
+    puts "Exception when calling send_omnimessage: #{e}"
+    puts e.response_body
+end
 
 ```
 
