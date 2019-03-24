@@ -17,7 +17,7 @@ module MessenteApi
     # Whether to display link preview if the message contains a hyperlink.
     attr_accessor :preview_url
 
-    # Plaintext content for WhatsApp, can contains URLs, emojis and formatting
+    # Plaintext content for WhatsApp, can contain URLs, emojis and formatting
     attr_accessor :body
 
     # Attribute mapping from ruby-style variable name to JSON key.
