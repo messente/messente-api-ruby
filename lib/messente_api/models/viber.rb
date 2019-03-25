@@ -27,7 +27,7 @@ module MessenteApi
     # URL for the embedded image.    Valid combinations:    1) image_url,    2) text, image_url, button_url, button_text
     attr_accessor :image_url
 
-    # URL of the button, must be specified along with ''text'', ''button_text''  and ''image_url'' (optional)
+    # URL of the button, must be specified along with ''text'', ''button_text'' and ''image_url'' (optional)
     attr_accessor :button_url
 
     # Must be specified along with ''text'', ''button_url'', ''button_text'', ''image_url'' (optional)
