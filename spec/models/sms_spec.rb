@@ -69,6 +69,10 @@ describe 'SMS' do
   describe 'test attribute "channel"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["sms"])
+      # validator.allowable_values.each do |value|
+      #   expect { @instance.channel = value }.not_to raise_error
+      # end
     end
   end
 

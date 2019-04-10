@@ -108,8 +108,6 @@ module MessenteApi
 
       if attributes.has_key?(:'channel')
         self.channel = attributes[:'channel']
-      else
-        self.channel = 'sms'
       end
     end
 
@@ -130,6 +128,8 @@ module MessenteApi
       return false if @text.nil?
       autoconvert_validator = EnumAttributeValidator.new('String', ['full', 'on', 'off'])
       return false unless autoconvert_validator.valid?(@autoconvert)
+      channel_validator = EnumAttributeValidator.new('String', ['sms'])
+      return false unless channel_validator.valid?(@channel)
       true
     end
 
@@ -141,6 +141,16 @@ module MessenteApi
         fail ArgumentError, 'invalid value for "autoconvert", must be one of #{validator.allowable_values}.'
       end
       @autoconvert = autoconvert
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] channel Object to be assigned
+    def channel=(channel)
+      validator = EnumAttributeValidator.new('String', ['sms'])
+      unless validator.valid?(channel)
+        fail ArgumentError, 'invalid value for "channel", must be one of #{validator.allowable_values}.'
+      end
+      @channel = channel
     end
 
     # Checks equality by comparing each attribute.
