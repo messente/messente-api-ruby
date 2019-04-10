@@ -121,6 +121,10 @@ module MessenteApi
         invalid_properties.push('invalid value for "text", text cannot be nil.')
       end
 
+      if @channel.nil?
+        invalid_properties.push('invalid value for "channel", channel cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -130,6 +134,7 @@ module MessenteApi
       return false if @text.nil?
       autoconvert_validator = EnumAttributeValidator.new('String', ['full', 'on', 'off'])
       return false unless autoconvert_validator.valid?(@autoconvert)
+      return false if @channel.nil?
       channel_validator = EnumAttributeValidator.new('String', ['sms'])
       return false unless channel_validator.valid?(@channel)
       true
