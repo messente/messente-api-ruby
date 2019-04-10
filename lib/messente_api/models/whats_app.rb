@@ -113,6 +113,8 @@ module MessenteApi
 
       if attributes.has_key?(:'channel')
         self.channel = attributes[:'channel']
+      else
+        self.channel = 'whatsapp'
       end
     end
 
