@@ -22,7 +22,9 @@ module MessenteApi
     # URL where the delivery report will be sent
     attr_accessor :dlr_url
 
-    # Optional parameter for sending messages at some specific time in the future.   Time must be specified in the 8601 format.   If no timezone is specified, then the timezone is assumed to be UTC.    Examples:    * Time specified with timezone: 2018-06-22T09:05:07+00:00 Time specified in UTC: 2018-06-22T09:05:07Z   * Time specified without timezone: 2018-06-22T09:05 (equivalent to 2018-06-22T09:05+00:00)
+    attr_accessor :text_store
+
+    # Optional parameter for sending messages at some specific time in the future.   Time must be specified in the ISO-8601 format.   If no timezone is specified, then the timezone is assumed to be UTC.    Examples:    * Time specified with timezone: 2018-06-22T09:05:07+00:00 Time specified in UTC: 2018-06-22T09:05:07Z   * Time specified without timezone: 2018-06-22T09:05 (equivalent to 2018-06-22T09:05+00:00)
     attr_accessor :time_to_send
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -31,6 +33,7 @@ module MessenteApi
         :'to' => :'to',
         :'messages' => :'messages',
         :'dlr_url' => :'dlr_url',
+        :'text_store' => :'text_store',
         :'time_to_send' => :'time_to_send'
       }
     end
@@ -41,6 +44,7 @@ module MessenteApi
         :'to' => :'String',
         :'messages' => :'Array<OneOfViberSMSWhatsApp>',
         :'dlr_url' => :'String',
+        :'text_store' => :'TextStore',
         :'time_to_send' => :'DateTime'
       }
     end
@@ -65,6 +69,10 @@ module MessenteApi
 
       if attributes.has_key?(:'dlr_url')
         self.dlr_url = attributes[:'dlr_url']
+      end
+
+      if attributes.has_key?(:'text_store')
+        self.text_store = attributes[:'text_store']
       end
 
       if attributes.has_key?(:'time_to_send')
@@ -103,6 +111,7 @@ module MessenteApi
           to == o.to &&
           messages == o.messages &&
           dlr_url == o.dlr_url &&
+          text_store == o.text_store &&
           time_to_send == o.time_to_send
     end
 
@@ -115,7 +124,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [to, messages, dlr_url, time_to_send].hash
+      [to, messages, dlr_url, text_store, time_to_send].hash
     end
 
     # Builds the object from hash
