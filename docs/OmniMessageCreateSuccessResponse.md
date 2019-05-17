@@ -1,10 +1,21 @@
 # MessenteApi::OmniMessageCreateSuccessResponse
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **messages** | [**Array&lt;MessageResult&gt;**](MessageResult.md) | List of messages that compose the Omnimessage | 
 **to** | **String** | Phone number in e.164 format | 
 **omnimessage_id** | **String** | Unique identifier for the Omnimessage | 
+
+## Code Sample
+
+```ruby
+require 'MessenteApi'
+
+instance = MessenteApi::OmniMessageCreateSuccessResponse.new(messages: null,
+                                 to: null,
+                                 omnimessage_id: null)
+```
 
 

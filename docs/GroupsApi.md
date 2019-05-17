@@ -11,12 +11,15 @@ Method | HTTP request | Description
 [**update_group**](GroupsApi.md#update_group) | **PUT** /groups/{groupId} | Updates a group with the provided name.
 
 
-# **create_group**
+
+## create_group
+
 > GroupEnvelope create_group(group_name)
 
 Creates a new group with the provided name.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -41,6 +44,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_name** | [**GroupName**](GroupName.md)|  | 
@@ -55,17 +59,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## delete_group
 
-# **delete_group**
 > delete_group(group_id)
 
 Deletes a group.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -89,6 +94,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **String**| String in uuid format. | 
@@ -103,17 +109,18 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## fetch_group
 
-# **fetch_group**
 > GroupEnvelope fetch_group(group_id)
 
 Lists a group.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -138,6 +145,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **String**| String in uuid format. | 
@@ -152,17 +160,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## fetch_groups
 
-# **fetch_groups**
 > GroupListEnvelope fetch_groups
 
 Returns all groups.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -185,6 +194,7 @@ end
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -197,17 +207,18 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## update_group
 
-# **update_group**
 > GroupEnvelope update_group(group_id, group_name)
 
 Updates a group with the provided name.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -233,6 +244,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **String**| String in uuid format. | 
@@ -248,8 +260,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
+- **Content-Type**: application/json
+- **Accept**: application/json
 

@@ -14,12 +14,15 @@ Method | HTTP request | Description
 [**update_contact**](ContactsApi.md#update_contact) | **PATCH** /contacts/{phone} | Updates a contact.
 
 
-# **add_contact_to_group**
+
+## add_contact_to_group
+
 > Object add_contact_to_group(group_id, phone)
 
 Adds a contact to a group.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -45,6 +48,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **String**| String in uuid format. | 
@@ -60,17 +64,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## create_contact
 
-# **create_contact**
 > ContactEnvelope create_contact(contact_fields)
 
 Creates a new contact.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -95,6 +100,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contact_fields** | [**ContactFields**](ContactFields.md)|  | 
@@ -109,17 +115,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## delete_contact
 
-# **delete_contact**
 > delete_contact(phone)
 
 Deletes a contact.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -143,6 +150,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **phone** | **String**| A phone number | 
@@ -157,17 +165,18 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## fetch_contact
 
-# **fetch_contact**
 > ContactEnvelope fetch_contact(phone)
 
 Lists a contact.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -192,6 +201,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **phone** | **String**| A phone number | 
@@ -206,17 +216,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## fetch_contact_groups
 
-# **fetch_contact_groups**
 > GroupListEnvelope fetch_contact_groups(phone)
 
 Lists groups of a contact.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -241,6 +252,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **phone** | **String**| A phone number | 
@@ -255,17 +267,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## fetch_contacts
 
-# **fetch_contacts**
 > ContactListEnvelope fetch_contacts(opts)
 
 Returns all contacts.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -292,6 +305,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_ids** | [**Array&lt;String&gt;**](String.md)| Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot;  | [optional] 
@@ -306,17 +320,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## remove_contact_from_group
 
-# **remove_contact_from_group**
 > remove_contact_from_group(group_id, phone)
 
 Removes a contact from a group.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -341,6 +356,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **String**| String in uuid format. | 
@@ -356,17 +372,18 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## update_contact
 
-# **update_contact**
 > ContactEnvelope update_contact(phone, contact_update_fields)
 
 Updates a contact.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -392,6 +409,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **phone** | **String**| A phone number | 
@@ -407,8 +425,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
+- **Content-Type**: application/json
+- **Accept**: application/json
 
