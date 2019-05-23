@@ -8,12 +8,15 @@ Method | HTTP request | Description
 [**send_omnimessage**](OmnimessageApi.md#send_omnimessage) | **POST** /omnimessage | Sends an Omnimessage.
 
 
-# **cancel_scheduled_message**
+
+## cancel_scheduled_message
+
 > cancel_scheduled_message(omnimessage_id)
 
 Cancels a scheduled Omnimessage.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -37,6 +40,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **omnimessage_id** | [**String**](.md)| UUID of the scheduled Omnimessage to be cancelled | 
@@ -51,17 +55,18 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## send_omnimessage
 
-# **send_omnimessage**
 > OmniMessageCreateSuccessResponse send_omnimessage(omnimessage)
 
 Sends an Omnimessage.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -86,6 +91,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **omnimessage** | [**Omnimessage**](Omnimessage.md)| Omnimessage to be sent | 
@@ -100,8 +106,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
+- **Content-Type**: application/json
+- **Accept**: application/json
 

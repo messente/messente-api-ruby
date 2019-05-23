@@ -7,12 +7,15 @@ Method | HTTP request | Description
 [**retrieve_delivery_report**](DeliveryReportApi.md#retrieve_delivery_report) | **GET** /omnimessage/{omnimessageId}/status | Retrieves the delivery report for the Omnimessage.
 
 
-# **retrieve_delivery_report**
+
+## retrieve_delivery_report
+
 > DeliveryReportResponse retrieve_delivery_report(omnimessage_id)
 
 Retrieves the delivery report for the Omnimessage.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -37,6 +40,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **omnimessage_id** | [**String**](.md)| UUID of the Omnimessage to for which the delivery report is to be retrieved | 
@@ -51,8 +55,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-
+- **Content-Type**: Not defined
+- **Accept**: */*
 

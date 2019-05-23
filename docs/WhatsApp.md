@@ -1,6 +1,7 @@
 # MessenteApi::WhatsApp
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **sender** | **String** | Phone number or alphanumeric sender name | [optional] 
@@ -10,5 +11,19 @@ Name | Type | Description | Notes
 **document** | [**WhatsAppDocument**](WhatsAppDocument.md) |  | [optional] 
 **audio** | [**WhatsAppAudio**](WhatsAppAudio.md) |  | [optional] 
 **channel** | **String** |  | [optional] [default to &#39;whatsapp&#39;]
+
+## Code Sample
+
+```ruby
+require 'MessenteApi'
+
+instance = MessenteApi::WhatsApp.new(sender: null,
+                                 validity: 360,
+                                 text: null,
+                                 image: null,
+                                 document: null,
+                                 audio: null,
+                                 channel: null)
+```
 
 

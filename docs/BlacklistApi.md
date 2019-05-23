@@ -10,12 +10,15 @@ Method | HTTP request | Description
 [**is_blacklisted**](BlacklistApi.md#is_blacklisted) | **GET** /blacklist/{phone} | Checks if a phone number is blacklisted.
 
 
-# **add_to_blacklist**
+
+## add_to_blacklist
+
 > add_to_blacklist(number_to_blacklist)
 
 Adds a phone number to the blacklist.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -39,6 +42,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **number_to_blacklist** | [**NumberToBlacklist**](NumberToBlacklist.md)| Phone number to be blacklisted | 
@@ -53,17 +57,18 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## delete_from_blacklist
 
-# **delete_from_blacklist**
 > delete_from_blacklist(phone)
 
 Deletes a phone number from the blacklist.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -87,6 +92,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **phone** | **String**| A phone number | 
@@ -101,17 +107,18 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## fetch_blacklist
 
-# **fetch_blacklist**
 > FetchBlacklistSuccess fetch_blacklist
 
 Returns all blacklisted phone numbers.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -134,6 +141,7 @@ end
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -146,17 +154,18 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## is_blacklisted
 
-# **is_blacklisted**
 > is_blacklisted(phone)
 
 Checks if a phone number is blacklisted.
 
 ### Example
+
 ```ruby
 # load the gem
 require 'messente_api'
@@ -180,6 +189,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **phone** | **String**| A phone number | 
@@ -194,8 +204,6 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
