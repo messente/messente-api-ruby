@@ -24,7 +24,7 @@ module MessenteApi
     # After how many minutes this channel is considered as failed and the next channel is attempted
     attr_accessor :validity
 
-    # Defines how non-GSM characters will be treated:    - \"on\" Use replacement settings from the account's [API Auto Replace settings page](https://dashboard.messente.com/api-settings/auto-replace)(default)   - \"full\" All non GSM 03.38 characters will be replaced with suitable alternatives   - \"off\" Message content is not modified in any way
+    # Defines how non-GSM characters will be treated:    - \"on\" Use replacement settings from the account's [API Auto Replace settings page](https://dashboard.messente.com/api-settings/auto-replace) (default)   - \"full\" All non GSM 03.38 characters will be replaced with suitable alternatives   - \"off\" Message content is not modified in any way
     attr_accessor :autoconvert
 
     # hex-encoded string containing SMS UDH
