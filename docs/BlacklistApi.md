@@ -4,10 +4,10 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_to_blacklist**](BlacklistApi.md#add_to_blacklist) | **POST** /phonebook/blacklist | Adds a phone number to the blacklist.
-[**delete_from_blacklist**](BlacklistApi.md#delete_from_blacklist) | **DELETE** /blacklist/{phone} | Deletes a phone number from the blacklist.
-[**fetch_blacklist**](BlacklistApi.md#fetch_blacklist) | **GET** /phonebook/blacklist | Returns all blacklisted phone numbers.
-[**is_blacklisted**](BlacklistApi.md#is_blacklisted) | **GET** /blacklist/{phone} | Checks if a phone number is blacklisted.
+[**add_to_blacklist**](BlacklistApi.md#add_to_blacklist) | **POST** /phonebook/blacklist | Adds a phone number to the blacklist
+[**delete_from_blacklist**](BlacklistApi.md#delete_from_blacklist) | **DELETE** /blacklist/{phone} | Deletes a phone number from the blacklist
+[**fetch_blacklist**](BlacklistApi.md#fetch_blacklist) | **GET** /phonebook/blacklist | Returns all blacklisted phone numbers
+[**is_blacklisted**](BlacklistApi.md#is_blacklisted) | **GET** /blacklist/{phone} | Checks if a phone number is blacklisted
 
 
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 > add_to_blacklist(number_to_blacklist)
 
-Adds a phone number to the blacklist.
+Adds a phone number to the blacklist
 
 ### Example
 
@@ -33,7 +33,7 @@ api_instance = MessenteApi::BlacklistApi.new
 number_to_blacklist = MessenteApi::NumberToBlacklist.new # NumberToBlacklist | Phone number to be blacklisted
 
 begin
-  #Adds a phone number to the blacklist.
+  #Adds a phone number to the blacklist
   api_instance.add_to_blacklist(number_to_blacklist)
 rescue MessenteApi::ApiError => e
   puts "Exception when calling BlacklistApi->add_to_blacklist: #{e}"
@@ -65,7 +65,7 @@ nil (empty response body)
 
 > delete_from_blacklist(phone)
 
-Deletes a phone number from the blacklist.
+Deletes a phone number from the blacklist
 
 ### Example
 
@@ -83,7 +83,7 @@ api_instance = MessenteApi::BlacklistApi.new
 phone = 'phone_example' # String | A phone number
 
 begin
-  #Deletes a phone number from the blacklist.
+  #Deletes a phone number from the blacklist
   api_instance.delete_from_blacklist(phone)
 rescue MessenteApi::ApiError => e
   puts "Exception when calling BlacklistApi->delete_from_blacklist: #{e}"
@@ -115,7 +115,7 @@ nil (empty response body)
 
 > FetchBlacklistSuccess fetch_blacklist
 
-Returns all blacklisted phone numbers.
+Returns all blacklisted phone numbers
 
 ### Example
 
@@ -132,7 +132,7 @@ end
 api_instance = MessenteApi::BlacklistApi.new
 
 begin
-  #Returns all blacklisted phone numbers.
+  #Returns all blacklisted phone numbers
   result = api_instance.fetch_blacklist
   p result
 rescue MessenteApi::ApiError => e
@@ -162,7 +162,7 @@ This endpoint does not need any parameter.
 
 > is_blacklisted(phone)
 
-Checks if a phone number is blacklisted.
+Checks if a phone number is blacklisted
 
 ### Example
 
@@ -180,7 +180,7 @@ api_instance = MessenteApi::BlacklistApi.new
 phone = 'phone_example' # String | A phone number
 
 begin
-  #Checks if a phone number is blacklisted.
+  #Checks if a phone number is blacklisted
   api_instance.is_blacklisted(phone)
 rescue MessenteApi::ApiError => e
   puts "Exception when calling BlacklistApi->is_blacklisted: #{e}"

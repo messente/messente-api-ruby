@@ -33,7 +33,7 @@ describe 'BlacklistApi' do
   end
 
   # unit tests for add_to_blacklist
-  # Adds a phone number to the blacklist.
+  # Adds a phone number to the blacklist
   # @param number_to_blacklist Phone number to be blacklisted
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -44,7 +44,7 @@ describe 'BlacklistApi' do
   end
 
   # unit tests for delete_from_blacklist
-  # Deletes a phone number from the blacklist.
+  # Deletes a phone number from the blacklist
   # @param phone A phone number
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -55,7 +55,7 @@ describe 'BlacklistApi' do
   end
 
   # unit tests for fetch_blacklist
-  # Returns all blacklisted phone numbers.
+  # Returns all blacklisted phone numbers
   # @param [Hash] opts the optional parameters
   # @return [FetchBlacklistSuccess]
   describe 'fetch_blacklist test' do
@@ -65,7 +65,7 @@ describe 'BlacklistApi' do
   end
 
   # unit tests for is_blacklisted
-  # Checks if a phone number is blacklisted.
+  # Checks if a phone number is blacklisted
   # @param phone A phone number
   # @param [Hash] opts the optional parameters
   # @return [nil]

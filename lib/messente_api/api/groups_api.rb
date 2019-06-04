@@ -19,7 +19,7 @@ module MessenteApi
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Creates a new group with the provided name.
+    # Creates a new group with the provided name
     # @param group_name [GroupName] 
     # @param [Hash] opts the optional parameters
     # @return [GroupEnvelope]
@@ -28,7 +28,7 @@ module MessenteApi
       data
     end
 
-    # Creates a new group with the provided name.
+    # Creates a new group with the provided name
     # @param group_name [GroupName] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(GroupEnvelope, Integer, Hash)>] GroupEnvelope data, response status code and response headers
@@ -81,7 +81,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Deletes a group.
+    # Deletes a group
     # @param group_id [String] String in uuid format.
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -90,7 +90,7 @@ module MessenteApi
       nil
     end
 
-    # Deletes a group.
+    # Deletes a group
     # @param group_id [String] String in uuid format.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -141,7 +141,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Lists a group.
+    # Lists a group
     # @param group_id [String] String in uuid format.
     # @param [Hash] opts the optional parameters
     # @return [GroupEnvelope]
@@ -150,7 +150,7 @@ module MessenteApi
       data
     end
 
-    # Lists a group.
+    # Lists a group
     # @param group_id [String] String in uuid format.
     # @param [Hash] opts the optional parameters
     # @return [Array<(GroupEnvelope, Integer, Hash)>] GroupEnvelope data, response status code and response headers
@@ -201,7 +201,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Returns all groups.
+    # Returns all groups
     # @param [Hash] opts the optional parameters
     # @return [GroupListEnvelope]
     def fetch_groups(opts = {})
@@ -209,7 +209,7 @@ module MessenteApi
       data
     end
 
-    # Returns all groups.
+    # Returns all groups
     # @param [Hash] opts the optional parameters
     # @return [Array<(GroupListEnvelope, Integer, Hash)>] GroupListEnvelope data, response status code and response headers
     def fetch_groups_with_http_info(opts = {})
@@ -255,7 +255,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Updates a group with the provided name.
+    # Updates a group with the provided name
     # @param group_id [String] String in uuid format.
     # @param group_name [GroupName] 
     # @param [Hash] opts the optional parameters
@@ -265,7 +265,7 @@ module MessenteApi
       data
     end
 
-    # Updates a group with the provided name.
+    # Updates a group with the provided name
     # @param group_id [String] String in uuid format.
     # @param group_name [GroupName] 
     # @param [Hash] opts the optional parameters

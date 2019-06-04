@@ -19,7 +19,7 @@ module MessenteApi
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Adds a contact to a group.
+    # Adds a contact to a group
     # @param group_id [String] String in uuid format.
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
@@ -29,7 +29,7 @@ module MessenteApi
       data
     end
 
-    # Adds a contact to a group.
+    # Adds a contact to a group
     # @param group_id [String] String in uuid format.
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
@@ -85,7 +85,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Creates a new contact.
+    # Creates a new contact
     # @param contact_fields [ContactFields] 
     # @param [Hash] opts the optional parameters
     # @return [ContactEnvelope]
@@ -94,7 +94,7 @@ module MessenteApi
       data
     end
 
-    # Creates a new contact.
+    # Creates a new contact
     # @param contact_fields [ContactFields] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ContactEnvelope, Integer, Hash)>] ContactEnvelope data, response status code and response headers
@@ -147,7 +147,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Deletes a contact.
+    # Deletes a contact
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -156,7 +156,7 @@ module MessenteApi
       nil
     end
 
-    # Deletes a contact.
+    # Deletes a contact
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -207,7 +207,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Lists a contact.
+    # Lists a contact
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [ContactEnvelope]
@@ -216,7 +216,7 @@ module MessenteApi
       data
     end
 
-    # Lists a contact.
+    # Lists a contact
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [Array<(ContactEnvelope, Integer, Hash)>] ContactEnvelope data, response status code and response headers
@@ -267,7 +267,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Lists groups of a contact.
+    # Lists groups of a contact
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [GroupListEnvelope]
@@ -276,7 +276,7 @@ module MessenteApi
       data
     end
 
-    # Lists groups of a contact.
+    # Lists groups of a contact
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [Array<(GroupListEnvelope, Integer, Hash)>] GroupListEnvelope data, response status code and response headers
@@ -327,7 +327,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Returns all contacts.
+    # Returns all contacts
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :group_ids Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; 
     # @return [ContactListEnvelope]
@@ -336,7 +336,7 @@ module MessenteApi
       data
     end
 
-    # Returns all contacts.
+    # Returns all contacts
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :group_ids Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; 
     # @return [Array<(ContactListEnvelope, Integer, Hash)>] ContactListEnvelope data, response status code and response headers
@@ -384,7 +384,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Removes a contact from a group.
+    # Removes a contact from a group
     # @param group_id [String] String in uuid format.
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
@@ -394,7 +394,7 @@ module MessenteApi
       nil
     end
 
-    # Removes a contact from a group.
+    # Removes a contact from a group
     # @param group_id [String] String in uuid format.
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
@@ -450,7 +450,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Updates a contact.
+    # Updates a contact
     # @param phone [String] A phone number
     # @param contact_update_fields [ContactUpdateFields] 
     # @param [Hash] opts the optional parameters
@@ -460,7 +460,7 @@ module MessenteApi
       data
     end
 
-    # Updates a contact.
+    # Updates a contact
     # @param phone [String] A phone number
     # @param contact_update_fields [ContactUpdateFields] 
     # @param [Hash] opts the optional parameters

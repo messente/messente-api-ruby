@@ -19,7 +19,7 @@ module MessenteApi
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Cancels a scheduled Omnimessage.
+    # Cancels a scheduled Omnimessage
     # @param omnimessage_id [String] UUID of the scheduled Omnimessage to be cancelled
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -28,7 +28,7 @@ module MessenteApi
       nil
     end
 
-    # Cancels a scheduled Omnimessage.
+    # Cancels a scheduled Omnimessage
     # @param omnimessage_id [String] UUID of the scheduled Omnimessage to be cancelled
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -79,7 +79,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Sends an Omnimessage.
+    # Sends an Omnimessage
     # @param omnimessage [Omnimessage] Omnimessage to be sent
     # @param [Hash] opts the optional parameters
     # @return [OmniMessageCreateSuccessResponse]
@@ -88,7 +88,7 @@ module MessenteApi
       data
     end
 
-    # Sends an Omnimessage.
+    # Sends an Omnimessage
     # @param omnimessage [Omnimessage] Omnimessage to be sent
     # @param [Hash] opts the optional parameters
     # @return [Array<(OmniMessageCreateSuccessResponse, Integer, Hash)>] OmniMessageCreateSuccessResponse data, response status code and response headers

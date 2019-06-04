@@ -19,7 +19,7 @@ module MessenteApi
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Adds a phone number to the blacklist.
+    # Adds a phone number to the blacklist
     # @param number_to_blacklist [NumberToBlacklist] Phone number to be blacklisted
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -28,7 +28,7 @@ module MessenteApi
       nil
     end
 
-    # Adds a phone number to the blacklist.
+    # Adds a phone number to the blacklist
     # @param number_to_blacklist [NumberToBlacklist] Phone number to be blacklisted
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -81,7 +81,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Deletes a phone number from the blacklist.
+    # Deletes a phone number from the blacklist
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -90,7 +90,7 @@ module MessenteApi
       nil
     end
 
-    # Deletes a phone number from the blacklist.
+    # Deletes a phone number from the blacklist
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
@@ -141,7 +141,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Returns all blacklisted phone numbers.
+    # Returns all blacklisted phone numbers
     # @param [Hash] opts the optional parameters
     # @return [FetchBlacklistSuccess]
     def fetch_blacklist(opts = {})
@@ -149,7 +149,7 @@ module MessenteApi
       data
     end
 
-    # Returns all blacklisted phone numbers.
+    # Returns all blacklisted phone numbers
     # @param [Hash] opts the optional parameters
     # @return [Array<(FetchBlacklistSuccess, Integer, Hash)>] FetchBlacklistSuccess data, response status code and response headers
     def fetch_blacklist_with_http_info(opts = {})
@@ -195,7 +195,7 @@ module MessenteApi
       return data, status_code, headers
     end
 
-    # Checks if a phone number is blacklisted.
+    # Checks if a phone number is blacklisted
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -204,7 +204,7 @@ module MessenteApi
       nil
     end
 
-    # Checks if a phone number is blacklisted.
+    # Checks if a phone number is blacklisted
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers

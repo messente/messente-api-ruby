@@ -33,7 +33,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for add_contact_to_group
-  # Adds a contact to a group.
+  # Adds a contact to a group
   # @param group_id String in uuid format.
   # @param phone A phone number
   # @param [Hash] opts the optional parameters
@@ -45,7 +45,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for create_contact
-  # Creates a new contact.
+  # Creates a new contact
   # @param contact_fields 
   # @param [Hash] opts the optional parameters
   # @return [ContactEnvelope]
@@ -56,7 +56,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for delete_contact
-  # Deletes a contact.
+  # Deletes a contact
   # @param phone A phone number
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -67,7 +67,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for fetch_contact
-  # Lists a contact.
+  # Lists a contact
   # @param phone A phone number
   # @param [Hash] opts the optional parameters
   # @return [ContactEnvelope]
@@ -78,7 +78,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for fetch_contact_groups
-  # Lists groups of a contact.
+  # Lists groups of a contact
   # @param phone A phone number
   # @param [Hash] opts the optional parameters
   # @return [GroupListEnvelope]
@@ -89,7 +89,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for fetch_contacts
-  # Returns all contacts.
+  # Returns all contacts
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :group_ids Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; 
   # @return [ContactListEnvelope]
@@ -100,7 +100,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for remove_contact_from_group
-  # Removes a contact from a group.
+  # Removes a contact from a group
   # @param group_id String in uuid format.
   # @param phone A phone number
   # @param [Hash] opts the optional parameters
@@ -112,7 +112,7 @@ describe 'ContactsApi' do
   end
 
   # unit tests for update_contact
-  # Updates a contact.
+  # Updates a contact
   # @param phone A phone number
   # @param contact_update_fields 
   # @param [Hash] opts the optional parameters

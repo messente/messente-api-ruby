@@ -19,7 +19,7 @@ module MessenteApi
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Retrieves the delivery report for the Omnimessage.
+    # Retrieves the delivery report for the Omnimessage
     # @param omnimessage_id [String] UUID of the Omnimessage to for which the delivery report is to be retrieved
     # @param [Hash] opts the optional parameters
     # @return [DeliveryReportResponse]
@@ -28,7 +28,7 @@ module MessenteApi
       data
     end
 
-    # Retrieves the delivery report for the Omnimessage.
+    # Retrieves the delivery report for the Omnimessage
     # @param omnimessage_id [String] UUID of the Omnimessage to for which the delivery report is to be retrieved
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeliveryReportResponse, Integer, Hash)>] DeliveryReportResponse data, response status code and response headers

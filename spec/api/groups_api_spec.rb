@@ -33,7 +33,7 @@ describe 'GroupsApi' do
   end
 
   # unit tests for create_group
-  # Creates a new group with the provided name.
+  # Creates a new group with the provided name
   # @param group_name 
   # @param [Hash] opts the optional parameters
   # @return [GroupEnvelope]
@@ -44,7 +44,7 @@ describe 'GroupsApi' do
   end
 
   # unit tests for delete_group
-  # Deletes a group.
+  # Deletes a group
   # @param group_id String in uuid format.
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -55,7 +55,7 @@ describe 'GroupsApi' do
   end
 
   # unit tests for fetch_group
-  # Lists a group.
+  # Lists a group
   # @param group_id String in uuid format.
   # @param [Hash] opts the optional parameters
   # @return [GroupEnvelope]
@@ -66,7 +66,7 @@ describe 'GroupsApi' do
   end
 
   # unit tests for fetch_groups
-  # Returns all groups.
+  # Returns all groups
   # @param [Hash] opts the optional parameters
   # @return [GroupListEnvelope]
   describe 'fetch_groups test' do
@@ -76,7 +76,7 @@ describe 'GroupsApi' do
   end
 
   # unit tests for update_group
-  # Updates a group with the provided name.
+  # Updates a group with the provided name
   # @param group_id String in uuid format.
   # @param group_name 
   # @param [Hash] opts the optional parameters
