@@ -14,6 +14,7 @@ require 'date'
 
 module MessenteApi
   class FetchBlacklistSuccess
+    # Array of unique phone numbers
     attr_accessor :phone_numbers
 
     # Attribute mapping from ruby-style variable name to JSON key.

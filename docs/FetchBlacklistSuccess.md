@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**phone_numbers** | **Array&lt;String&gt;** |  | [optional] 
+**phone_numbers** | **Array&lt;String&gt;** | Array of unique phone numbers | [optional] 
 
 ## Code Sample
 
