@@ -43,7 +43,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **omnimessage_id** | [**String**](.md)| UUID of the Omnimessage to for which the delivery report is to be retrieved | 
+ **omnimessage_id** | **String**| UUID of the Omnimessage to for which the delivery report is to be retrieved | 
 
 ### Return type
 

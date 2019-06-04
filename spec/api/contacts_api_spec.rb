@@ -34,7 +34,7 @@ describe 'ContactsApi' do
 
   # unit tests for add_contact_to_group
   # Adds a contact to a group
-  # @param group_id String in uuid format.
+  # @param group_id String in UUID format.
   # @param phone A phone number
   # @param [Hash] opts the optional parameters
   # @return [Object]
@@ -91,7 +91,7 @@ describe 'ContactsApi' do
   # unit tests for fetch_contacts
   # Returns all contacts
   # @param [Hash] opts the optional parameters
-  # @option opts [Array<String>] :group_ids Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; 
+  # @option opts [Array<String>] :group_ids Optional one or many group id strings in UUID format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; 
   # @return [ContactListEnvelope]
   describe 'fetch_contacts test' do
     it 'should work' do
@@ -101,7 +101,7 @@ describe 'ContactsApi' do
 
   # unit tests for remove_contact_from_group
   # Removes a contact from a group
-  # @param group_id String in uuid format.
+  # @param group_id String in UUID format.
   # @param phone A phone number
   # @param [Hash] opts the optional parameters
   # @return [nil]

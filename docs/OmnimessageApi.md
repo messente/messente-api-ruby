@@ -43,7 +43,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **omnimessage_id** | [**String**](.md)| UUID of the scheduled Omnimessage to be cancelled | 
+ **omnimessage_id** | **String**| UUID of the scheduled Omnimessage to be cancelled | 
 
 ### Return type
 

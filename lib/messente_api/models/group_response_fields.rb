@@ -14,7 +14,7 @@ require 'date'
 
 module MessenteApi
   class GroupResponseFields
-    # Id string in uuid format
+    # Id string in UUID format
     attr_accessor :id
 
     attr_accessor :name

@@ -20,7 +20,7 @@ module MessenteApi
       @api_client = api_client
     end
     # Adds a contact to a group
-    # @param group_id [String] String in uuid format.
+    # @param group_id [String] String in UUID format.
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [Object]
@@ -30,7 +30,7 @@ module MessenteApi
     end
 
     # Adds a contact to a group
-    # @param group_id [String] String in uuid format.
+    # @param group_id [String] String in UUID format.
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -329,7 +329,7 @@ module MessenteApi
 
     # Returns all contacts
     # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :group_ids Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; 
+    # @option opts [Array<String>] :group_ids Optional one or many group id strings in UUID format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; 
     # @return [ContactListEnvelope]
     def fetch_contacts(opts = {})
       data, _status_code, _headers = fetch_contacts_with_http_info(opts)
@@ -338,7 +338,7 @@ module MessenteApi
 
     # Returns all contacts
     # @param [Hash] opts the optional parameters
-    # @option opts [Array<String>] :group_ids Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; 
+    # @option opts [Array<String>] :group_ids Optional one or many group id strings in UUID format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; 
     # @return [Array<(ContactListEnvelope, Integer, Hash)>] ContactListEnvelope data, response status code and response headers
     def fetch_contacts_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -385,7 +385,7 @@ module MessenteApi
     end
 
     # Removes a contact from a group
-    # @param group_id [String] String in uuid format.
+    # @param group_id [String] String in UUID format.
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -395,7 +395,7 @@ module MessenteApi
     end
 
     # Removes a contact from a group
-    # @param group_id [String] String in uuid format.
+    # @param group_id [String] String in UUID format.
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
