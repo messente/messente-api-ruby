@@ -27,6 +27,9 @@ module MessenteApi
     # The company of the contact
     attr_accessor :company
 
+    # The title of the contact
+    attr_accessor :title
+
     # The first custom field
     attr_accessor :custom
 
@@ -46,6 +49,7 @@ module MessenteApi
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
         :'company' => :'company',
+        :'title' => :'title',
         :'custom' => :'custom',
         :'custom2' => :'custom2',
         :'custom3' => :'custom3',
@@ -60,6 +64,7 @@ module MessenteApi
         :'first_name' => :'String',
         :'last_name' => :'String',
         :'company' => :'String',
+        :'title' => :'String',
         :'custom' => :'String',
         :'custom2' => :'String',
         :'custom3' => :'String',
@@ -96,6 +101,10 @@ module MessenteApi
 
       if attributes.key?(:'company')
         self.company = attributes[:'company']
+      end
+
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
       end
 
       if attributes.key?(:'custom')
@@ -137,6 +146,7 @@ module MessenteApi
           first_name == o.first_name &&
           last_name == o.last_name &&
           company == o.company &&
+          title == o.title &&
           custom == o.custom &&
           custom2 == o.custom2 &&
           custom3 == o.custom3 &&
@@ -152,7 +162,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [email, first_name, last_name, company, custom, custom2, custom3, custom4].hash
+      [email, first_name, last_name, company, title, custom, custom2, custom3, custom4].hash
     end
 
     # Builds the object from hash
