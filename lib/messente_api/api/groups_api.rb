@@ -82,7 +82,7 @@ module MessenteApi
     end
 
     # Deletes a group
-    # @param group_id [String] String in UUID format.
+    # @param group_id [String] String in UUID format
     # @param [Hash] opts the optional parameters
     # @return [nil]
     def delete_group(group_id, opts = {})
@@ -91,7 +91,7 @@ module MessenteApi
     end
 
     # Deletes a group
-    # @param group_id [String] String in UUID format.
+    # @param group_id [String] String in UUID format
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_group_with_http_info(group_id, opts = {})
@@ -142,7 +142,7 @@ module MessenteApi
     end
 
     # Lists a group
-    # @param group_id [String] String in UUID format.
+    # @param group_id [String] String in UUID format
     # @param [Hash] opts the optional parameters
     # @return [GroupEnvelope]
     def fetch_group(group_id, opts = {})
@@ -151,7 +151,7 @@ module MessenteApi
     end
 
     # Lists a group
-    # @param group_id [String] String in UUID format.
+    # @param group_id [String] String in UUID format
     # @param [Hash] opts the optional parameters
     # @return [Array<(GroupEnvelope, Integer, Hash)>] GroupEnvelope data, response status code and response headers
     def fetch_group_with_http_info(group_id, opts = {})
@@ -256,7 +256,7 @@ module MessenteApi
     end
 
     # Updates a group with the provided name
-    # @param group_id [String] String in UUID format.
+    # @param group_id [String] String in UUID format
     # @param group_name [GroupName] 
     # @param [Hash] opts the optional parameters
     # @return [GroupEnvelope]
@@ -266,7 +266,7 @@ module MessenteApi
     end
 
     # Updates a group with the provided name
-    # @param group_id [String] String in UUID format.
+    # @param group_id [String] String in UUID format
     # @param group_name [GroupName] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(GroupEnvelope, Integer, Hash)>] GroupEnvelope data, response status code and response headers

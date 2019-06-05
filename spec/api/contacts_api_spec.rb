@@ -34,7 +34,7 @@ describe 'ContactsApi' do
 
   # unit tests for add_contact_to_group
   # Adds a contact to a group
-  # @param group_id String in UUID format.
+  # @param group_id String in UUID format
   # @param phone A phone number
   # @param [Hash] opts the optional parameters
   # @return [Object]
@@ -101,7 +101,7 @@ describe 'ContactsApi' do
 
   # unit tests for remove_contact_from_group
   # Removes a contact from a group
-  # @param group_id String in UUID format.
+  # @param group_id String in UUID format
   # @param phone A phone number
   # @param [Hash] opts the optional parameters
   # @return [nil]

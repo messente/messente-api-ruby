@@ -24,7 +24,7 @@ module MessenteApi
     # Plaintext content for Viber
     attr_accessor :text
 
-    # URL for the embedded image.    Valid combinations:    1) image_url,    2) text, image_url, button_url, button_text
+    # URL for the embedded image    Valid combinations:    1) image_url,    2) text, image_url, button_url, button_text
     attr_accessor :image_url
 
     # URL of the button, must be specified along with ''text'', ''button_text'' and ''image_url'' (optional)

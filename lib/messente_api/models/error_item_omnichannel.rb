@@ -17,7 +17,7 @@ module MessenteApi
   class ErrorItemOmnichannel
     attr_accessor :title
 
-    # Free form more detailed description of the error.
+    # Free form more detailed description of the error
     attr_accessor :detail
 
     attr_accessor :code

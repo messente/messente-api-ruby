@@ -15,7 +15,7 @@ require 'date'
 module MessenteApi
   # A text
   class WhatsAppText
-    # Whether to display link preview if the message contains a hyperlink.
+    # Whether to display link preview if the message contains a hyperlink
     attr_accessor :preview_url
 
     # Plaintext content for WhatsApp, can contain URLs, emojis and formatting

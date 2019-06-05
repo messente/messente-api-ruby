@@ -13,7 +13,7 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
-  # WhatsApp message content.   Only one of \"text\", \"image\", \"document\" or \"audio\" can be provided.
+  # WhatsApp message content.   Only one of \"text\", \"image\", \"document\" or \"audio\" can be provided
   class WhatsApp
     # Phone number or alphanumeric sender name
     attr_accessor :sender

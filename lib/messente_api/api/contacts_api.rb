@@ -20,7 +20,7 @@ module MessenteApi
       @api_client = api_client
     end
     # Adds a contact to a group
-    # @param group_id [String] String in UUID format.
+    # @param group_id [String] String in UUID format
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [Object]
@@ -30,7 +30,7 @@ module MessenteApi
     end
 
     # Adds a contact to a group
-    # @param group_id [String] String in UUID format.
+    # @param group_id [String] String in UUID format
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
@@ -385,7 +385,7 @@ module MessenteApi
     end
 
     # Removes a contact from a group
-    # @param group_id [String] String in UUID format.
+    # @param group_id [String] String in UUID format
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [nil]
@@ -395,7 +395,7 @@ module MessenteApi
     end
 
     # Removes a contact from a group
-    # @param group_id [String] String in UUID format.
+    # @param group_id [String] String in UUID format
     # @param phone [String] A phone number
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers

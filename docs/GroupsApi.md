@@ -82,7 +82,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::GroupsApi.new
-group_id = 'group_id_example' # String | String in UUID format.
+group_id = 'group_id_example' # String | String in UUID format
 
 begin
   #Deletes a group
@@ -97,7 +97,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_id** | **String**| String in UUID format. | 
+ **group_id** | **String**| String in UUID format | 
 
 ### Return type
 
@@ -132,7 +132,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::GroupsApi.new
-group_id = 'group_id_example' # String | String in UUID format.
+group_id = 'group_id_example' # String | String in UUID format
 
 begin
   #Lists a group
@@ -148,7 +148,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_id** | **String**| String in UUID format. | 
+ **group_id** | **String**| String in UUID format | 
 
 ### Return type
 
@@ -230,7 +230,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::GroupsApi.new
-group_id = 'group_id_example' # String | String in UUID format.
+group_id = 'group_id_example' # String | String in UUID format
 group_name = MessenteApi::GroupName.new # GroupName | 
 
 begin
@@ -247,7 +247,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_id** | **String**| String in UUID format. | 
+ **group_id** | **String**| String in UUID format | 
  **group_name** | [**GroupName**](GroupName.md)|  | 
 
 ### Return type

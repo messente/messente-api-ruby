@@ -34,7 +34,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::ContactsApi.new
-group_id = 'group_id_example' # String | String in UUID format.
+group_id = 'group_id_example' # String | String in UUID format
 phone = 'phone_example' # String | A phone number
 
 begin
@@ -51,7 +51,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_id** | **String**| String in UUID format. | 
+ **group_id** | **String**| String in UUID format | 
  **phone** | **String**| A phone number | 
 
 ### Return type
@@ -343,7 +343,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::ContactsApi.new
-group_id = 'group_id_example' # String | String in UUID format.
+group_id = 'group_id_example' # String | String in UUID format
 phone = 'phone_example' # String | A phone number
 
 begin
@@ -359,7 +359,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_id** | **String**| String in UUID format. | 
+ **group_id** | **String**| String in UUID format | 
  **phone** | **String**| A phone number | 
 
 ### Return type
