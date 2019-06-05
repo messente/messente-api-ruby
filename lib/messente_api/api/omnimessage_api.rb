@@ -20,7 +20,7 @@ module MessenteApi
       @api_client = api_client
     end
     # Cancels a scheduled Omnimessage
-    # @param omnimessage_id [String] UUID of the scheduled Omnimessage to be cancelled
+    # @param omnimessage_id [String] UUID of the scheduled omnimessage to be cancelled
     # @param [Hash] opts the optional parameters
     # @return [nil]
     def cancel_scheduled_message(omnimessage_id, opts = {})
@@ -29,7 +29,7 @@ module MessenteApi
     end
 
     # Cancels a scheduled Omnimessage
-    # @param omnimessage_id [String] UUID of the scheduled Omnimessage to be cancelled
+    # @param omnimessage_id [String] UUID of the scheduled omnimessage to be cancelled
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def cancel_scheduled_message_with_http_info(omnimessage_id, opts = {})

@@ -34,7 +34,7 @@ describe 'DeliveryReportApi' do
 
   # unit tests for retrieve_delivery_report
   # Retrieves the delivery report for the Omnimessage
-  # @param omnimessage_id UUID of the Omnimessage to for which the delivery report is to be retrieved
+  # @param omnimessage_id UUID of the omnimessage to for which the delivery report is to be retrieved
   # @param [Hash] opts the optional parameters
   # @return [DeliveryReportResponse]
   describe 'retrieve_delivery_report test' do

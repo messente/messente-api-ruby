@@ -19,7 +19,7 @@ module MessenteApi
 
     attr_accessor :name
 
-    # format %Y-%m-%dT%H:%M:%S.%fZ
+    # Format %Y-%m-%dT%H:%M:%S.%fZ
     attr_accessor :created_on
 
     attr_accessor :contacts_count

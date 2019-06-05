@@ -27,7 +27,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::DeliveryReportApi.new
-omnimessage_id = 'omnimessage_id_example' # String | UUID of the Omnimessage to for which the delivery report is to be retrieved
+omnimessage_id = 'omnimessage_id_example' # String | UUID of the omnimessage to for which the delivery report is to be retrieved
 
 begin
   #Retrieves the delivery report for the Omnimessage
@@ -43,7 +43,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **omnimessage_id** | **String**| UUID of the Omnimessage to for which the delivery report is to be retrieved | 
+ **omnimessage_id** | **String**| UUID of the omnimessage to for which the delivery report is to be retrieved | 
 
 ### Return type
 

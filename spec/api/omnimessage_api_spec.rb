@@ -34,7 +34,7 @@ describe 'OmnimessageApi' do
 
   # unit tests for cancel_scheduled_message
   # Cancels a scheduled Omnimessage
-  # @param omnimessage_id UUID of the scheduled Omnimessage to be cancelled
+  # @param omnimessage_id UUID of the scheduled omnimessage to be cancelled
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'cancel_scheduled_message test' do

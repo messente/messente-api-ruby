@@ -28,7 +28,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::OmnimessageApi.new
-omnimessage_id = 'omnimessage_id_example' # String | UUID of the scheduled Omnimessage to be cancelled
+omnimessage_id = 'omnimessage_id_example' # String | UUID of the scheduled omnimessage to be cancelled
 
 begin
   #Cancels a scheduled Omnimessage
@@ -43,7 +43,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **omnimessage_id** | **String**| UUID of the scheduled Omnimessage to be cancelled | 
+ **omnimessage_id** | **String**| UUID of the scheduled omnimessage to be cancelled | 
 
 ### Return type
 

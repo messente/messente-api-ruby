@@ -21,7 +21,7 @@ module MessenteApi
     # Unique identifier for the message
     attr_accessor :message_id
 
-    # Human-readable description of what went wrong, *null* in case of success or if the messages has not been processed yet
+    # Human-readable description of what went wrong, *null* in case of success or if the message has not been processed yet
     attr_accessor :error
 
     attr_accessor :err

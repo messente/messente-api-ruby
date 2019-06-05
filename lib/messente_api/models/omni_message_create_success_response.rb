@@ -14,13 +14,13 @@ require 'date'
 
 module MessenteApi
   class OmniMessageCreateSuccessResponse
-    # List of messages that compose the Omnimessage
+    # List of messages that compose the omnimessage
     attr_accessor :messages
 
     # Phone number in e.164 format
     attr_accessor :to
 
-    # Unique identifier for the Omnimessage
+    # Unique identifier for the omnimessage
     attr_accessor :omnimessage_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
