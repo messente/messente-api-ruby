@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**groups** | [**Array&lt;GroupResponseFields&gt;**](GroupResponseFields.md) |  | [optional] 
+**groups** | [**Array&lt;GroupResponseFields&gt;**](GroupResponseFields.md) | An array of groups | [optional] 
 
 ## Code Sample
 

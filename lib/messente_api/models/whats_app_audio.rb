@@ -13,6 +13,7 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # A sound
   class WhatsAppAudio
     # Base64-encoded audio
     attr_accessor :content

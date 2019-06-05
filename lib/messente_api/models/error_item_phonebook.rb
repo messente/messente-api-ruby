@@ -13,6 +13,7 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # A container for Phonebook API error
   class ErrorItemPhonebook
     attr_accessor :title
 

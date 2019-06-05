@@ -13,8 +13,9 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # A container for successful delivery report response
   class DeliveryReportResponse
-    # Contains the delivery reports for each channnel, ordered by send order
+    # Contains the delivery reports for each channel, ordered by send order
     attr_accessor :statuses
 
     # Phone number in e.164 format

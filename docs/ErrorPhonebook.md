@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**errors** | [**Array&lt;ErrorItemPhonebook&gt;**](ErrorItemPhonebook.md) |  | 
+**errors** | [**Array&lt;ErrorItemPhonebook&gt;**](ErrorItemPhonebook.md) | An array of errors | 
 
 ## Code Sample
 

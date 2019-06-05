@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Id string in UUID format | 
-**name** | **String** |  | 
-**created_on** | **String** | Format %Y-%m-%dT%H:%M:%S.%fZ | [optional] 
-**contacts_count** | **Integer** |  | 
+**name** | **String** | The name of the group | 
+**created_on** | **String** | When the group was created | [optional] 
+**contacts_count** | **Integer** | The count of contacts in the group | 
 
 ## Code Sample
 

@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **String** |  | [optional] 
-**first_name** | **String** |  | [optional] 
-**last_name** | **String** |  | [optional] 
-**company** | **String** |  | [optional] 
-**title** | **String** |  | [optional] 
-**custom** | **String** |  | [optional] 
-**custom2** | **String** |  | [optional] 
-**custom3** | **String** |  | [optional] 
-**custom4** | **String** |  | [optional] 
+**email** | **String** | The contact&#39;s email | [optional] 
+**first_name** | **String** | The contact&#39;s first name | [optional] 
+**last_name** | **String** | The contact&#39;s last name | [optional] 
+**company** | **String** | The contact&#39;s company | [optional] 
+**title** | **String** | The contact&#39;s title | [optional] 
+**custom** | **String** | The first custom field | [optional] 
+**custom2** | **String** | The second custom field | [optional] 
+**custom3** | **String** | The third custom field | [optional] 
+**custom4** | **String** | The fourth custom field | [optional] 
 
 ## Code Sample
 

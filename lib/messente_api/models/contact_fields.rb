@@ -13,26 +13,36 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # A container for fields of a contact
   class ContactFields
     # Phone number in e.164 format
     attr_accessor :phone_number
 
+    # The contact's email
     attr_accessor :email
 
+    # The contact's first name
     attr_accessor :first_name
 
+    # The contact's last name
     attr_accessor :last_name
 
+    # The contact's company
     attr_accessor :company
 
+    # The contact's title
     attr_accessor :title
 
+    # The first custom field
     attr_accessor :custom
 
+    # The second custom field
     attr_accessor :custom2
 
+    # The third custom field
     attr_accessor :custom3
 
+    # The fourth custom field
     attr_accessor :custom4
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -13,6 +13,7 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # A container for a response received after successfully created omnimessage
   class OmniMessageCreateSuccessResponse
     # List of messages that compose the omnimessage
     attr_accessor :messages

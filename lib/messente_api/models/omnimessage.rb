@@ -13,10 +13,12 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # An omnimessage
   class Omnimessage
     # Phone number in e.164 format
     attr_accessor :to
 
+    # An array of messages
     attr_accessor :messages
 
     # URL where the delivery report will be sent

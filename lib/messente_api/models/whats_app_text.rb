@@ -13,6 +13,7 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # A text
   class WhatsAppText
     # Whether to display link preview if the message contains a hyperlink.
     attr_accessor :preview_url

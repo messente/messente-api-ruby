@@ -13,6 +13,7 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # A message part of an omnimessage
   class MessageResult
     # Unique identifier for the message
     attr_accessor :message_id

@@ -13,6 +13,7 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # A container for blacklisted numbers
   class FetchBlacklistSuccess
     # Array of unique phone numbers
     attr_accessor :phone_numbers

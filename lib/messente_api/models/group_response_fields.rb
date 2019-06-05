@@ -13,15 +13,18 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # A container for fields of a group
   class GroupResponseFields
     # Id string in UUID format
     attr_accessor :id
 
+    # The name of the group
     attr_accessor :name
 
-    # Format %Y-%m-%dT%H:%M:%S.%fZ
+    # When the group was created
     attr_accessor :created_on
 
+    # The count of contacts in the group
     attr_accessor :contacts_count
 
     # Attribute mapping from ruby-style variable name to JSON key.

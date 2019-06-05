@@ -13,6 +13,7 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # A delivery report
   class DeliveryResult
     attr_accessor :status
 

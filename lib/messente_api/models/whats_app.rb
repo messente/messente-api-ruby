@@ -29,6 +29,7 @@ module MessenteApi
 
     attr_accessor :audio
 
+    # The channel used to deliver the message
     attr_accessor :channel
 
     class EnumAttributeValidator

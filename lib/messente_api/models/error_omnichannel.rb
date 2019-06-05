@@ -13,7 +13,9 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # A container for errors
   class ErrorOmnichannel
+    # An array of errors
     attr_accessor :errors
 
     # Attribute mapping from ruby-style variable name to JSON key.

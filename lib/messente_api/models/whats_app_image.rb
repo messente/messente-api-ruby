@@ -13,6 +13,7 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # An image
   class WhatsAppImage
     # Description for the image
     attr_accessor :caption

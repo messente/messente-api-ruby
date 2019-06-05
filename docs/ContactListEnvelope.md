@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**contacts** | [**Array&lt;ContactFields&gt;**](ContactFields.md) |  | [optional] 
+**contacts** | [**Array&lt;ContactFields&gt;**](ContactFields.md) | An array of contacts | [optional] 
 
 ## Code Sample
 

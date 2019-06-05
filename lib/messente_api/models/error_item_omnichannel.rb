@@ -13,6 +13,7 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # A container for Omnichannel API error
   class ErrorItemOmnichannel
     attr_accessor :title
 

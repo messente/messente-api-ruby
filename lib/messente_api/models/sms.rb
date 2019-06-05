@@ -30,6 +30,7 @@ module MessenteApi
     # hex-encoded string containing SMS UDH
     attr_accessor :udh
 
+    # The channel used to deliver the message
     attr_accessor :channel
 
     class EnumAttributeValidator

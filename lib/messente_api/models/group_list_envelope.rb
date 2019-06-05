@@ -13,7 +13,9 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # A container for groups
   class GroupListEnvelope
+    # An array of groups
     attr_accessor :groups
 
     # Attribute mapping from ruby-style variable name to JSON key.

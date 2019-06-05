@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**errors** | [**Array&lt;ErrorItemOmnichannel&gt;**](ErrorItemOmnichannel.md) |  | 
+**errors** | [**Array&lt;ErrorItemOmnichannel&gt;**](ErrorItemOmnichannel.md) | An array of errors | 
 
 ## Code Sample
 

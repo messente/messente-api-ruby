@@ -13,7 +13,9 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # A group name container
   class GroupName
+    # The name of the group
     attr_accessor :name
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -13,7 +13,9 @@ OpenAPI Generator version: 4.0.0
 require 'date'
 
 module MessenteApi
+  # A container for contacts
   class ContactListEnvelope
+    # An array of contacts
     attr_accessor :contacts
 
     # Attribute mapping from ruby-style variable name to JSON key.

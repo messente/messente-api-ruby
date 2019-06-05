@@ -33,6 +33,7 @@ module MessenteApi
     # Must be specified along with ''text'', ''button_url'', ''button_text'', ''image_url'' (optional)
     attr_accessor :button_text
 
+    # The channel used to deliver the message
     attr_accessor :channel
 
     class EnumAttributeValidator
