@@ -4,8 +4,8 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel_scheduled_message**](OmnimessageApi.md#cancel_scheduled_message) | **DELETE** /omnimessage/{omnimessageId} | Cancels a scheduled Omnimessage.
-[**send_omnimessage**](OmnimessageApi.md#send_omnimessage) | **POST** /omnimessage | Sends an Omnimessage.
+[**cancel_scheduled_message**](OmnimessageApi.md#cancel_scheduled_message) | **DELETE** /omnimessage/{omnimessageId} | Cancels a scheduled Omnimessage
+[**send_omnimessage**](OmnimessageApi.md#send_omnimessage) | **POST** /omnimessage | Sends an Omnimessage
 
 
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 > cancel_scheduled_message(omnimessage_id)
 
-Cancels a scheduled Omnimessage.
+Cancels a scheduled Omnimessage
 
 ### Example
 
@@ -28,10 +28,10 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::OmnimessageApi.new
-omnimessage_id = 'omnimessage_id_example' # String | UUID of the scheduled Omnimessage to be cancelled
+omnimessage_id = 'omnimessage_id_example' # String | UUID of the scheduled omnimessage to be cancelled
 
 begin
-  #Cancels a scheduled Omnimessage.
+  #Cancels a scheduled Omnimessage
   api_instance.cancel_scheduled_message(omnimessage_id)
 rescue MessenteApi::ApiError => e
   puts "Exception when calling OmnimessageApi->cancel_scheduled_message: #{e}"
@@ -43,7 +43,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **omnimessage_id** | [**String**](.md)| UUID of the scheduled Omnimessage to be cancelled | 
+ **omnimessage_id** | **String**| UUID of the scheduled omnimessage to be cancelled | 
 
 ### Return type
 
@@ -63,7 +63,7 @@ nil (empty response body)
 
 > OmniMessageCreateSuccessResponse send_omnimessage(omnimessage)
 
-Sends an Omnimessage.
+Sends an Omnimessage
 
 ### Example
 
@@ -81,7 +81,7 @@ api_instance = MessenteApi::OmnimessageApi.new
 omnimessage = MessenteApi::Omnimessage.new # Omnimessage | Omnimessage to be sent
 
 begin
-  #Sends an Omnimessage.
+  #Sends an Omnimessage
   result = api_instance.send_omnimessage(omnimessage)
   p result
 rescue MessenteApi::ApiError => e

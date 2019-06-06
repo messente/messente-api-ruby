@@ -4,14 +4,14 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_contact_to_group**](ContactsApi.md#add_contact_to_group) | **POST** /groups/{groupId}/contacts/{phone} | Adds a contact to a group.
-[**create_contact**](ContactsApi.md#create_contact) | **POST** /contacts | Creates a new contact.
-[**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /contacts/{phone} | Deletes a contact.
-[**fetch_contact**](ContactsApi.md#fetch_contact) | **GET** /contacts/{phone} | Lists a contact.
-[**fetch_contact_groups**](ContactsApi.md#fetch_contact_groups) | **GET** /contacts/{phone}/groups | Lists groups of a contact.
-[**fetch_contacts**](ContactsApi.md#fetch_contacts) | **GET** /contacts | Returns all contacts.
-[**remove_contact_from_group**](ContactsApi.md#remove_contact_from_group) | **DELETE** /groups/{groupId}/contacts/{phone} | Removes a contact from a group.
-[**update_contact**](ContactsApi.md#update_contact) | **PATCH** /contacts/{phone} | Updates a contact.
+[**add_contact_to_group**](ContactsApi.md#add_contact_to_group) | **POST** /phonebook/groups/{groupId}/contacts/{phone} | Adds a contact to a group
+[**create_contact**](ContactsApi.md#create_contact) | **POST** /phonebook/contacts | Creates a new contact
+[**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /phonebook/contacts/{phone} | Deletes a contact
+[**fetch_contact**](ContactsApi.md#fetch_contact) | **GET** /phonebook/contacts/{phone} | Lists a contact
+[**fetch_contact_groups**](ContactsApi.md#fetch_contact_groups) | **GET** /phonebook/contacts/{phone}/groups | Lists groups of a contact
+[**fetch_contacts**](ContactsApi.md#fetch_contacts) | **GET** /phonebook/contacts | Returns all contacts
+[**remove_contact_from_group**](ContactsApi.md#remove_contact_from_group) | **DELETE** /phonebook/groups/{groupId}/contacts/{phone} | Removes a contact from a group
+[**update_contact**](ContactsApi.md#update_contact) | **PATCH** /phonebook/contacts/{phone} | Updates a contact
 
 
 
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 > Object add_contact_to_group(group_id, phone)
 
-Adds a contact to a group.
+Adds a contact to a group
 
 ### Example
 
@@ -34,11 +34,11 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::ContactsApi.new
-group_id = 'group_id_example' # String | String in uuid format.
+group_id = 'group_id_example' # String | String in UUID format
 phone = 'phone_example' # String | A phone number
 
 begin
-  #Adds a contact to a group.
+  #Adds a contact to a group
   result = api_instance.add_contact_to_group(group_id, phone)
   p result
 rescue MessenteApi::ApiError => e
@@ -51,7 +51,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_id** | **String**| String in uuid format. | 
+ **group_id** | **String**| String in UUID format | 
  **phone** | **String**| A phone number | 
 
 ### Return type
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 > ContactEnvelope create_contact(contact_fields)
 
-Creates a new contact.
+Creates a new contact
 
 ### Example
 
@@ -90,7 +90,7 @@ api_instance = MessenteApi::ContactsApi.new
 contact_fields = MessenteApi::ContactFields.new # ContactFields | 
 
 begin
-  #Creates a new contact.
+  #Creates a new contact
   result = api_instance.create_contact(contact_fields)
   p result
 rescue MessenteApi::ApiError => e
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 > delete_contact(phone)
 
-Deletes a contact.
+Deletes a contact
 
 ### Example
 
@@ -141,7 +141,7 @@ api_instance = MessenteApi::ContactsApi.new
 phone = 'phone_example' # String | A phone number
 
 begin
-  #Deletes a contact.
+  #Deletes a contact
   api_instance.delete_contact(phone)
 rescue MessenteApi::ApiError => e
   puts "Exception when calling ContactsApi->delete_contact: #{e}"
@@ -173,7 +173,7 @@ nil (empty response body)
 
 > ContactEnvelope fetch_contact(phone)
 
-Lists a contact.
+Lists a contact
 
 ### Example
 
@@ -191,7 +191,7 @@ api_instance = MessenteApi::ContactsApi.new
 phone = 'phone_example' # String | A phone number
 
 begin
-  #Lists a contact.
+  #Lists a contact
   result = api_instance.fetch_contact(phone)
   p result
 rescue MessenteApi::ApiError => e
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 
 > GroupListEnvelope fetch_contact_groups(phone)
 
-Lists groups of a contact.
+Lists groups of a contact
 
 ### Example
 
@@ -242,7 +242,7 @@ api_instance = MessenteApi::ContactsApi.new
 phone = 'phone_example' # String | A phone number
 
 begin
-  #Lists groups of a contact.
+  #Lists groups of a contact
   result = api_instance.fetch_contact_groups(phone)
   p result
 rescue MessenteApi::ApiError => e
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 
 > ContactListEnvelope fetch_contacts(opts)
 
-Returns all contacts.
+Returns all contacts
 
 ### Example
 
@@ -291,11 +291,11 @@ end
 
 api_instance = MessenteApi::ContactsApi.new
 opts = {
-  group_ids: ['group_ids_example'] # Array<String> | Optional one or many group id strings in uuid format. For example: \"/contacts?groupIds=group_id_one&groupIds=group_id_two\" 
+  group_ids: ['group_ids_example'] # Array<String> | Optional one or many group id strings in UUID format. For example: \"/contacts?groupIds=group_id_one&groupIds=group_id_two\" 
 }
 
 begin
-  #Returns all contacts.
+  #Returns all contacts
   result = api_instance.fetch_contacts(opts)
   p result
 rescue MessenteApi::ApiError => e
@@ -308,7 +308,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_ids** | [**Array&lt;String&gt;**](String.md)| Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot;  | [optional] 
+ **group_ids** | [**Array&lt;String&gt;**](String.md)| Optional one or many group id strings in UUID format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot;  | [optional] 
 
 ### Return type
 
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 > remove_contact_from_group(group_id, phone)
 
-Removes a contact from a group.
+Removes a contact from a group
 
 ### Example
 
@@ -343,11 +343,11 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::ContactsApi.new
-group_id = 'group_id_example' # String | String in uuid format.
+group_id = 'group_id_example' # String | String in UUID format
 phone = 'phone_example' # String | A phone number
 
 begin
-  #Removes a contact from a group.
+  #Removes a contact from a group
   api_instance.remove_contact_from_group(group_id, phone)
 rescue MessenteApi::ApiError => e
   puts "Exception when calling ContactsApi->remove_contact_from_group: #{e}"
@@ -359,7 +359,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_id** | **String**| String in uuid format. | 
+ **group_id** | **String**| String in UUID format | 
  **phone** | **String**| A phone number | 
 
 ### Return type
@@ -380,7 +380,7 @@ nil (empty response body)
 
 > ContactEnvelope update_contact(phone, contact_update_fields)
 
-Updates a contact.
+Updates a contact
 
 ### Example
 
@@ -399,7 +399,7 @@ phone = 'phone_example' # String | A phone number
 contact_update_fields = MessenteApi::ContactUpdateFields.new # ContactUpdateFields | 
 
 begin
-  #Updates a contact.
+  #Updates a contact
   result = api_instance.update_contact(phone, contact_update_fields)
   p result
 rescue MessenteApi::ApiError => e
