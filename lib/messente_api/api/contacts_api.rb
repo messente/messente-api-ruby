@@ -47,7 +47,7 @@ module MessenteApi
         fail ArgumentError, "Missing the required parameter 'phone' when calling ContactsApi.add_contact_to_group"
       end
       # resource path
-      local_var_path = '/groups/{groupId}/contacts/{phone}'.sub('{' + 'groupId' + '}', group_id.to_s).sub('{' + 'phone' + '}', phone.to_s)
+      local_var_path = '/phonebook/groups/{groupId}/contacts/{phone}'.sub('{' + 'groupId' + '}', group_id.to_s).sub('{' + 'phone' + '}', phone.to_s)
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -107,7 +107,7 @@ module MessenteApi
         fail ArgumentError, "Missing the required parameter 'contact_fields' when calling ContactsApi.create_contact"
       end
       # resource path
-      local_var_path = '/contacts'
+      local_var_path = '/phonebook/contacts'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -169,7 +169,7 @@ module MessenteApi
         fail ArgumentError, "Missing the required parameter 'phone' when calling ContactsApi.delete_contact"
       end
       # resource path
-      local_var_path = '/contacts/{phone}'.sub('{' + 'phone' + '}', phone.to_s)
+      local_var_path = '/phonebook/contacts/{phone}'.sub('{' + 'phone' + '}', phone.to_s)
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -229,7 +229,7 @@ module MessenteApi
         fail ArgumentError, "Missing the required parameter 'phone' when calling ContactsApi.fetch_contact"
       end
       # resource path
-      local_var_path = '/contacts/{phone}'.sub('{' + 'phone' + '}', phone.to_s)
+      local_var_path = '/phonebook/contacts/{phone}'.sub('{' + 'phone' + '}', phone.to_s)
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -289,7 +289,7 @@ module MessenteApi
         fail ArgumentError, "Missing the required parameter 'phone' when calling ContactsApi.fetch_contact_groups"
       end
       # resource path
-      local_var_path = '/contacts/{phone}/groups'.sub('{' + 'phone' + '}', phone.to_s)
+      local_var_path = '/phonebook/contacts/{phone}/groups'.sub('{' + 'phone' + '}', phone.to_s)
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -345,7 +345,7 @@ module MessenteApi
         @api_client.config.logger.debug 'Calling API: ContactsApi.fetch_contacts ...'
       end
       # resource path
-      local_var_path = '/contacts'
+      local_var_path = '/phonebook/contacts'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -412,7 +412,7 @@ module MessenteApi
         fail ArgumentError, "Missing the required parameter 'phone' when calling ContactsApi.remove_contact_from_group"
       end
       # resource path
-      local_var_path = '/groups/{groupId}/contacts/{phone}'.sub('{' + 'groupId' + '}', group_id.to_s).sub('{' + 'phone' + '}', phone.to_s)
+      local_var_path = '/phonebook/groups/{groupId}/contacts/{phone}'.sub('{' + 'groupId' + '}', group_id.to_s).sub('{' + 'phone' + '}', phone.to_s)
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -478,7 +478,7 @@ module MessenteApi
         fail ArgumentError, "Missing the required parameter 'contact_update_fields' when calling ContactsApi.update_contact"
       end
       # resource path
-      local_var_path = '/contacts/{phone}'.sub('{' + 'phone' + '}', phone.to_s)
+      local_var_path = '/phonebook/contacts/{phone}'.sub('{' + 'phone' + '}', phone.to_s)
 
       # query parameters
       query_params = opts[:query_params] || {}

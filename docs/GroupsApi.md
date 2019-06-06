@@ -4,11 +4,11 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_group**](GroupsApi.md#create_group) | **POST** /groups | Creates a new group with the provided name
-[**delete_group**](GroupsApi.md#delete_group) | **DELETE** /groups/{groupId} | Deletes a group
-[**fetch_group**](GroupsApi.md#fetch_group) | **GET** /groups/{groupId} | Lists a group
-[**fetch_groups**](GroupsApi.md#fetch_groups) | **GET** /groups | Returns all groups
-[**update_group**](GroupsApi.md#update_group) | **PUT** /groups/{groupId} | Updates a group with the provided name
+[**create_group**](GroupsApi.md#create_group) | **POST** /phonebook/groups | Creates a new group with the provided name
+[**delete_group**](GroupsApi.md#delete_group) | **DELETE** /phonebook/groups/{groupId} | Deletes a group
+[**fetch_group**](GroupsApi.md#fetch_group) | **GET** /phonebook/groups/{groupId} | Lists a group
+[**fetch_groups**](GroupsApi.md#fetch_groups) | **GET** /phonebook/groups | Returns all groups
+[**update_group**](GroupsApi.md#update_group) | **PUT** /phonebook/groups/{groupId} | Updates a group with the provided name
 
 
 

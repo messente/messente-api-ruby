@@ -4,14 +4,14 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_contact_to_group**](ContactsApi.md#add_contact_to_group) | **POST** /groups/{groupId}/contacts/{phone} | Adds a contact to a group
-[**create_contact**](ContactsApi.md#create_contact) | **POST** /contacts | Creates a new contact
-[**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /contacts/{phone} | Deletes a contact
-[**fetch_contact**](ContactsApi.md#fetch_contact) | **GET** /contacts/{phone} | Lists a contact
-[**fetch_contact_groups**](ContactsApi.md#fetch_contact_groups) | **GET** /contacts/{phone}/groups | Lists groups of a contact
-[**fetch_contacts**](ContactsApi.md#fetch_contacts) | **GET** /contacts | Returns all contacts
-[**remove_contact_from_group**](ContactsApi.md#remove_contact_from_group) | **DELETE** /groups/{groupId}/contacts/{phone} | Removes a contact from a group
-[**update_contact**](ContactsApi.md#update_contact) | **PATCH** /contacts/{phone} | Updates a contact
+[**add_contact_to_group**](ContactsApi.md#add_contact_to_group) | **POST** /phonebook/groups/{groupId}/contacts/{phone} | Adds a contact to a group
+[**create_contact**](ContactsApi.md#create_contact) | **POST** /phonebook/contacts | Creates a new contact
+[**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /phonebook/contacts/{phone} | Deletes a contact
+[**fetch_contact**](ContactsApi.md#fetch_contact) | **GET** /phonebook/contacts/{phone} | Lists a contact
+[**fetch_contact_groups**](ContactsApi.md#fetch_contact_groups) | **GET** /phonebook/contacts/{phone}/groups | Lists groups of a contact
+[**fetch_contacts**](ContactsApi.md#fetch_contacts) | **GET** /phonebook/contacts | Returns all contacts
+[**remove_contact_from_group**](ContactsApi.md#remove_contact_from_group) | **DELETE** /phonebook/groups/{groupId}/contacts/{phone} | Removes a contact from a group
+[**update_contact**](ContactsApi.md#update_contact) | **PATCH** /phonebook/contacts/{phone} | Updates a contact
 
 
 

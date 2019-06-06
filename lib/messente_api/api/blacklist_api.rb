@@ -103,7 +103,7 @@ module MessenteApi
         fail ArgumentError, "Missing the required parameter 'phone' when calling BlacklistApi.delete_from_blacklist"
       end
       # resource path
-      local_var_path = '/blacklist/{phone}'.sub('{' + 'phone' + '}', phone.to_s)
+      local_var_path = '/phonebook/blacklist/{phone}'.sub('{' + 'phone' + '}', phone.to_s)
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -217,7 +217,7 @@ module MessenteApi
         fail ArgumentError, "Missing the required parameter 'phone' when calling BlacklistApi.is_blacklisted"
       end
       # resource path
-      local_var_path = '/blacklist/{phone}'.sub('{' + 'phone' + '}', phone.to_s)
+      local_var_path = '/phonebook/blacklist/{phone}'.sub('{' + 'phone' + '}', phone.to_s)
 
       # query parameters
       query_params = opts[:query_params] || {}

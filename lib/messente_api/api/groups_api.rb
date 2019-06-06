@@ -41,7 +41,7 @@ module MessenteApi
         fail ArgumentError, "Missing the required parameter 'group_name' when calling GroupsApi.create_group"
       end
       # resource path
-      local_var_path = '/groups'
+      local_var_path = '/phonebook/groups'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -103,7 +103,7 @@ module MessenteApi
         fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupsApi.delete_group"
       end
       # resource path
-      local_var_path = '/groups/{groupId}'.sub('{' + 'groupId' + '}', group_id.to_s)
+      local_var_path = '/phonebook/groups/{groupId}'.sub('{' + 'groupId' + '}', group_id.to_s)
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -163,7 +163,7 @@ module MessenteApi
         fail ArgumentError, "Missing the required parameter 'group_id' when calling GroupsApi.fetch_group"
       end
       # resource path
-      local_var_path = '/groups/{groupId}'.sub('{' + 'groupId' + '}', group_id.to_s)
+      local_var_path = '/phonebook/groups/{groupId}'.sub('{' + 'groupId' + '}', group_id.to_s)
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -217,7 +217,7 @@ module MessenteApi
         @api_client.config.logger.debug 'Calling API: GroupsApi.fetch_groups ...'
       end
       # resource path
-      local_var_path = '/groups'
+      local_var_path = '/phonebook/groups'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -283,7 +283,7 @@ module MessenteApi
         fail ArgumentError, "Missing the required parameter 'group_name' when calling GroupsApi.update_group"
       end
       # resource path
-      local_var_path = '/groups/{groupId}'.sub('{' + 'groupId' + '}', group_id.to_s)
+      local_var_path = '/phonebook/groups/{groupId}'.sub('{' + 'groupId' + '}', group_id.to_s)
 
       # query parameters
       query_params = opts[:query_params] || {}
