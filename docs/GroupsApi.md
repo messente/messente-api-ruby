@@ -31,7 +31,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::GroupsApi.new
-group_name = MessenteApi::GroupName.new # GroupName | 
+group_name = {"name":"Any name"} # GroupName | 
 
 begin
   #Creates a new group with the provided name
@@ -231,7 +231,7 @@ end
 
 api_instance = MessenteApi::GroupsApi.new
 group_id = 'group_id_example' # String | String in UUID format
-group_name = MessenteApi::GroupName.new # GroupName | 
+group_name = {"name":"Any name"} # GroupName | 
 
 begin
   #Updates a group with the provided name
