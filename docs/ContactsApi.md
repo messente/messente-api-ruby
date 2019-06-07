@@ -396,7 +396,7 @@ end
 
 api_instance = MessenteApi::ContactsApi.new
 phone = 'phone_example' # String | A phone number
-contact_update_fields = MessenteApi::ContactUpdateFields.new # ContactUpdateFields | 
+contact_update_fields = {"email":"anyone@messente.com","firstName":"Any","lastName":"One","company":"Messente","title":"Sir","custom":"Any custom","custom2":"Any custom two","custom3":"Any custom three","custom4":"Any custom four"} # ContactUpdateFields | 
 
 begin
   #Updates a contact
