@@ -30,7 +30,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::BlacklistApi.new
-number_to_blacklist = MessenteApi::NumberToBlacklist.new # NumberToBlacklist | Phone number to be blacklisted
+number_to_blacklist = {"phoneNumber":"+37251000000"} # NumberToBlacklist | Phone number to be blacklisted
 
 begin
   #Adds a phone number to the blacklist
@@ -80,7 +80,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::BlacklistApi.new
-phone = 'phone_example' # String | A phone number
+phone = '+37251000000' # String | A phone number
 
 begin
   #Deletes a phone number from the blacklist
@@ -177,7 +177,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::BlacklistApi.new
-phone = 'phone_example' # String | A phone number
+phone = '+37251000000' # String | A phone number
 
 begin
   #Checks if a phone number is blacklisted
