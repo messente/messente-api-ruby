@@ -34,8 +34,8 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::ContactsApi.new
-group_id = 'group_id_example' # String | String in UUID format
-phone = 'phone_example' # String | A phone number
+group_id = '5792a02a-e5c2-422b-a0a0-0ae65d814663' # String | String in UUID format
+phone = '+37251000000' # String | A phone number
 
 begin
   #Adds a contact to a group
@@ -138,7 +138,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::ContactsApi.new
-phone = 'phone_example' # String | A phone number
+phone = '+37251000000' # String | A phone number
 
 begin
   #Deletes a contact
@@ -188,7 +188,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::ContactsApi.new
-phone = 'phone_example' # String | A phone number
+phone = '+37251000000' # String | A phone number
 
 begin
   #Lists a contact
@@ -239,7 +239,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::ContactsApi.new
-phone = 'phone_example' # String | A phone number
+phone = '+37251000000' # String | A phone number
 
 begin
   #Lists groups of a contact
@@ -291,7 +291,7 @@ end
 
 api_instance = MessenteApi::ContactsApi.new
 opts = {
-  group_ids: ['group_ids_example'] # Array<String> | Optional one or many group id strings in UUID format. For example: \"/contacts?groupIds=group_id_one&groupIds=group_id_two\" 
+  group_ids: ['[\"5792a02a-e5c2-422b-a0a0-0ae65d814663\",\"4792a02a-e5c2-422b-a0a0-0ae65d814662\"]'] # Array<String> | Optional one or many group id strings in UUID format. For example: \"/contacts?groupIds=group_id_one&groupIds=group_id_two\" 
 }
 
 begin
@@ -343,8 +343,8 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::ContactsApi.new
-group_id = 'group_id_example' # String | String in UUID format
-phone = 'phone_example' # String | A phone number
+group_id = '5792a02a-e5c2-422b-a0a0-0ae65d814663' # String | String in UUID format
+phone = '+37251000000' # String | A phone number
 
 begin
   #Removes a contact from a group
@@ -395,7 +395,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::ContactsApi.new
-phone = 'phone_example' # String | A phone number
+phone = '+37251000000' # String | A phone number
 contact_update_fields = {"email":"anyone@messente.com","firstName":"Any","lastName":"One","company":"Messente","title":"Sir","custom":"Any custom","custom2":"Any custom two","custom3":"Any custom three","custom4":"Any custom four"} # ContactUpdateFields | 
 
 begin
