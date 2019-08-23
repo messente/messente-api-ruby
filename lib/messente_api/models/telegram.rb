@@ -13,22 +13,74 @@ OpenAPI Generator version: 4.0.3
 require 'date'
 
 module MessenteApi
-  # A container for groups
-  class GroupListEnvelope
-    # An array of groups
-    attr_accessor :groups
+  # Telegram message content
+  class Telegram
+    # Phone number or alphanumeric sender name
+    attr_accessor :sender
+
+    # After how many minutes this channel is considered as failed and the next channel is attempted
+    attr_accessor :validity
+
+    # Plaintext content for Telegram
+    attr_accessor :text
+
+    # URL for the embedded image. Mutually exclusive with \"document_url\" and \"audio_url\"
+    attr_accessor :image_url
+
+    # URL for the embedded image. Mutually exclusive with \"audio_url\" and \"image_url\"
+    attr_accessor :document_url
+
+    # URL for the embedded image. Mutually exclusive with \"document_url\" and \"image_url\"
+    attr_accessor :audio_url
+
+    # The channel used to deliver the message
+    attr_accessor :channel
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'groups' => :'groups'
+        :'sender' => :'sender',
+        :'validity' => :'validity',
+        :'text' => :'text',
+        :'image_url' => :'image_url',
+        :'document_url' => :'document_url',
+        :'audio_url' => :'audio_url',
+        :'channel' => :'channel'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'groups' => :'Array<GroupResponseFields>'
+        :'sender' => :'String',
+        :'validity' => :'Integer',
+        :'text' => :'String',
+        :'image_url' => :'String',
+        :'document_url' => :'String',
+        :'audio_url' => :'String',
+        :'channel' => :'String'
       }
     end
 
@@ -36,21 +88,45 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::GroupListEnvelope` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::Telegram` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::GroupListEnvelope`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::Telegram`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'groups')
-        if (value = attributes[:'groups']).is_a?(Array)
-          self.groups = value
-        end
+      if attributes.key?(:'sender')
+        self.sender = attributes[:'sender']
+      end
+
+      if attributes.key?(:'validity')
+        self.validity = attributes[:'validity']
+      end
+
+      if attributes.key?(:'text')
+        self.text = attributes[:'text']
+      end
+
+      if attributes.key?(:'image_url')
+        self.image_url = attributes[:'image_url']
+      end
+
+      if attributes.key?(:'document_url')
+        self.document_url = attributes[:'document_url']
+      end
+
+      if attributes.key?(:'audio_url')
+        self.audio_url = attributes[:'audio_url']
+      end
+
+      if attributes.key?(:'channel')
+        self.channel = attributes[:'channel']
+      else
+        self.channel = 'telegram'
       end
     end
 
@@ -64,7 +140,19 @@ module MessenteApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      channel_validator = EnumAttributeValidator.new('String', ["telegram"])
+      return false unless channel_validator.valid?(@channel)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] channel Object to be assigned
+    def channel=(channel)
+      validator = EnumAttributeValidator.new('String', ["telegram"])
+      unless validator.valid?(channel)
+        fail ArgumentError, "invalid value for \"channel\", must be one of #{validator.allowable_values}."
+      end
+      @channel = channel
     end
 
     # Checks equality by comparing each attribute.
@@ -72,7 +160,13 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          groups == o.groups
+          sender == o.sender &&
+          validity == o.validity &&
+          text == o.text &&
+          image_url == o.image_url &&
+          document_url == o.document_url &&
+          audio_url == o.audio_url &&
+          channel == o.channel
     end
 
     # @see the `==` method
@@ -84,7 +178,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [groups].hash
+      [sender, validity, text, image_url, document_url, audio_url, channel].hash
     end
 
     # Builds the object from hash
