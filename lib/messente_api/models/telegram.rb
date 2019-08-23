@@ -13,67 +13,74 @@ OpenAPI Generator version: 4.0.3
 require 'date'
 
 module MessenteApi
-  # A container for fields of a contact
-  class ContactFields
-    # Phone number in e.164 format
-    attr_accessor :phone_number
+  # Telegram message content
+  class Telegram
+    # Phone number or alphanumeric sender name
+    attr_accessor :sender
 
-    # The email of the contact
-    attr_accessor :email
+    # After how many minutes this channel is considered as failed and the next channel is attempted
+    attr_accessor :validity
 
-    # The first name of the contact
-    attr_accessor :first_name
+    # Plaintext content for Telegram
+    attr_accessor :text
 
-    # The last name of the contact
-    attr_accessor :last_name
+    # URL for the embedded image. Mutually exclusive with \"document_url\" and \"audio_url\"
+    attr_accessor :image_url
 
-    # The company of the contact
-    attr_accessor :company
+    # URL for the embedded image. Mutually exclusive with \"audio_url\" and \"image_url\"
+    attr_accessor :document_url
 
-    # The title of the contact
-    attr_accessor :title
+    # URL for the embedded image. Mutually exclusive with \"document_url\" and \"image_url\"
+    attr_accessor :audio_url
 
-    # The first custom field
-    attr_accessor :custom
+    # The channel used to deliver the message
+    attr_accessor :channel
 
-    # The second custom field
-    attr_accessor :custom2
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
 
-    # The third custom field
-    attr_accessor :custom3
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
 
-    # The fourth custom field
-    attr_accessor :custom4
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'phone_number' => :'phoneNumber',
-        :'email' => :'email',
-        :'first_name' => :'firstName',
-        :'last_name' => :'lastName',
-        :'company' => :'company',
-        :'title' => :'title',
-        :'custom' => :'custom',
-        :'custom2' => :'custom2',
-        :'custom3' => :'custom3',
-        :'custom4' => :'custom4'
+        :'sender' => :'sender',
+        :'validity' => :'validity',
+        :'text' => :'text',
+        :'image_url' => :'image_url',
+        :'document_url' => :'document_url',
+        :'audio_url' => :'audio_url',
+        :'channel' => :'channel'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'phone_number' => :'String',
-        :'email' => :'String',
-        :'first_name' => :'String',
-        :'last_name' => :'String',
-        :'company' => :'String',
-        :'title' => :'String',
-        :'custom' => :'String',
-        :'custom2' => :'String',
-        :'custom3' => :'String',
-        :'custom4' => :'String'
+        :'sender' => :'String',
+        :'validity' => :'Integer',
+        :'text' => :'String',
+        :'image_url' => :'String',
+        :'document_url' => :'String',
+        :'audio_url' => :'String',
+        :'channel' => :'String'
       }
     end
 
@@ -81,55 +88,45 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::ContactFields` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::Telegram` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::ContactFields`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::Telegram`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'phone_number')
-        self.phone_number = attributes[:'phone_number']
+      if attributes.key?(:'sender')
+        self.sender = attributes[:'sender']
       end
 
-      if attributes.key?(:'email')
-        self.email = attributes[:'email']
+      if attributes.key?(:'validity')
+        self.validity = attributes[:'validity']
       end
 
-      if attributes.key?(:'first_name')
-        self.first_name = attributes[:'first_name']
+      if attributes.key?(:'text')
+        self.text = attributes[:'text']
       end
 
-      if attributes.key?(:'last_name')
-        self.last_name = attributes[:'last_name']
+      if attributes.key?(:'image_url')
+        self.image_url = attributes[:'image_url']
       end
 
-      if attributes.key?(:'company')
-        self.company = attributes[:'company']
+      if attributes.key?(:'document_url')
+        self.document_url = attributes[:'document_url']
       end
 
-      if attributes.key?(:'title')
-        self.title = attributes[:'title']
+      if attributes.key?(:'audio_url')
+        self.audio_url = attributes[:'audio_url']
       end
 
-      if attributes.key?(:'custom')
-        self.custom = attributes[:'custom']
-      end
-
-      if attributes.key?(:'custom2')
-        self.custom2 = attributes[:'custom2']
-      end
-
-      if attributes.key?(:'custom3')
-        self.custom3 = attributes[:'custom3']
-      end
-
-      if attributes.key?(:'custom4')
-        self.custom4 = attributes[:'custom4']
+      if attributes.key?(:'channel')
+        self.channel = attributes[:'channel']
+      else
+        self.channel = 'telegram'
       end
     end
 
@@ -137,18 +134,25 @@ module MessenteApi
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @phone_number.nil?
-        invalid_properties.push('invalid value for "phone_number", phone_number cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @phone_number.nil?
+      channel_validator = EnumAttributeValidator.new('String', ["telegram"])
+      return false unless channel_validator.valid?(@channel)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] channel Object to be assigned
+    def channel=(channel)
+      validator = EnumAttributeValidator.new('String', ["telegram"])
+      unless validator.valid?(channel)
+        fail ArgumentError, "invalid value for \"channel\", must be one of #{validator.allowable_values}."
+      end
+      @channel = channel
     end
 
     # Checks equality by comparing each attribute.
@@ -156,16 +160,13 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          phone_number == o.phone_number &&
-          email == o.email &&
-          first_name == o.first_name &&
-          last_name == o.last_name &&
-          company == o.company &&
-          title == o.title &&
-          custom == o.custom &&
-          custom2 == o.custom2 &&
-          custom3 == o.custom3 &&
-          custom4 == o.custom4
+          sender == o.sender &&
+          validity == o.validity &&
+          text == o.text &&
+          image_url == o.image_url &&
+          document_url == o.document_url &&
+          audio_url == o.audio_url &&
+          channel == o.channel
     end
 
     # @see the `==` method
@@ -177,7 +178,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [phone_number, email, first_name, last_name, company, title, custom, custom2, custom3, custom4].hash
+      [sender, validity, text, image_url, document_url, audio_url, channel].hash
     end
 
     # Builds the object from hash
