@@ -19,8 +19,8 @@ module MessenteApi
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Requests info about a phone number
-    # @param sync_number_lookup [SyncNumberLookup] Numbers to lookup
+    # Requests info about phone numbers
+    # @param sync_number_lookup [SyncNumberLookup] Numbers for lookup
     # @param [Hash] opts the optional parameters
     # @return [SyncNumberLookupSuccess]
     def sync_number_lookup(sync_number_lookup, opts = {})
@@ -28,8 +28,8 @@ module MessenteApi
       data
     end
 
-    # Requests info about a phone number
-    # @param sync_number_lookup [SyncNumberLookup] Numbers to lookup
+    # Requests info about phone numbers
+    # @param sync_number_lookup [SyncNumberLookup] Numbers for lookup
     # @param [Hash] opts the optional parameters
     # @return [Array<(SyncNumberLookupSuccess, Integer, Hash)>] SyncNumberLookupSuccess data, response status code and response headers
     def sync_number_lookup_with_http_info(sync_number_lookup, opts = {})
