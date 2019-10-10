@@ -13,22 +13,42 @@ OpenAPI Generator version: 4.0.3
 require 'date'
 
 module MessenteApi
-  # A container for contacts
-  class ContactListEnvelope
-    # An array of contacts
-    attr_accessor :contacts
+  # Info about the network related to the phone number
+  class MobileNetwork
+    # Mobile country and mobile network code
+    attr_accessor :mccmnc
+
+    # Mobile network name
+    attr_accessor :network_name
+
+    # Country name
+    attr_accessor :country_name
+
+    # Country prefix
+    attr_accessor :country_prefix
+
+    # Country code
+    attr_accessor :country_code
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'contacts' => :'contacts'
+        :'mccmnc' => :'mccmnc',
+        :'network_name' => :'networkName',
+        :'country_name' => :'countryName',
+        :'country_prefix' => :'countryPrefix',
+        :'country_code' => :'countryCode'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'contacts' => :'Array<ContactFields>'
+        :'mccmnc' => :'String',
+        :'network_name' => :'String',
+        :'country_name' => :'String',
+        :'country_prefix' => :'String',
+        :'country_code' => :'String'
       }
     end
 
@@ -36,21 +56,35 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::ContactListEnvelope` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::MobileNetwork` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::ContactListEnvelope`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::MobileNetwork`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'contacts')
-        if (value = attributes[:'contacts']).is_a?(Array)
-          self.contacts = value
-        end
+      if attributes.key?(:'mccmnc')
+        self.mccmnc = attributes[:'mccmnc']
+      end
+
+      if attributes.key?(:'network_name')
+        self.network_name = attributes[:'network_name']
+      end
+
+      if attributes.key?(:'country_name')
+        self.country_name = attributes[:'country_name']
+      end
+
+      if attributes.key?(:'country_prefix')
+        self.country_prefix = attributes[:'country_prefix']
+      end
+
+      if attributes.key?(:'country_code')
+        self.country_code = attributes[:'country_code']
       end
     end
 
@@ -72,7 +106,11 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          contacts == o.contacts
+          mccmnc == o.mccmnc &&
+          network_name == o.network_name &&
+          country_name == o.country_name &&
+          country_prefix == o.country_prefix &&
+          country_code == o.country_code
     end
 
     # @see the `==` method
@@ -84,7 +122,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [contacts].hash
+      [mccmnc, network_name, country_name, country_prefix, country_code].hash
     end
 
     # Builds the object from hash

@@ -13,22 +13,80 @@ OpenAPI Generator version: 4.0.3
 require 'date'
 
 module MessenteApi
-  # A container for contacts
-  class ContactListEnvelope
-    # An array of contacts
-    attr_accessor :contacts
+  # Info about a phone number
+  class SyncNumberLookupResult
+    # Phone number in e.164 format
+    attr_accessor :number
+
+    # Indicates if a number is roaming
+    attr_accessor :roaming
+
+    # Indicates if a number is ported
+    attr_accessor :ported
+
+    attr_accessor :roaming_network
+
+    attr_accessor :current_network
+
+    attr_accessor :original_network
+
+    attr_accessor :ported_network
+
+    # Status of the phone number
+    attr_accessor :status
+
+    # Indicates if any error occurred while handling the request
+    attr_accessor :error
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'contacts' => :'contacts'
+        :'number' => :'number',
+        :'roaming' => :'roaming',
+        :'ported' => :'ported',
+        :'roaming_network' => :'roamingNetwork',
+        :'current_network' => :'currentNetwork',
+        :'original_network' => :'originalNetwork',
+        :'ported_network' => :'portedNetwork',
+        :'status' => :'status',
+        :'error' => :'error'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'contacts' => :'Array<ContactFields>'
+        :'number' => :'String',
+        :'roaming' => :'Boolean',
+        :'ported' => :'Boolean',
+        :'roaming_network' => :'MobileNetwork',
+        :'current_network' => :'MobileNetwork',
+        :'original_network' => :'MobileNetwork',
+        :'ported_network' => :'MobileNetwork',
+        :'status' => :'String',
+        :'error' => :'Object'
       }
     end
 
@@ -36,21 +94,51 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::ContactListEnvelope` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::SyncNumberLookupResult` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::ContactListEnvelope`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::SyncNumberLookupResult`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'contacts')
-        if (value = attributes[:'contacts']).is_a?(Array)
-          self.contacts = value
-        end
+      if attributes.key?(:'number')
+        self.number = attributes[:'number']
+      end
+
+      if attributes.key?(:'roaming')
+        self.roaming = attributes[:'roaming']
+      end
+
+      if attributes.key?(:'ported')
+        self.ported = attributes[:'ported']
+      end
+
+      if attributes.key?(:'roaming_network')
+        self.roaming_network = attributes[:'roaming_network']
+      end
+
+      if attributes.key?(:'current_network')
+        self.current_network = attributes[:'current_network']
+      end
+
+      if attributes.key?(:'original_network')
+        self.original_network = attributes[:'original_network']
+      end
+
+      if attributes.key?(:'ported_network')
+        self.ported_network = attributes[:'ported_network']
+      end
+
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      end
+
+      if attributes.key?(:'error')
+        self.error = attributes[:'error']
       end
     end
 
@@ -58,13 +146,30 @@ module MessenteApi
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @number.nil?
+        invalid_properties.push('invalid value for "number", number cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @number.nil?
+      status_validator = EnumAttributeValidator.new('String', ["ON", "OFF", "INVALID", "UNKNOWN"])
+      return false unless status_validator.valid?(@status)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] status Object to be assigned
+    def status=(status)
+      validator = EnumAttributeValidator.new('String', ["ON", "OFF", "INVALID", "UNKNOWN"])
+      unless validator.valid?(status)
+        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
+      end
+      @status = status
     end
 
     # Checks equality by comparing each attribute.
@@ -72,7 +177,15 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          contacts == o.contacts
+          number == o.number &&
+          roaming == o.roaming &&
+          ported == o.ported &&
+          roaming_network == o.roaming_network &&
+          current_network == o.current_network &&
+          original_network == o.original_network &&
+          ported_network == o.ported_network &&
+          status == o.status &&
+          error == o.error
     end
 
     # @see the `==` method
@@ -84,7 +197,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [contacts].hash
+      [number, roaming, ported, roaming_network, current_network, original_network, ported_network, status, error].hash
     end
 
     # Builds the object from hash

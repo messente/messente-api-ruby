@@ -13,22 +13,21 @@ OpenAPI Generator version: 4.0.3
 require 'date'
 
 module MessenteApi
-  # A container for contacts
-  class ContactListEnvelope
-    # An array of contacts
-    attr_accessor :contacts
+  # A container for Number Lookup API error
+  class ErrorItemNumberLookup
+    attr_accessor :error
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'contacts' => :'contacts'
+        :'error' => :'error'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'contacts' => :'Array<ContactFields>'
+        :'error' => :'ErrorItemNumberLookupError'
       }
     end
 
@@ -36,21 +35,19 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::ContactListEnvelope` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::ErrorItemNumberLookup` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::ContactListEnvelope`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::ErrorItemNumberLookup`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'contacts')
-        if (value = attributes[:'contacts']).is_a?(Array)
-          self.contacts = value
-        end
+      if attributes.key?(:'error')
+        self.error = attributes[:'error']
       end
     end
 
@@ -58,12 +55,17 @@ module MessenteApi
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @error.nil?
+        invalid_properties.push('invalid value for "error", error cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @error.nil?
       true
     end
 
@@ -72,7 +74,7 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          contacts == o.contacts
+          error == o.error
     end
 
     # @see the `==` method
@@ -84,7 +86,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [contacts].hash
+      [error].hash
     end
 
     # Builds the object from hash

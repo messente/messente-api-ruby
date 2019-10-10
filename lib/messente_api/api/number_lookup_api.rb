@@ -13,35 +13,35 @@ OpenAPI Generator version: 4.0.3
 require 'cgi'
 
 module MessenteApi
-  class DeliveryReportApi
+  class NumberLookupApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Retrieves the delivery report for the Omnimessage
-    # @param omnimessage_id [String] UUID of the omnimessage to for which the delivery report is to be retrieved
+    # Requests info about a phone number
+    # @param sync_number_lookup [SyncNumberLookup] Numbers to lookup
     # @param [Hash] opts the optional parameters
-    # @return [DeliveryReportResponse]
-    def retrieve_delivery_report(omnimessage_id, opts = {})
-      data, _status_code, _headers = retrieve_delivery_report_with_http_info(omnimessage_id, opts)
+    # @return [SyncNumberLookupSuccess]
+    def sync_number_lookup(sync_number_lookup, opts = {})
+      data, _status_code, _headers = sync_number_lookup_with_http_info(sync_number_lookup, opts)
       data
     end
 
-    # Retrieves the delivery report for the Omnimessage
-    # @param omnimessage_id [String] UUID of the omnimessage to for which the delivery report is to be retrieved
+    # Requests info about a phone number
+    # @param sync_number_lookup [SyncNumberLookup] Numbers to lookup
     # @param [Hash] opts the optional parameters
-    # @return [Array<(DeliveryReportResponse, Integer, Hash)>] DeliveryReportResponse data, response status code and response headers
-    def retrieve_delivery_report_with_http_info(omnimessage_id, opts = {})
+    # @return [Array<(SyncNumberLookupSuccess, Integer, Hash)>] SyncNumberLookupSuccess data, response status code and response headers
+    def sync_number_lookup_with_http_info(sync_number_lookup, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeliveryReportApi.retrieve_delivery_report ...'
+        @api_client.config.logger.debug 'Calling API: NumberLookupApi.sync_number_lookup ...'
       end
-      # verify the required parameter 'omnimessage_id' is set
-      if @api_client.config.client_side_validation && omnimessage_id.nil?
-        fail ArgumentError, "Missing the required parameter 'omnimessage_id' when calling DeliveryReportApi.retrieve_delivery_report"
+      # verify the required parameter 'sync_number_lookup' is set
+      if @api_client.config.client_side_validation && sync_number_lookup.nil?
+        fail ArgumentError, "Missing the required parameter 'sync_number_lookup' when calling NumberLookupApi.sync_number_lookup"
       end
       # resource path
-      local_var_path = '/omnimessage/{omnimessageId}/status'.sub('{' + 'omnimessageId' + '}', CGI.escape(omnimessage_id.to_s))
+      local_var_path = '/hlr/sync'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -50,15 +50,17 @@ module MessenteApi
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] 
+      post_body = opts[:body] || @api_client.object_to_http_body(sync_number_lookup) 
 
       # return_type
-      return_type = opts[:return_type] || 'DeliveryReportResponse' 
+      return_type = opts[:return_type] || 'SyncNumberLookupSuccess' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['basicAuth']
@@ -72,9 +74,9 @@ module MessenteApi
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeliveryReportApi#retrieve_delivery_report\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: NumberLookupApi#sync_number_lookup\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -13,22 +13,27 @@ OpenAPI Generator version: 4.0.3
 require 'date'
 
 module MessenteApi
-  # A container for contacts
-  class ContactListEnvelope
-    # An array of contacts
-    attr_accessor :contacts
+  # Error fields container
+  class ErrorItemNumberLookupError
+    # Error description
+    attr_accessor :description
+
+    # Matches the following error title.   This field is a constant  * 101 - Unauthorized * 102 - Invalid arguments or parameters * 103 - Server error * 104 - Crediting error #1 * 105 - Crediting error #2 * 106 - Client error
+    attr_accessor :code
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'contacts' => :'contacts'
+        :'description' => :'description',
+        :'code' => :'code'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'contacts' => :'Array<ContactFields>'
+        :'description' => :'String',
+        :'code' => :'Integer'
       }
     end
 
@@ -36,21 +41,23 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::ContactListEnvelope` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::ErrorItemNumberLookupError` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::ContactListEnvelope`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::ErrorItemNumberLookupError`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'contacts')
-        if (value = attributes[:'contacts']).is_a?(Array)
-          self.contacts = value
-        end
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'code')
+        self.code = attributes[:'code']
       end
     end
 
@@ -58,13 +65,51 @@ module MessenteApi
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @description.nil?
+        invalid_properties.push('invalid value for "description", description cannot be nil.')
+      end
+
+      if @code.nil?
+        invalid_properties.push('invalid value for "code", code cannot be nil.')
+      end
+
+      if @code > 106
+        invalid_properties.push('invalid value for "code", must be smaller than or equal to 106.')
+      end
+
+      if @code < 101
+        invalid_properties.push('invalid value for "code", must be greater than or equal to 101.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @description.nil?
+      return false if @code.nil?
+      return false if @code > 106
+      return false if @code < 101
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] code Value to be assigned
+    def code=(code)
+      if code.nil?
+        fail ArgumentError, 'code cannot be nil'
+      end
+
+      if code > 106
+        fail ArgumentError, 'invalid value for "code", must be smaller than or equal to 106.'
+      end
+
+      if code < 101
+        fail ArgumentError, 'invalid value for "code", must be greater than or equal to 101.'
+      end
+
+      @code = code
     end
 
     # Checks equality by comparing each attribute.
@@ -72,7 +117,8 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          contacts == o.contacts
+          description == o.description &&
+          code == o.code
     end
 
     # @see the `==` method
@@ -84,7 +130,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [contacts].hash
+      [description, code].hash
     end
 
     # Builds the object from hash
