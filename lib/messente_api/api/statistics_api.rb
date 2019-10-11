@@ -19,7 +19,7 @@ module MessenteApi
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Requests statistcs reports for each country
+    # Requests statistics reports for each country
     # @param statistics_report_settings [StatisticsReportSettings] Settings for statistics report
     # @param [Hash] opts the optional parameters
     # @return [StatisticsReportSuccess]
@@ -28,7 +28,7 @@ module MessenteApi
       data
     end
 
-    # Requests statistcs reports for each country
+    # Requests statistics reports for each country
     # @param statistics_report_settings [StatisticsReportSettings] Settings for statistics report
     # @param [Hash] opts the optional parameters
     # @return [Array<(StatisticsReportSuccess, Integer, Hash)>] StatisticsReportSuccess data, response status code and response headers
