@@ -4,13 +4,13 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**sync_number_lookup**](NumberLookupApi.md#sync_number_lookup) | **POST** /hlr/sync | Requests info about phone numbers
+[**fetch_info**](NumberLookupApi.md#fetch_info) | **POST** /hlr/sync | Requests info about phone numbers
 
 
 
-## sync_number_lookup
+## fetch_info
 
-> SyncNumberLookupSuccess sync_number_lookup(sync_number_lookup)
+> SyncNumberLookupSuccess fetch_info(numbers_to_investigate)
 
 Requests info about phone numbers
 
@@ -27,14 +27,14 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::NumberLookupApi.new
-sync_number_lookup = {"numbers":["+37251000000","+37251000001"]} # SyncNumberLookup | Numbers for lookup
+numbers_to_investigate = {"numbers":["+37251000000","+37251000001"]} # NumbersToInvestigate | Numbers for lookup
 
 begin
   #Requests info about phone numbers
-  result = api_instance.sync_number_lookup(sync_number_lookup)
+  result = api_instance.fetch_info(numbers_to_investigate)
   p result
 rescue MessenteApi::ApiError => e
-  puts "Exception when calling NumberLookupApi->sync_number_lookup: #{e}"
+  puts "Exception when calling NumberLookupApi->fetch_info: #{e}"
 end
 ```
 
@@ -43,7 +43,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sync_number_lookup** | [**SyncNumberLookup**](SyncNumberLookup.md)| Numbers for lookup | 
+ **numbers_to_investigate** | [**NumbersToInvestigate**](NumbersToInvestigate.md)| Numbers for lookup | 
 
 ### Return type
 

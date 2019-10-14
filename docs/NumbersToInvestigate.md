@@ -1,4 +1,4 @@
-# MessenteApi::SyncNumberLookup
+# MessenteApi::NumbersToInvestigate
 
 ## Properties
 
@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'MessenteApi'
 
-instance = MessenteApi::SyncNumberLookup.new(numbers: null)
+instance = MessenteApi::NumbersToInvestigate.new(numbers: null)
 ```
 
 
