@@ -1,9 +1,9 @@
 # Messente API Library
 
-- Messente API version: 1.1.0
-- Ruby gem version: 1.1.0
+- Messente API version: 1.2.0
+- Ruby gem version: 1.2.0
 
-[Messente](https://messente.com) is a global provider of messaging and user verification services. Use Messente API library to send and receive SMS, Viber, WhatsApp and Telegram messages, blacklist phone numbers to make sure you&#39;re not sending any unwanted messages, manage contacts and groups.  Messente builds [tools](https://messente.com/documentation) to help organizations connect their services to people anywhere in the world.
+[Messente](https://messente.com) is a global provider of messaging and user verification services.  * Send and receive SMS, Viber, WhatsApp and Telegram messages. * Manage contacts and groups. * Fetch detailed info about phone numbers. * Blacklist phone numbers to make sure you&#39;re not sending any unwanted messages.  Messente builds [tools](https://messente.com/documentation) to help organizations connect their services to people anywhere in the world.
 
 ## Installation
 
@@ -48,10 +48,18 @@ Messente API Library provides the operations described below to access the featu
 1. Returns all groups [`fetch_groups`](docs/GroupsApi.md#fetch_groups)
 1. Updates a group with the provided name [`update_group`](docs/GroupsApi.md#update_group)
 
+### NumberLookupApi
+
+1. Requests info about phone numbers [`fetch_info`](docs/NumberLookupApi.md#fetch_info)
+
 ### OmnimessageApi
 
 1. Cancels a scheduled Omnimessage [`cancel_scheduled_message`](docs/OmnimessageApi.md#cancel_scheduled_message)
 1. Sends an Omnimessage [`send_omnimessage`](docs/OmnimessageApi.md#send_omnimessage)
+
+### StatisticsApi
+
+1. Requests statistics reports for each country [`create_statistics_report`](docs/StatisticsApi.md#create_statistics_report)
 
 ## Auth
 
