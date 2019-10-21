@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Messente"]
   s.email       = ["messente@messente.com"]
-  s.homepage    = "https://github.com/messente/messente-api-ruby"
+  s.homepage    = "https://openapi-generator.tech"
   s.summary     = "Ruby library for Messente API"
   s.description = "[Messente](https://messente.com) is a global provider of messaging and user verification services.  * Send and receive SMS, Viber, WhatsApp and Telegram messages. * Manage contacts and groups. * Fetch detailed info about phone numbers. * Blacklist phone numbers to make sure you're not sending any unwanted messages.  Messente builds [tools](https://messente.com/documentation) to help organizations connect their services to people anywhere in the world."
   s.license     = 'Apache-2.0'
