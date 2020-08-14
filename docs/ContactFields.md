@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **custom2** | **String** | The second custom field | [optional] 
 **custom3** | **String** | The third custom field | [optional] 
 **custom4** | **String** | The fourth custom field | [optional] 
+**scheduled_deletion_date** | **Date** | The date on which the contact is going to be deleted | [optional] 
 
 ## Code Sample
 
@@ -29,7 +30,8 @@ instance = MessenteApi::ContactFields.new(phone_number: null,
                                  custom: null,
                                  custom2: null,
                                  custom3: null,
-                                 custom4: null)
+                                 custom4: null,
+                                 scheduled_deletion_date: null)
 ```
 
 

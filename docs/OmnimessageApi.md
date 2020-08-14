@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## cancel_scheduled_message
 
-> cancel_scheduled_message(omnimessage_id)
+> Object cancel_scheduled_message(omnimessage_id)
 
 Cancels a scheduled Omnimessage
 
@@ -32,7 +32,8 @@ omnimessage_id = 'omnimessage_id_example' # String | UUID of the scheduled omnim
 
 begin
   #Cancels a scheduled Omnimessage
-  api_instance.cancel_scheduled_message(omnimessage_id)
+  result = api_instance.cancel_scheduled_message(omnimessage_id)
+  p result
 rescue MessenteApi::ApiError => e
   puts "Exception when calling OmnimessageApi->cancel_scheduled_message: #{e}"
 end
@@ -47,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+**Object**
 
 ### Authorization
 
