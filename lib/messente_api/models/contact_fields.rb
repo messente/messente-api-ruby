@@ -45,7 +45,7 @@ module MessenteApi
     # The fourth custom field
     attr_accessor :custom4
 
-    # The date on which the contact is going to be deletedbecause it has not belonged to a group for 30 days
+    # The date on which the contact is going to be deleted  because it has not belonged to a group for 30 days
     attr_accessor :scheduled_deletion_date
 
     # Attribute mapping from ruby-style variable name to JSON key.
