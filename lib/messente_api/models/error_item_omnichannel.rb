@@ -48,6 +48,7 @@ module MessenteApi
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'source'
       ])
     end
 
@@ -99,10 +100,6 @@ module MessenteApi
         invalid_properties.push('invalid value for "code", code cannot be nil.')
       end
 
-      if @source.nil?
-        invalid_properties.push('invalid value for "source", source cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -112,7 +109,6 @@ module MessenteApi
       return false if @title.nil?
       return false if @detail.nil?
       return false if @code.nil?
-      return false if @source.nil?
       true
     end
 
