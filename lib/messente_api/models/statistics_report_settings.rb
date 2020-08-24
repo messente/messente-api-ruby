@@ -21,7 +21,7 @@ module MessenteApi
     # End date for the report
     attr_accessor :end_date
 
-    # Optional list of message types (sms, viber, whatsapp, hlr)
+    # Optional list of message types (sms, viber, whatsapp, hlr, telegram)
     attr_accessor :message_types
 
     # Attribute mapping from ruby-style variable name to JSON key.
