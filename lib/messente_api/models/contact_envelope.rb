@@ -27,7 +27,7 @@ module MessenteApi
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'contact' => :'ContactFields'
+        :'contact' => :'ContactResponseFields'
       }
     end
 
