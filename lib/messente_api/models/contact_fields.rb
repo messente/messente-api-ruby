@@ -13,7 +13,7 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module MessenteApi
-  # A container for fields of a contact
+  # A container for fields of a request body of a contact
   class ContactFields
     # Phone number in e.164 format
     attr_accessor :phone_number
@@ -45,9 +45,6 @@ module MessenteApi
     # The fourth custom field
     attr_accessor :custom4
 
-    # The date in ISO 8601 format, YYYY-MM-DD,  on which the contact is going to be deleted  because it has not belonged to a group for 30 days
-    attr_accessor :scheduled_deletion_date
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -60,8 +57,7 @@ module MessenteApi
         :'custom' => :'custom',
         :'custom2' => :'custom2',
         :'custom3' => :'custom3',
-        :'custom4' => :'custom4',
-        :'scheduled_deletion_date' => :'scheduledDeletionDate'
+        :'custom4' => :'custom4'
       }
     end
 
@@ -77,8 +73,7 @@ module MessenteApi
         :'custom' => :'String',
         :'custom2' => :'String',
         :'custom3' => :'String',
-        :'custom4' => :'String',
-        :'scheduled_deletion_date' => :'Date'
+        :'custom4' => :'String'
       }
     end
 
@@ -93,8 +88,7 @@ module MessenteApi
         :'custom',
         :'custom2',
         :'custom3',
-        :'custom4',
-        :'scheduled_deletion_date'
+        :'custom4'
       ])
     end
 
@@ -152,10 +146,6 @@ module MessenteApi
       if attributes.key?(:'custom4')
         self.custom4 = attributes[:'custom4']
       end
-
-      if attributes.key?(:'scheduled_deletion_date')
-        self.scheduled_deletion_date = attributes[:'scheduled_deletion_date']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -190,8 +180,7 @@ module MessenteApi
           custom == o.custom &&
           custom2 == o.custom2 &&
           custom3 == o.custom3 &&
-          custom4 == o.custom4 &&
-          scheduled_deletion_date == o.scheduled_deletion_date
+          custom4 == o.custom4
     end
 
     # @see the `==` method
@@ -203,7 +192,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [phone_number, email, first_name, last_name, company, title, custom, custom2, custom3, custom4, scheduled_deletion_date].hash
+      [phone_number, email, first_name, last_name, company, title, custom, custom2, custom3, custom4].hash
     end
 
     # Builds the object from hash
