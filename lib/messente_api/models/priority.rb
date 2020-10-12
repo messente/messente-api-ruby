@@ -13,13 +13,10 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module MessenteApi
-  class ErrorTitlePhonebook
-    INVALID_DATA = "Invalid data".freeze
-    UNAUTHORIZED = "Unauthorized".freeze
-    MISSING_RESOURCE = "Missing resource".freeze
-    CONFLICT = "Conflict".freeze
-    CLIENT_ERROR = "Client error".freeze
-    GENERAL_ERROR = "General error".freeze
+  class Priority
+    LOW = "low".freeze
+    REGULAR = "regular".freeze
+    HIGH = "high".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
@@ -32,8 +29,8 @@ module MessenteApi
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = ErrorTitlePhonebook.constants.select { |c| ErrorTitlePhonebook::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #ErrorTitlePhonebook" if constantValues.empty?
+      constantValues = Priority.constants.select { |c| Priority::const_get(c) == value }
+      raise "Invalid ENUM value #{value} for class #Priority" if constantValues.empty?
       value
     end
   end
