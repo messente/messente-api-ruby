@@ -2,17 +2,16 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **phone_number** | **String** | Phone number in e.164 format |  |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**phone_number** | **String** | Phone number in e.164 format | 
 
-## Example
+## Code Sample
 
 ```ruby
-require 'messente_api'
+require 'MessenteApi'
 
-instance = MessenteApi::NumberToBlacklist.new(
-  phone_number: null
-)
+instance = MessenteApi::NumberToBlacklist.new(phone_number: null)
 ```
+
 

@@ -2,17 +2,16 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **content** | **String** | Base64-encoded audio |  |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**content** | **String** | Base64-encoded audio | 
 
-## Example
+## Code Sample
 
 ```ruby
-require 'messente_api'
+require 'MessenteApi'
 
-instance = MessenteApi::WhatsAppAudio.new(
-  content: null
-)
+instance = MessenteApi::WhatsAppAudio.new(content: null)
 ```
+
 

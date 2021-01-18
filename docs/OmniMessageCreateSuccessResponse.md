@@ -2,21 +2,20 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **messages** | [**Array&lt;MessageResult&gt;**](MessageResult.md) | List of messages that compose the omnimessage |  |
-| **to** | **String** | Phone number in e.164 format |  |
-| **omnimessage_id** | **String** | Unique identifier for the omnimessage |  |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**messages** | [**Array&lt;MessageResult&gt;**](MessageResult.md) | List of messages that compose the omnimessage | 
+**to** | **String** | Phone number in e.164 format | 
+**omnimessage_id** | **String** | Unique identifier for the omnimessage | 
 
-## Example
+## Code Sample
 
 ```ruby
-require 'messente_api'
+require 'MessenteApi'
 
-instance = MessenteApi::OmniMessageCreateSuccessResponse.new(
-  messages: null,
-  to: null,
-  omnimessage_id: null
-)
+instance = MessenteApi::OmniMessageCreateSuccessResponse.new(messages: null,
+                                 to: null,
+                                 omnimessage_id: null)
 ```
+
 
