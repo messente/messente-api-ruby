@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**contact** | [**ContactResponseFields**](ContactResponseFields.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **contact** | [**ContactResponseFields**](ContactResponseFields.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'MessenteApi'
+require 'messente_api'
 
-instance = MessenteApi::ContactEnvelope.new(contact: null)
+instance = MessenteApi::ContactEnvelope.new(
+  contact: null
+)
 ```
-
 

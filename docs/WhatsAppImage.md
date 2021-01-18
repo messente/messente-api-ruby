@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**caption** | **String** | Description for the image | [optional] 
-**content** | **String** | Base64-encoded image | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **caption** | **String** | Description for the image | [optional] |
+| **content** | **String** | Base64-encoded image |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'MessenteApi'
+require 'messente_api'
 
-instance = MessenteApi::WhatsAppImage.new(caption: null,
-                                 content: null)
+instance = MessenteApi::WhatsAppImage.new(
+  caption: null,
+  content: null
+)
 ```
-
 

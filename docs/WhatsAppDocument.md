@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**caption** | **String** | Description for the document | [optional] 
-**content** | **String** | Base64-encoded image | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **caption** | **String** | Description for the document | [optional] |
+| **content** | **String** | Base64-encoded image |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'MessenteApi'
+require 'messente_api'
 
-instance = MessenteApi::WhatsAppDocument.new(caption: null,
-                                 content: null)
+instance = MessenteApi::WhatsAppDocument.new(
+  caption: null,
+  content: null
+)
 ```
-
 

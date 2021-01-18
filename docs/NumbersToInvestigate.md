@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**numbers** | **Array&lt;String&gt;** | Array of phone numbers | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **numbers** | **Array&lt;String&gt;** | Array of phone numbers |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'MessenteApi'
+require 'messente_api'
 
-instance = MessenteApi::NumbersToInvestigate.new(numbers: null)
+instance = MessenteApi::NumbersToInvestigate.new(
+  numbers: null
+)
 ```
-
 
