@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**contact** | [**ContactResponseFields**](ContactResponseFields.md) |  | [optional] 
+**contact** | [**ContactFields**](ContactFields.md) |  | [optional] 
 
 ## Code Sample
 

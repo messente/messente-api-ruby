@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **original_network** | [**MobileNetwork**](MobileNetwork.md) |  | [optional] 
 **ported_network** | [**MobileNetwork**](MobileNetwork.md) |  | [optional] 
 **status** | **String** | Status of the phone number | [optional] 
-**error** | [**AnyType**](.md) | Indicates if any error occurred while handling the request | [optional] 
+**error** | **Object** | Indicates if any error occurred while handling the request | [optional] 
 
 ## Code Sample
 
