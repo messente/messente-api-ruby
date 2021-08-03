@@ -13,8 +13,11 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module MessenteApi
-  # A container for fields of a contact
-  class ContactUpdateFields
+  # A container for response fields of a contact
+  class ContactResponseFields
+    # Phone number in e.164 format
+    attr_accessor :phone_number
+
     # The email of the contact
     attr_accessor :email
 
@@ -42,9 +45,13 @@ module MessenteApi
     # The fourth custom field
     attr_accessor :custom4
 
+    # The date in ISO 8601 format, YYYY-MM-DD,  on which the contact is going to be deleted  because it has not belonged to a group for 30 days
+    attr_accessor :scheduled_deletion_date
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'phone_number' => :'phoneNumber',
         :'email' => :'email',
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
@@ -53,13 +60,15 @@ module MessenteApi
         :'custom' => :'custom',
         :'custom2' => :'custom2',
         :'custom3' => :'custom3',
-        :'custom4' => :'custom4'
+        :'custom4' => :'custom4',
+        :'scheduled_deletion_date' => :'scheduledDeletionDate'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'phone_number' => :'String',
         :'email' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
@@ -68,7 +77,8 @@ module MessenteApi
         :'custom' => :'String',
         :'custom2' => :'String',
         :'custom3' => :'String',
-        :'custom4' => :'String'
+        :'custom4' => :'String',
+        :'scheduled_deletion_date' => :'Date'
       }
     end
 
@@ -83,7 +93,8 @@ module MessenteApi
         :'custom',
         :'custom2',
         :'custom3',
-        :'custom4'
+        :'custom4',
+        :'scheduled_deletion_date'
       ])
     end
 
@@ -91,16 +102,20 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::ContactUpdateFields` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::ContactResponseFields` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::ContactUpdateFields`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::ContactResponseFields`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'phone_number')
+        self.phone_number = attributes[:'phone_number']
+      end
 
       if attributes.key?(:'email')
         self.email = attributes[:'email']
@@ -137,6 +152,10 @@ module MessenteApi
       if attributes.key?(:'custom4')
         self.custom4 = attributes[:'custom4']
       end
+
+      if attributes.key?(:'scheduled_deletion_date')
+        self.scheduled_deletion_date = attributes[:'scheduled_deletion_date']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -157,6 +176,7 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          phone_number == o.phone_number &&
           email == o.email &&
           first_name == o.first_name &&
           last_name == o.last_name &&
@@ -165,7 +185,8 @@ module MessenteApi
           custom == o.custom &&
           custom2 == o.custom2 &&
           custom3 == o.custom3 &&
-          custom4 == o.custom4
+          custom4 == o.custom4 &&
+          scheduled_deletion_date == o.scheduled_deletion_date
     end
 
     # @see the `==` method
@@ -177,7 +198,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [email, first_name, last_name, company, title, custom, custom2, custom3, custom4].hash
+      [phone_number, email, first_name, last_name, company, title, custom, custom2, custom3, custom4, scheduled_deletion_date].hash
     end
 
     # Builds the object from hash
