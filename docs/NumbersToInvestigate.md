@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**numbers** | **Array&lt;String&gt;** | Array of phone numbers | 
+**numbers** | **Array&lt;String&gt;** | A list of phone numbers. Max 10 numbers per request | 
 
 ## Code Sample
 
