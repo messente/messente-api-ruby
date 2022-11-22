@@ -20,7 +20,7 @@ require 'MessenteApi'
 
 instance = MessenteApi::Viber.new(sender: null,
                                  validity: 360,
-                                 ttl: 360,
+                                 ttl: 21600,
                                  text: null,
                                  image_url: null,
                                  button_url: null,

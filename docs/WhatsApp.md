@@ -20,7 +20,7 @@ require 'MessenteApi'
 
 instance = MessenteApi::WhatsApp.new(sender: null,
                                  validity: 360,
-                                 ttl: 360,
+                                 ttl: 21600,
                                  text: null,
                                  image: null,
                                  document: null,

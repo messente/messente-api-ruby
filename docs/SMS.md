@@ -20,7 +20,7 @@ require 'MessenteApi'
 instance = MessenteApi::SMS.new(text: Hello world!,
                                  sender: null,
                                  validity: 360,
-                                 ttl: 360,
+                                 ttl: 21600,
                                  autoconvert: null,
                                  udh: null,
                                  channel: null)
