@@ -21,6 +21,9 @@ module MessenteApi
     # After how many minutes this channel is   considered as failed and the next channel is attempted
     attr_accessor :validity
 
+    # After how many seconds this channel is considered as failed and the next channel is attempted.       Only one of \"ttl\" and \"validity\" can be used.
+    attr_accessor :ttl
+
     attr_accessor :text
 
     attr_accessor :image
@@ -59,6 +62,7 @@ module MessenteApi
       {
         :'sender' => :'sender',
         :'validity' => :'validity',
+        :'ttl' => :'ttl',
         :'text' => :'text',
         :'image' => :'image',
         :'document' => :'document',
@@ -72,6 +76,7 @@ module MessenteApi
       {
         :'sender' => :'String',
         :'validity' => :'Integer',
+        :'ttl' => :'Integer',
         :'text' => :'WhatsAppText',
         :'image' => :'WhatsAppImage',
         :'document' => :'WhatsAppDocument',
@@ -107,6 +112,10 @@ module MessenteApi
 
       if attributes.key?(:'validity')
         self.validity = attributes[:'validity']
+      end
+
+      if attributes.key?(:'ttl')
+        self.ttl = attributes[:'ttl']
       end
 
       if attributes.key?(:'text')
@@ -164,6 +173,7 @@ module MessenteApi
       self.class == o.class &&
           sender == o.sender &&
           validity == o.validity &&
+          ttl == o.ttl &&
           text == o.text &&
           image == o.image &&
           document == o.document &&
@@ -180,7 +190,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [sender, validity, text, image, document, audio, channel].hash
+      [sender, validity, ttl, text, image, document, audio, channel].hash
     end
 
     # Builds the object from hash
