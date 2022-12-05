@@ -21,11 +21,8 @@ module MessenteApi
     # Phone number or alphanumeric sender name
     attr_accessor :sender
 
-    # After how many minutes this channel is considered as failed and the next channel is attempted.                     Only one of \"ttl\" and \"validity\" can be used.
+    # After how many minutes this channel is considered as failed and the next channel is attempted
     attr_accessor :validity
-
-    # After how many seconds this channel is considered as failed and the next channel is attempted.                     Only one of \"ttl\" and \"validity\" can be used.
-    attr_accessor :ttl
 
     # Defines how non-GSM characters will be treated:    - \"on\" Use replacement settings from the account's [API Auto Replace settings page](https://dashboard.messente.com/api-settings/auto-replace) (default)   - \"full\" All non GSM 03.38 characters will be replaced with suitable alternatives   - \"off\" Message content is not modified in any way
     attr_accessor :autoconvert
@@ -64,7 +61,6 @@ module MessenteApi
         :'text' => :'text',
         :'sender' => :'sender',
         :'validity' => :'validity',
-        :'ttl' => :'ttl',
         :'autoconvert' => :'autoconvert',
         :'udh' => :'udh',
         :'channel' => :'channel'
@@ -77,7 +73,6 @@ module MessenteApi
         :'text' => :'String',
         :'sender' => :'String',
         :'validity' => :'Integer',
-        :'ttl' => :'Integer',
         :'autoconvert' => :'String',
         :'udh' => :'String',
         :'channel' => :'String'
@@ -115,10 +110,6 @@ module MessenteApi
 
       if attributes.key?(:'validity')
         self.validity = attributes[:'validity']
-      end
-
-      if attributes.key?(:'ttl')
-        self.ttl = attributes[:'ttl']
       end
 
       if attributes.key?(:'autoconvert')
@@ -186,7 +177,6 @@ module MessenteApi
           text == o.text &&
           sender == o.sender &&
           validity == o.validity &&
-          ttl == o.ttl &&
           autoconvert == o.autoconvert &&
           udh == o.udh &&
           channel == o.channel
@@ -201,7 +191,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [text, sender, validity, ttl, autoconvert, udh, channel].hash
+      [text, sender, validity, autoconvert, udh, channel].hash
     end
 
     # Builds the object from hash
