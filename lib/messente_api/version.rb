@@ -11,5 +11,5 @@ OpenAPI Generator version: 4.3.1
 =end
 
 module MessenteApi
-  VERSION = '1.4.1'
+  VERSION = '1.5.0'
 end
