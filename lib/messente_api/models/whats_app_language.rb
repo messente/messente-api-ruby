@@ -13,27 +13,27 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module MessenteApi
-  # A document
-  class WhatsAppDocument
-    # Description for the document
-    attr_accessor :caption
+  # Whatsapp template language
+  class WhatsAppLanguage
+    # Language code
+    attr_accessor :code
 
-    # Base64-encoded image
-    attr_accessor :content
+    # Language policy
+    attr_accessor :policy
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'caption' => :'caption',
-        :'content' => :'content'
+        :'code' => :'code',
+        :'policy' => :'policy'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'caption' => :'String',
-        :'content' => :'String'
+        :'code' => :'String',
+        :'policy' => :'String'
       }
     end
 
@@ -47,23 +47,23 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::WhatsAppDocument` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::WhatsAppLanguage` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::WhatsAppDocument`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::WhatsAppLanguage`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'caption')
-        self.caption = attributes[:'caption']
+      if attributes.key?(:'code')
+        self.code = attributes[:'code']
       end
 
-      if attributes.key?(:'content')
-        self.content = attributes[:'content']
+      if attributes.key?(:'policy')
+        self.policy = attributes[:'policy']
       end
     end
 
@@ -71,8 +71,8 @@ module MessenteApi
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @content.nil?
-        invalid_properties.push('invalid value for "content", content cannot be nil.')
+      if @code.nil?
+        invalid_properties.push('invalid value for "code", code cannot be nil.')
       end
 
       invalid_properties
@@ -81,7 +81,7 @@ module MessenteApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @content.nil?
+      return false if @code.nil?
       true
     end
 
@@ -90,8 +90,8 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          caption == o.caption &&
-          content == o.content
+          code == o.code &&
+          policy == o.policy
     end
 
     # @see the `==` method
@@ -103,7 +103,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [caption, content].hash
+      [code, policy].hash
     end
 
     # Builds the object from hash

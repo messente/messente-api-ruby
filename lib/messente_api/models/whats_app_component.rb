@@ -13,27 +13,27 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module MessenteApi
-  # A text
-  class WhatsAppText
-    # Whether to display link preview if the message contains a hyperlink
-    attr_accessor :preview_url
+  # Whatsapp template component
+  class WhatsAppComponent
+    # Type of the component
+    attr_accessor :type
 
-    # Plaintext content for WhatsApp, can contain URLs, emojis and formatting
-    attr_accessor :body
+    # List of parameters for the component
+    attr_accessor :parameters
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'preview_url' => :'preview_url',
-        :'body' => :'body'
+        :'type' => :'type',
+        :'parameters' => :'parameters'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'preview_url' => :'Boolean',
-        :'body' => :'String'
+        :'type' => :'String',
+        :'parameters' => :'Array<WhatsAppParameter>'
       }
     end
 
@@ -47,25 +47,25 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::WhatsAppText` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::WhatsAppComponent` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::WhatsAppText`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::WhatsAppComponent`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'preview_url')
-        self.preview_url = attributes[:'preview_url']
-      else
-        self.preview_url = true
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
 
-      if attributes.key?(:'body')
-        self.body = attributes[:'body']
+      if attributes.key?(:'parameters')
+        if (value = attributes[:'parameters']).is_a?(Array)
+          self.parameters = value
+        end
       end
     end
 
@@ -73,8 +73,8 @@ module MessenteApi
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @body.nil?
-        invalid_properties.push('invalid value for "body", body cannot be nil.')
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
       end
 
       invalid_properties
@@ -83,7 +83,7 @@ module MessenteApi
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @body.nil?
+      return false if @type.nil?
       true
     end
 
@@ -92,8 +92,8 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          preview_url == o.preview_url &&
-          body == o.body
+          type == o.type &&
+          parameters == o.parameters
     end
 
     # @see the `==` method
@@ -105,7 +105,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [preview_url, body].hash
+      [type, parameters].hash
     end
 
     # Builds the object from hash

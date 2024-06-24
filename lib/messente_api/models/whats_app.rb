@@ -24,13 +24,7 @@ module MessenteApi
     # After how many seconds this channel is considered as failed and the next channel is attempted.       Only one of \"ttl\" and \"validity\" can be used.
     attr_accessor :ttl
 
-    attr_accessor :text
-
-    attr_accessor :image
-
-    attr_accessor :document
-
-    attr_accessor :audio
+    attr_accessor :template
 
     # The channel used to deliver the message
     attr_accessor :channel
@@ -63,10 +57,7 @@ module MessenteApi
         :'sender' => :'sender',
         :'validity' => :'validity',
         :'ttl' => :'ttl',
-        :'text' => :'text',
-        :'image' => :'image',
-        :'document' => :'document',
-        :'audio' => :'audio',
+        :'template' => :'template',
         :'channel' => :'channel'
       }
     end
@@ -77,10 +68,7 @@ module MessenteApi
         :'sender' => :'String',
         :'validity' => :'Integer',
         :'ttl' => :'Integer',
-        :'text' => :'WhatsAppText',
-        :'image' => :'WhatsAppImage',
-        :'document' => :'WhatsAppDocument',
-        :'audio' => :'WhatsAppAudio',
+        :'template' => :'WhatsAppTemplate',
         :'channel' => :'String'
       }
     end
@@ -118,20 +106,8 @@ module MessenteApi
         self.ttl = attributes[:'ttl']
       end
 
-      if attributes.key?(:'text')
-        self.text = attributes[:'text']
-      end
-
-      if attributes.key?(:'image')
-        self.image = attributes[:'image']
-      end
-
-      if attributes.key?(:'document')
-        self.document = attributes[:'document']
-      end
-
-      if attributes.key?(:'audio')
-        self.audio = attributes[:'audio']
+      if attributes.key?(:'template')
+        self.template = attributes[:'template']
       end
 
       if attributes.key?(:'channel')
@@ -174,10 +150,7 @@ module MessenteApi
           sender == o.sender &&
           validity == o.validity &&
           ttl == o.ttl &&
-          text == o.text &&
-          image == o.image &&
-          document == o.document &&
-          audio == o.audio &&
+          template == o.template &&
           channel == o.channel
     end
 
@@ -190,7 +163,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [sender, validity, ttl, text, image, document, audio, channel].hash
+      [sender, validity, ttl, template, channel].hash
     end
 
     # Builds the object from hash
