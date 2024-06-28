@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**title** | **String** | Error title | 
-**details** | **String** | Error details | 
-**code** | [**ErrorCodeStatistics**](ErrorCodeStatistics.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **title** | **String** | Error title |  |
+| **details** | **String** | Error details |  |
+| **code** | [**ErrorCodeStatistics**](ErrorCodeStatistics.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'MessenteApi'
+require 'messente_api'
 
-instance = MessenteApi::ErrorItemStatistics.new(title: null,
-                                 details: null,
-                                 code: null)
+instance = MessenteApi::ErrorItemStatistics.new(
+  title: null,
+  details: null,
+  code: null
+)
 ```
-
 

@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**code** | **String** | Language code | 
-**policy** | **String** | Language policy | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **code** | **String** | Language code |  |
+| **policy** | **String** | Language policy | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'MessenteApi'
+require 'messente_api'
 
-instance = MessenteApi::WhatsAppLanguage.new(code: null,
-                                 policy: null)
+instance = MessenteApi::WhatsAppLanguage.new(
+  code: null,
+  policy: null
+)
 ```
-
 
