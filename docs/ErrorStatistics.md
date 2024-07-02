@@ -2,17 +2,16 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;ErrorItemStatistics&gt;**](ErrorItemStatistics.md) | An array of errors |  |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**errors** | [**Array&lt;ErrorItemStatistics&gt;**](ErrorItemStatistics.md) | An array of errors | 
 
-## Example
+## Code Sample
 
 ```ruby
-require 'messente_api'
+require 'MessenteApi'
 
-instance = MessenteApi::ErrorStatistics.new(
-  errors: null
-)
+instance = MessenteApi::ErrorStatistics.new(errors: null)
 ```
+
 

@@ -2,21 +2,20 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **title** | [**ErrorTitlePhonebook**](ErrorTitlePhonebook.md) |  |  |
-| **detail** | **String** | Free form more detailed description of the error |  |
-| **code** | [**ErrorCodePhonebook**](ErrorCodePhonebook.md) |  |  |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**title** | [**ErrorTitlePhonebook**](ErrorTitlePhonebook.md) |  | 
+**detail** | **String** | Free form more detailed description of the error | 
+**code** | [**ErrorCodePhonebook**](ErrorCodePhonebook.md) |  | 
 
-## Example
+## Code Sample
 
 ```ruby
-require 'messente_api'
+require 'MessenteApi'
 
-instance = MessenteApi::ErrorItemPhonebook.new(
-  title: null,
-  detail: null,
-  code: null
-)
+instance = MessenteApi::ErrorItemPhonebook.new(title: null,
+                                 detail: null,
+                                 code: null)
 ```
+
 

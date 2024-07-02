@@ -2,17 +2,16 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **contacts** | [**Array&lt;ContactResponseFields&gt;**](ContactResponseFields.md) | An array of contacts | [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**contacts** | [**Array&lt;ContactResponseFields&gt;**](ContactResponseFields.md) | An array of contacts | [optional] 
 
-## Example
+## Code Sample
 
 ```ruby
-require 'messente_api'
+require 'MessenteApi'
 
-instance = MessenteApi::ContactListEnvelope.new(
-  contacts: null
-)
+instance = MessenteApi::ContactListEnvelope.new(contacts: null)
 ```
+
 

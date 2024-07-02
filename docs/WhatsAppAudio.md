@@ -1,17 +1,17 @@
-# MessenteApi::NumberToBlacklist
+# MessenteApi::WhatsAppAudio
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**phone_number** | **String** | Phone number in e.164 format | 
+**content** | **String** | Base64-encoded audio | 
 
 ## Code Sample
 
 ```ruby
 require 'MessenteApi'
 
-instance = MessenteApi::NumberToBlacklist.new(phone_number: null)
+instance = MessenteApi::WhatsAppAudio.new(content: null)
 ```
 
 

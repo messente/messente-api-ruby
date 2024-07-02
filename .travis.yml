@@ -1,11 +1,11 @@
 language: ruby
 cache: bundler
 rvm:
-  - 2.7
-  - 3.0
-  - 3.1
+  - 2.3
+  - 2.4
+  - 2.5
 script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build messente_api.gemspec
-  - gem install ./messente_api-2.0.0.gem
+  - gem install ./messente_api-1.5.0.gem

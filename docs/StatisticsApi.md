@@ -2,21 +2,22 @@
 
 All URIs are relative to *https://api.messente.com/v1*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_statistics_report**](StatisticsApi.md#create_statistics_report) | **POST** /statistics/reports | Requests statistics reports for each country |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**create_statistics_report**](StatisticsApi.md#create_statistics_report) | **POST** /statistics/reports | Requests statistics reports for each country
+
 
 
 ## create_statistics_report
 
-> <StatisticsReportSuccess> create_statistics_report(statistics_report_settings)
+> StatisticsReportSuccess create_statistics_report(statistics_report_settings)
 
 Requests statistics reports for each country
 
-### Examples
+### Example
 
 ```ruby
-require 'time'
+# load the gem
 require 'messente_api'
 # setup authorization
 MessenteApi.configure do |config|
@@ -26,40 +27,23 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::StatisticsApi.new
-statistics_report_settings = MessenteApi::StatisticsReportSettings.new({start_date: Date.today, end_date: Date.today}) # StatisticsReportSettings | Settings for statistics report
+statistics_report_settings = {"start_date":"2017-01-01","end_date":"2019-06-20","message_types":["sms"]} # StatisticsReportSettings | Settings for statistics report
 
 begin
-  # Requests statistics reports for each country
+  #Requests statistics reports for each country
   result = api_instance.create_statistics_report(statistics_report_settings)
   p result
 rescue MessenteApi::ApiError => e
-  puts "Error when calling StatisticsApi->create_statistics_report: #{e}"
-end
-```
-
-#### Using the create_statistics_report_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<StatisticsReportSuccess>, Integer, Hash)> create_statistics_report_with_http_info(statistics_report_settings)
-
-```ruby
-begin
-  # Requests statistics reports for each country
-  data, status_code, headers = api_instance.create_statistics_report_with_http_info(statistics_report_settings)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <StatisticsReportSuccess>
-rescue MessenteApi::ApiError => e
-  puts "Error when calling StatisticsApi->create_statistics_report_with_http_info: #{e}"
+  puts "Exception when calling StatisticsApi->create_statistics_report: #{e}"
 end
 ```
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **statistics_report_settings** | [**StatisticsReportSettings**](StatisticsReportSettings.md) | Settings for statistics report |  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **statistics_report_settings** | [**StatisticsReportSettings**](StatisticsReportSettings.md)| Settings for statistics report | 
 
 ### Return type
 
