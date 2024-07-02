@@ -1,7 +1,7 @@
 # Messente API Library
 
 - Messente API version: 2.0.0
-- Ruby gem version: 1.5.0
+- Ruby gem version: 2.0.0
 
 [Messente](https://messente.com) is a global provider of messaging and user verification services.  * Send and receive SMS, Viber, WhatsApp and Telegram messages. * Manage contacts and groups. * Fetch detailed info about phone numbers. * Blacklist phone numbers to make sure you&#39;re not sending any unwanted messages.  Messente builds [tools](https://messente.com/documentation) to help organizations connect their services to people anywhere in the world.
 
@@ -81,38 +81,37 @@ end
 
 api_instance = MessenteApi::OmnimessageApi.new
 omnimessage = MessenteApi::Omnimessage.new
-omnimessage.to = '<phone number in e.164 format>'
-omnimessage.messages = [
-    MessenteApi::SMS.new(
-        {
-            :sender => "<sender name or phone number in e.164 format>",
-            :text => "Hello SMS!"
-        }
-    ),
-    MessenteApi::WhatsApp.new(
-        {
-            :sender => "<sender name or phone number in e.164 format>",
-            :text => MessenteApi::WhatsAppText.new(
-                {
-                    :body => "Hello from WhatsApp!",
-                    :preview_url => false
-                }
-            )
-        }
-    ),
-    MessenteApi::Viber.new(
-        {
-            :sender => "<sender name or phone number in e.164 format>",
-            :text => "Hello from Viber!"
-        }
-    )
+omnimessage.to = '<recipient_phone_number>'
+
+sms = MessenteApi::SMS.new(
+    sender: "<sender name (optional)>",
+    text: "Hello SMS!"
+)
+
+viber = MessenteApi::Viber.new(
+    sender: "<sender name (optional)>",
+    text: "Hello from Viber!"
+)
+
+wa_parameters = [
+  MessenteApi::WhatsAppParameter.new(type: 'text', text: 'hello whatsapp'),
 ]
+wa_component = MessenteApi::WhatsAppComponent.new(type: 'body', parameters: wa_parameters)
+wa_lang = MessenteApi::WhatsAppLanguage.new(code: '<language_code>')
+wa_template = MessenteApi::WhatsAppTemplate.new(name: '<template_name>', language: wa_lang, components: [wa_component])
+whatsapp = MessenteApi::WhatsApp.new(
+    sender: '<sender name (optional)>',
+    template: wa_template,
+)
+
+omnimessage.messages = [sms, viber, whatsapp]
 
 begin
-    result = api_instance.send_omnimessage(omnimessage)
+  result = api_instance.send_omnimessage(omnimessage)
+  puts result
 rescue MessenteApi::ApiError => e
-    puts "Exception when calling send_omnimessage: #{e}"
-    puts e.response_body
+  puts "Exception when calling send_omnimessage: #{e}"
+  puts e.response_body
 end
 
 ```

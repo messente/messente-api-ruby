@@ -2,17 +2,16 @@
 
 All URIs are relative to *https://api.messente.com/v1*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**add_contact_to_group**](ContactsApi.md#add_contact_to_group) | **POST** /phonebook/groups/{groupId}/contacts/{phone} | Adds a contact to a group
-[**create_contact**](ContactsApi.md#create_contact) | **POST** /phonebook/contacts | Creates a new contact
-[**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /phonebook/contacts/{phone} | Deletes a contact
-[**fetch_contact**](ContactsApi.md#fetch_contact) | **GET** /phonebook/contacts/{phone} | Lists a contact
-[**fetch_contact_groups**](ContactsApi.md#fetch_contact_groups) | **GET** /phonebook/contacts/{phone}/groups | Lists groups of a contact
-[**fetch_contacts**](ContactsApi.md#fetch_contacts) | **GET** /phonebook/contacts | Returns all contacts
-[**remove_contact_from_group**](ContactsApi.md#remove_contact_from_group) | **DELETE** /phonebook/groups/{groupId}/contacts/{phone} | Removes a contact from a group
-[**update_contact**](ContactsApi.md#update_contact) | **PATCH** /phonebook/contacts/{phone} | Updates a contact
-
+| Method | HTTP request | Description |
+| ------ | ------------ | ----------- |
+| [**add_contact_to_group**](ContactsApi.md#add_contact_to_group) | **POST** /phonebook/groups/{groupId}/contacts/{phone} | Adds a contact to a group |
+| [**create_contact**](ContactsApi.md#create_contact) | **POST** /phonebook/contacts | Creates a new contact |
+| [**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /phonebook/contacts/{phone} | Deletes a contact |
+| [**fetch_contact**](ContactsApi.md#fetch_contact) | **GET** /phonebook/contacts/{phone} | Lists a contact |
+| [**fetch_contact_groups**](ContactsApi.md#fetch_contact_groups) | **GET** /phonebook/contacts/{phone}/groups | Lists groups of a contact |
+| [**fetch_contacts**](ContactsApi.md#fetch_contacts) | **GET** /phonebook/contacts | Returns all contacts |
+| [**remove_contact_from_group**](ContactsApi.md#remove_contact_from_group) | **DELETE** /phonebook/groups/{groupId}/contacts/{phone} | Removes a contact from a group |
+| [**update_contact**](ContactsApi.md#update_contact) | **PATCH** /phonebook/contacts/{phone} | Updates a contact |
 
 
 ## add_contact_to_group
@@ -21,10 +20,10 @@ Method | HTTP request | Description
 
 Adds a contact to a group
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'messente_api'
 # setup authorization
 MessenteApi.configure do |config|
@@ -38,21 +37,38 @@ group_id = '5792a02a-e5c2-422b-a0a0-0ae65d814663' # String | String in UUID form
 phone = '+37251000000' # String | A phone number
 
 begin
-  #Adds a contact to a group
+  # Adds a contact to a group
   result = api_instance.add_contact_to_group(group_id, phone)
   p result
 rescue MessenteApi::ApiError => e
-  puts "Exception when calling ContactsApi->add_contact_to_group: #{e}"
+  puts "Error when calling ContactsApi->add_contact_to_group: #{e}"
+end
+```
+
+#### Using the add_contact_to_group_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> add_contact_to_group_with_http_info(group_id, phone)
+
+```ruby
+begin
+  # Adds a contact to a group
+  data, status_code, headers = api_instance.add_contact_to_group_with_http_info(group_id, phone)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue MessenteApi::ApiError => e
+  puts "Error when calling ContactsApi->add_contact_to_group_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **group_id** | **String**| String in UUID format | 
- **phone** | **String**| A phone number | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **group_id** | **String** | String in UUID format |  |
+| **phone** | **String** | A phone number |  |
 
 ### Return type
 
@@ -70,14 +86,14 @@ Name | Type | Description  | Notes
 
 ## create_contact
 
-> ContactEnvelope create_contact(contact_fields)
+> <ContactEnvelope> create_contact(contact_fields)
 
 Creates a new contact
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'messente_api'
 # setup authorization
 MessenteApi.configure do |config|
@@ -87,23 +103,40 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::ContactsApi.new
-contact_fields = {"phoneNumber":"+37251000000","email":"anyone@messente.com","firstName":"Any","lastName":"One","company":"Messente","title":"Sir","custom":"Any custom","custom2":"Any custom two","custom3":"Any custom three","custom4":"Any custom four"} # ContactFields | 
+contact_fields = MessenteApi::ContactFields.new({phone_number: 'phone_number_example'}) # ContactFields | 
 
 begin
-  #Creates a new contact
+  # Creates a new contact
   result = api_instance.create_contact(contact_fields)
   p result
 rescue MessenteApi::ApiError => e
-  puts "Exception when calling ContactsApi->create_contact: #{e}"
+  puts "Error when calling ContactsApi->create_contact: #{e}"
+end
+```
+
+#### Using the create_contact_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ContactEnvelope>, Integer, Hash)> create_contact_with_http_info(contact_fields)
+
+```ruby
+begin
+  # Creates a new contact
+  data, status_code, headers = api_instance.create_contact_with_http_info(contact_fields)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ContactEnvelope>
+rescue MessenteApi::ApiError => e
+  puts "Error when calling ContactsApi->create_contact_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contact_fields** | [**ContactFields**](ContactFields.md)|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **contact_fields** | [**ContactFields**](ContactFields.md) |  |  |
 
 ### Return type
 
@@ -125,10 +158,10 @@ Name | Type | Description  | Notes
 
 Deletes a contact
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'messente_api'
 # setup authorization
 MessenteApi.configure do |config|
@@ -141,19 +174,36 @@ api_instance = MessenteApi::ContactsApi.new
 phone = '+37251000000' # String | A phone number
 
 begin
-  #Deletes a contact
+  # Deletes a contact
   api_instance.delete_contact(phone)
 rescue MessenteApi::ApiError => e
-  puts "Exception when calling ContactsApi->delete_contact: #{e}"
+  puts "Error when calling ContactsApi->delete_contact: #{e}"
+end
+```
+
+#### Using the delete_contact_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_contact_with_http_info(phone)
+
+```ruby
+begin
+  # Deletes a contact
+  data, status_code, headers = api_instance.delete_contact_with_http_info(phone)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue MessenteApi::ApiError => e
+  puts "Error when calling ContactsApi->delete_contact_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **phone** | **String**| A phone number | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **phone** | **String** | A phone number |  |
 
 ### Return type
 
@@ -171,14 +221,14 @@ nil (empty response body)
 
 ## fetch_contact
 
-> ContactEnvelope fetch_contact(phone)
+> <ContactEnvelope> fetch_contact(phone)
 
 Lists a contact
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'messente_api'
 # setup authorization
 MessenteApi.configure do |config|
@@ -191,20 +241,37 @@ api_instance = MessenteApi::ContactsApi.new
 phone = '+37251000000' # String | A phone number
 
 begin
-  #Lists a contact
+  # Lists a contact
   result = api_instance.fetch_contact(phone)
   p result
 rescue MessenteApi::ApiError => e
-  puts "Exception when calling ContactsApi->fetch_contact: #{e}"
+  puts "Error when calling ContactsApi->fetch_contact: #{e}"
+end
+```
+
+#### Using the fetch_contact_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ContactEnvelope>, Integer, Hash)> fetch_contact_with_http_info(phone)
+
+```ruby
+begin
+  # Lists a contact
+  data, status_code, headers = api_instance.fetch_contact_with_http_info(phone)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ContactEnvelope>
+rescue MessenteApi::ApiError => e
+  puts "Error when calling ContactsApi->fetch_contact_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **phone** | **String**| A phone number | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **phone** | **String** | A phone number |  |
 
 ### Return type
 
@@ -222,14 +289,14 @@ Name | Type | Description  | Notes
 
 ## fetch_contact_groups
 
-> GroupListEnvelope fetch_contact_groups(phone)
+> <GroupListEnvelope> fetch_contact_groups(phone)
 
 Lists groups of a contact
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'messente_api'
 # setup authorization
 MessenteApi.configure do |config|
@@ -242,20 +309,37 @@ api_instance = MessenteApi::ContactsApi.new
 phone = '+37251000000' # String | A phone number
 
 begin
-  #Lists groups of a contact
+  # Lists groups of a contact
   result = api_instance.fetch_contact_groups(phone)
   p result
 rescue MessenteApi::ApiError => e
-  puts "Exception when calling ContactsApi->fetch_contact_groups: #{e}"
+  puts "Error when calling ContactsApi->fetch_contact_groups: #{e}"
+end
+```
+
+#### Using the fetch_contact_groups_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GroupListEnvelope>, Integer, Hash)> fetch_contact_groups_with_http_info(phone)
+
+```ruby
+begin
+  # Lists groups of a contact
+  data, status_code, headers = api_instance.fetch_contact_groups_with_http_info(phone)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GroupListEnvelope>
+rescue MessenteApi::ApiError => e
+  puts "Error when calling ContactsApi->fetch_contact_groups_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **phone** | **String**| A phone number | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **phone** | **String** | A phone number |  |
 
 ### Return type
 
@@ -273,14 +357,14 @@ Name | Type | Description  | Notes
 
 ## fetch_contacts
 
-> ContactListEnvelope fetch_contacts(opts)
+> <ContactListEnvelope> fetch_contacts(opts)
 
 Returns all contacts
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'messente_api'
 # setup authorization
 MessenteApi.configure do |config|
@@ -291,24 +375,41 @@ end
 
 api_instance = MessenteApi::ContactsApi.new
 opts = {
-  group_ids: ['[\"5792a02a-e5c2-422b-a0a0-0ae65d814663\",\"4792a02a-e5c2-422b-a0a0-0ae65d814662\"]'] # Array<String> | Optional one or many group id strings in UUID format. For example: \"/contacts?groupIds=group_id_one&groupIds=group_id_two\" 
+  group_ids: ['inner_example'] # Array<String> | Optional one or many group id strings in UUID format. For example: \"/contacts?groupIds=group_id_one&groupIds=group_id_two\" 
 }
 
 begin
-  #Returns all contacts
+  # Returns all contacts
   result = api_instance.fetch_contacts(opts)
   p result
 rescue MessenteApi::ApiError => e
-  puts "Exception when calling ContactsApi->fetch_contacts: #{e}"
+  puts "Error when calling ContactsApi->fetch_contacts: #{e}"
+end
+```
+
+#### Using the fetch_contacts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ContactListEnvelope>, Integer, Hash)> fetch_contacts_with_http_info(opts)
+
+```ruby
+begin
+  # Returns all contacts
+  data, status_code, headers = api_instance.fetch_contacts_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ContactListEnvelope>
+rescue MessenteApi::ApiError => e
+  puts "Error when calling ContactsApi->fetch_contacts_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **group_ids** | [**Array&lt;String&gt;**](String.md)| Optional one or many group id strings in UUID format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot;  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **group_ids** | [**Array&lt;String&gt;**](String.md) | Optional one or many group id strings in UUID format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot;  | [optional] |
 
 ### Return type
 
@@ -330,10 +431,10 @@ Name | Type | Description  | Notes
 
 Removes a contact from a group
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'messente_api'
 # setup authorization
 MessenteApi.configure do |config|
@@ -347,20 +448,37 @@ group_id = '5792a02a-e5c2-422b-a0a0-0ae65d814663' # String | String in UUID form
 phone = '+37251000000' # String | A phone number
 
 begin
-  #Removes a contact from a group
+  # Removes a contact from a group
   api_instance.remove_contact_from_group(group_id, phone)
 rescue MessenteApi::ApiError => e
-  puts "Exception when calling ContactsApi->remove_contact_from_group: #{e}"
+  puts "Error when calling ContactsApi->remove_contact_from_group: #{e}"
+end
+```
+
+#### Using the remove_contact_from_group_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> remove_contact_from_group_with_http_info(group_id, phone)
+
+```ruby
+begin
+  # Removes a contact from a group
+  data, status_code, headers = api_instance.remove_contact_from_group_with_http_info(group_id, phone)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue MessenteApi::ApiError => e
+  puts "Error when calling ContactsApi->remove_contact_from_group_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **group_id** | **String**| String in UUID format | 
- **phone** | **String**| A phone number | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **group_id** | **String** | String in UUID format |  |
+| **phone** | **String** | A phone number |  |
 
 ### Return type
 
@@ -378,14 +496,14 @@ nil (empty response body)
 
 ## update_contact
 
-> ContactEnvelope update_contact(phone, contact_update_fields)
+> <ContactEnvelope> update_contact(phone, contact_update_fields)
 
 Updates a contact
 
-### Example
+### Examples
 
 ```ruby
-# load the gem
+require 'time'
 require 'messente_api'
 # setup authorization
 MessenteApi.configure do |config|
@@ -396,24 +514,41 @@ end
 
 api_instance = MessenteApi::ContactsApi.new
 phone = '+37251000000' # String | A phone number
-contact_update_fields = {"email":"anyone@messente.com","firstName":"Any","lastName":"One","company":"Messente","title":"Sir","custom":"Any custom","custom2":"Any custom two","custom3":"Any custom three","custom4":"Any custom four"} # ContactUpdateFields | 
+contact_update_fields = MessenteApi::ContactUpdateFields.new # ContactUpdateFields | 
 
 begin
-  #Updates a contact
+  # Updates a contact
   result = api_instance.update_contact(phone, contact_update_fields)
   p result
 rescue MessenteApi::ApiError => e
-  puts "Exception when calling ContactsApi->update_contact: #{e}"
+  puts "Error when calling ContactsApi->update_contact: #{e}"
+end
+```
+
+#### Using the update_contact_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ContactEnvelope>, Integer, Hash)> update_contact_with_http_info(phone, contact_update_fields)
+
+```ruby
+begin
+  # Updates a contact
+  data, status_code, headers = api_instance.update_contact_with_http_info(phone, contact_update_fields)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ContactEnvelope>
+rescue MessenteApi::ApiError => e
+  puts "Error when calling ContactsApi->update_contact_with_http_info: #{e}"
 end
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **phone** | **String**| A phone number | 
- **contact_update_fields** | [**ContactUpdateFields**](ContactUpdateFields.md)|  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **phone** | **String** | A phone number |  |
+| **contact_update_fields** | [**ContactUpdateFields**](ContactUpdateFields.md) |  |  |
 
 ### Return type
 

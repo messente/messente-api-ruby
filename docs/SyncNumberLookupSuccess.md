@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**request_id** | **String** | ID of the request | 
-**result** | [**Array&lt;SyncNumberLookupResult&gt;**](SyncNumberLookupResult.md) | A container for phone number info objects | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **request_id** | **String** | ID of the request |  |
+| **result** | [**Array&lt;SyncNumberLookupResult&gt;**](SyncNumberLookupResult.md) | A container for phone number info objects |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'MessenteApi'
+require 'messente_api'
 
-instance = MessenteApi::SyncNumberLookupSuccess.new(request_id: null,
-                                 result: null)
+instance = MessenteApi::SyncNumberLookupSuccess.new(
+  request_id: null,
+  result: null
+)
 ```
-
 

@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**error** | [**ErrorItemNumberLookupError**](ErrorItemNumberLookupError.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **error** | [**ErrorItemNumberLookupError**](ErrorItemNumberLookupError.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'MessenteApi'
+require 'messente_api'
 
-instance = MessenteApi::ErrorItemNumberLookup.new(error: null)
+instance = MessenteApi::ErrorItemNumberLookup.new(
+  error: null
+)
 ```
-
 

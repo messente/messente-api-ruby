@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**reports** | [**Array&lt;StatisticsReport&gt;**](StatisticsReport.md) | Array of report objects | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **reports** | [**Array&lt;StatisticsReport&gt;**](StatisticsReport.md) | Array of report objects |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'MessenteApi'
+require 'messente_api'
 
-instance = MessenteApi::StatisticsReportSuccess.new(reports: null)
+instance = MessenteApi::StatisticsReportSuccess.new(
+  reports: null
+)
 ```
-
 

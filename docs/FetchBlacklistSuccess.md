@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**phone_numbers** | **Array&lt;String&gt;** | Array of unique phone numbers | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **phone_numbers** | **Array&lt;String&gt;** | Array of unique phone numbers | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'MessenteApi'
+require 'messente_api'
 
-instance = MessenteApi::FetchBlacklistSuccess.new(phone_numbers: null)
+instance = MessenteApi::FetchBlacklistSuccess.new(
+  phone_numbers: null
+)
 ```
-
 
