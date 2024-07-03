@@ -17,6 +17,8 @@ require 'messente_api/version'
 require 'messente_api/configuration'
 
 # Models
+require 'messente_api/models/bulk_omni_message_create_success_response'
+require 'messente_api/models/bulk_omnimessage'
 require 'messente_api/models/channel'
 require 'messente_api/models/contact_envelope'
 require 'messente_api/models/contact_fields'

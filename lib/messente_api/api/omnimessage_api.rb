@@ -80,6 +80,72 @@ module MessenteApi
       return data, status_code, headers
     end
 
+    # Sends a bulk Omnimessage
+    # @param bulk_omnimessage [BulkOmnimessage] Bulk Omnimessage to be sent
+    # @param [Hash] opts the optional parameters
+    # @return [BulkOmniMessageCreateSuccessResponse]
+    def send_bulk_omnimessage(bulk_omnimessage, opts = {})
+      data, _status_code, _headers = send_bulk_omnimessage_with_http_info(bulk_omnimessage, opts)
+      data
+    end
+
+    # Sends a bulk Omnimessage
+    # @param bulk_omnimessage [BulkOmnimessage] Bulk Omnimessage to be sent
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(BulkOmniMessageCreateSuccessResponse, Integer, Hash)>] BulkOmniMessageCreateSuccessResponse data, response status code and response headers
+    def send_bulk_omnimessage_with_http_info(bulk_omnimessage, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OmnimessageApi.send_bulk_omnimessage ...'
+      end
+      # verify the required parameter 'bulk_omnimessage' is set
+      if @api_client.config.client_side_validation && bulk_omnimessage.nil?
+        fail ArgumentError, "Missing the required parameter 'bulk_omnimessage' when calling OmnimessageApi.send_bulk_omnimessage"
+      end
+      # resource path
+      local_var_path = '/omnimessages'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(bulk_omnimessage)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'BulkOmniMessageCreateSuccessResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"OmnimessageApi.send_bulk_omnimessage",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OmnimessageApi#send_bulk_omnimessage\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Sends an Omnimessage
     # @param omnimessage [Omnimessage] Omnimessage to be sent
     # @param [Hash] opts the optional parameters
