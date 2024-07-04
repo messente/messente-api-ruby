@@ -34,7 +34,7 @@ module MessenteApi
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'messages' => :'Array<OmniMessageCreateSuccessResponse>'
+        :'messages' => :'Array<BulkOmniMessageCreateSuccessResponseMessagesInner>'
       }
     end
 

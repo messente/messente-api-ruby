@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **messages** | [**Array&lt;OmniMessageCreateSuccessResponse&gt;**](OmniMessageCreateSuccessResponse.md) | List of responses for each Omnimessage. |  |
+| **messages** | [**Array&lt;BulkOmniMessageCreateSuccessResponseMessagesInner&gt;**](BulkOmniMessageCreateSuccessResponseMessagesInner.md) | List of responses for each Omnimessage. |  |
 
 ## Example
 

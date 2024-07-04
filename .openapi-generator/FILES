@@ -9,6 +9,7 @@ README.md
 Rakefile
 docs/BlacklistApi.md
 docs/BulkOmniMessageCreateSuccessResponse.md
+docs/BulkOmniMessageCreateSuccessResponseMessagesInner.md
 docs/BulkOmnimessage.md
 docs/Channel.md
 docs/ContactEnvelope.md
@@ -83,6 +84,7 @@ lib/messente_api/api_client.rb
 lib/messente_api/api_error.rb
 lib/messente_api/configuration.rb
 lib/messente_api/models/bulk_omni_message_create_success_response.rb
+lib/messente_api/models/bulk_omni_message_create_success_response_messages_inner.rb
 lib/messente_api/models/bulk_omnimessage.rb
 lib/messente_api/models/channel.rb
 lib/messente_api/models/contact_envelope.rb
