@@ -16,7 +16,7 @@ require 'time'
 module MessenteApi
   # Response received after successfully created bulk omnimessage.
   class BulkOmniMessageCreateSuccessResponse
-    # List of responses for each Omnimessage.
+    # List of responses for each Omnimessage in the bulk. These can be errors or successful responses
     attr_accessor :messages
 
     # Attribute mapping from ruby-style variable name to JSON key.

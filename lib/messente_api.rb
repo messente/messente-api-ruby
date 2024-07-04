@@ -77,6 +77,7 @@ require 'messente_api/models/whats_app_template'
 
 # APIs
 require 'messente_api/api/blacklist_api'
+require 'messente_api/api/bulk_messaging_api'
 require 'messente_api/api/contacts_api'
 require 'messente_api/api/delivery_report_api'
 require 'messente_api/api/groups_api'

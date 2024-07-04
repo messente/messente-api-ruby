@@ -8,6 +8,7 @@ Gemfile
 README.md
 Rakefile
 docs/BlacklistApi.md
+docs/BulkMessagingApi.md
 docs/BulkOmniMessageCreateSuccessResponse.md
 docs/BulkOmniMessageCreateSuccessResponseMessagesInner.md
 docs/BulkOmnimessage.md
@@ -74,6 +75,7 @@ docs/WhatsAppTemplate.md
 git_push.sh
 lib/messente_api.rb
 lib/messente_api/api/blacklist_api.rb
+lib/messente_api/api/bulk_messaging_api.rb
 lib/messente_api/api/contacts_api.rb
 lib/messente_api/api/delivery_report_api.rb
 lib/messente_api/api/groups_api.rb
