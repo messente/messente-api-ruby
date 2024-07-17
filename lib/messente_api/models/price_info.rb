@@ -14,57 +14,23 @@ require 'date'
 require 'time'
 
 module MessenteApi
-  # A delivery report
-  class DeliveryResult
-    attr_accessor :status
+  # Contains price information for the message. This value is *null* if the message is still being processed
+  class PriceInfo
+    # price per message part - relevant mostly for SMS
+    attr_accessor :part_price
 
-    attr_accessor :channel
+    # the number of parts the message consists of
+    attr_accessor :parts_count
 
-    # Unique identifier for the message
-    attr_accessor :message_id
-
-    # Human-readable description of what went wrong, *null* in case of success or if the message has not been processed yet
-    attr_accessor :error
-
-    attr_accessor :err
-
-    # When this status was received by Omnichannel API
-    attr_accessor :timestamp
-
-    attr_accessor :price_info
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    # total price for the message
+    attr_accessor :total_price
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'status' => :'status',
-        :'channel' => :'channel',
-        :'message_id' => :'message_id',
-        :'error' => :'error',
-        :'err' => :'err',
-        :'timestamp' => :'timestamp',
-        :'price_info' => :'price_info'
+        :'part_price' => :'part_price',
+        :'parts_count' => :'parts_count',
+        :'total_price' => :'total_price'
       }
     end
 
@@ -76,20 +42,15 @@ module MessenteApi
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'status' => :'Status',
-        :'channel' => :'Channel',
-        :'message_id' => :'String',
-        :'error' => :'String',
-        :'err' => :'ErrorCodeOmnichannelMachine',
-        :'timestamp' => :'Time',
-        :'price_info' => :'PriceInfo'
+        :'part_price' => :'String',
+        :'parts_count' => :'Integer',
+        :'total_price' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'error',
       ])
     end
 
@@ -97,43 +58,33 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::DeliveryResult` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::PriceInfo` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::DeliveryResult`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::PriceInfo`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'part_price')
+        self.part_price = attributes[:'part_price']
+      else
+        self.part_price = nil
       end
 
-      if attributes.key?(:'channel')
-        self.channel = attributes[:'channel']
+      if attributes.key?(:'parts_count')
+        self.parts_count = attributes[:'parts_count']
+      else
+        self.parts_count = nil
       end
 
-      if attributes.key?(:'message_id')
-        self.message_id = attributes[:'message_id']
-      end
-
-      if attributes.key?(:'error')
-        self.error = attributes[:'error']
-      end
-
-      if attributes.key?(:'err')
-        self.err = attributes[:'err']
-      end
-
-      if attributes.key?(:'timestamp')
-        self.timestamp = attributes[:'timestamp']
-      end
-
-      if attributes.key?(:'price_info')
-        self.price_info = attributes[:'price_info']
+      if attributes.key?(:'total_price')
+        self.total_price = attributes[:'total_price']
+      else
+        self.total_price = nil
       end
     end
 
@@ -142,6 +93,18 @@ module MessenteApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @part_price.nil?
+        invalid_properties.push('invalid value for "part_price", part_price cannot be nil.')
+      end
+
+      if @parts_count.nil?
+        invalid_properties.push('invalid value for "parts_count", parts_count cannot be nil.')
+      end
+
+      if @total_price.nil?
+        invalid_properties.push('invalid value for "total_price", total_price cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -149,6 +112,9 @@ module MessenteApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @part_price.nil?
+      return false if @parts_count.nil?
+      return false if @total_price.nil?
       true
     end
 
@@ -157,13 +123,9 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          status == o.status &&
-          channel == o.channel &&
-          message_id == o.message_id &&
-          error == o.error &&
-          err == o.err &&
-          timestamp == o.timestamp &&
-          price_info == o.price_info
+          part_price == o.part_price &&
+          parts_count == o.parts_count &&
+          total_price == o.total_price
     end
 
     # @see the `==` method
@@ -175,7 +137,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [status, channel, message_id, error, err, timestamp, price_info].hash
+      [part_price, parts_count, total_price].hash
     end
 
     # Builds the object from hash

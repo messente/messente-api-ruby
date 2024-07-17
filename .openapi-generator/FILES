@@ -52,6 +52,7 @@ docs/OmniMessageCreateSuccessResponse.md
 docs/Omnimessage.md
 docs/OmnimessageApi.md
 docs/OmnimessageMessagesInner.md
+docs/PriceInfo.md
 docs/Priority.md
 docs/SMS.md
 docs/StatisticsApi.md
@@ -123,6 +124,7 @@ lib/messente_api/models/numbers_to_investigate.rb
 lib/messente_api/models/omni_message_create_success_response.rb
 lib/messente_api/models/omnimessage.rb
 lib/messente_api/models/omnimessage_messages_inner.rb
+lib/messente_api/models/price_info.rb
 lib/messente_api/models/priority.rb
 lib/messente_api/models/sms.rb
 lib/messente_api/models/statistics_report.rb

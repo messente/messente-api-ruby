@@ -10,6 +10,7 @@
 | **error** | **String** | Human-readable description of what went wrong, *null* in case of success or if the message has not been processed yet | [optional] |
 | **err** | [**ErrorCodeOmnichannelMachine**](ErrorCodeOmnichannelMachine.md) |  | [optional] |
 | **timestamp** | **Time** | When this status was received by Omnichannel API | [optional] |
+| **price_info** | [**PriceInfo**](PriceInfo.md) |  | [optional] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = MessenteApi::DeliveryResult.new(
   message_id: null,
   error: null,
   err: null,
-  timestamp: null
+  timestamp: null,
+  price_info: null
 )
 ```
 
