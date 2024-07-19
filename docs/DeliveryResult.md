@@ -11,6 +11,7 @@
 | **err** | [**ErrorCodeOmnichannelMachine**](ErrorCodeOmnichannelMachine.md) |  | [optional] |
 | **timestamp** | **Time** | When this status was received by Omnichannel API | [optional] |
 | **price_info** | [**PriceInfo**](PriceInfo.md) |  | [optional] |
+| **sender** | **String** | the sender of the message | [optional] |
 
 ## Example
 
@@ -24,7 +25,8 @@ instance = MessenteApi::DeliveryResult.new(
   error: null,
   err: null,
   timestamp: null,
-  price_info: null
+  price_info: null,
+  sender: null
 )
 ```
 

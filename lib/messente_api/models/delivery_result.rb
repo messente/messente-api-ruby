@@ -33,6 +33,9 @@ module MessenteApi
 
     attr_accessor :price_info
 
+    # the sender of the message
+    attr_accessor :sender
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -64,7 +67,8 @@ module MessenteApi
         :'error' => :'error',
         :'err' => :'err',
         :'timestamp' => :'timestamp',
-        :'price_info' => :'price_info'
+        :'price_info' => :'price_info',
+        :'sender' => :'sender'
       }
     end
 
@@ -82,7 +86,8 @@ module MessenteApi
         :'error' => :'String',
         :'err' => :'ErrorCodeOmnichannelMachine',
         :'timestamp' => :'Time',
-        :'price_info' => :'PriceInfo'
+        :'price_info' => :'PriceInfo',
+        :'sender' => :'String'
       }
     end
 
@@ -135,6 +140,10 @@ module MessenteApi
       if attributes.key?(:'price_info')
         self.price_info = attributes[:'price_info']
       end
+
+      if attributes.key?(:'sender')
+        self.sender = attributes[:'sender']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -163,7 +172,8 @@ module MessenteApi
           error == o.error &&
           err == o.err &&
           timestamp == o.timestamp &&
-          price_info == o.price_info
+          price_info == o.price_info &&
+          sender == o.sender
     end
 
     # @see the `==` method
@@ -175,7 +185,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [status, channel, message_id, error, err, timestamp, price_info].hash
+      [status, channel, message_id, error, err, timestamp, price_info, sender].hash
     end
 
     # Builds the object from hash
