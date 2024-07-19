@@ -8,4 +8,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build messente_api.gemspec
-  - gem install ./messente_api-2.0.0.gem
+  - gem install ./messente_api-2.1.0.gem
