@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**groups** | [**Array&lt;GroupResponseFields&gt;**](GroupResponseFields.md) | An array of groups | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **groups** | [**Array&lt;GroupResponseFields&gt;**](GroupResponseFields.md) | An array of groups | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'MessenteApi'
+require 'messente_api'
 
-instance = MessenteApi::GroupListEnvelope.new(groups: null)
+instance = MessenteApi::GroupListEnvelope.new(
+  groups: null
+)
 ```
-
 
