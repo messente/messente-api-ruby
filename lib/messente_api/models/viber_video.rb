@@ -14,68 +14,27 @@ require 'date'
 require 'time'
 
 module MessenteApi
-  # Viber message content
-  class Viber
-    # Phone number or alphanumeric sender name
-    attr_accessor :sender
+  # Viber video object
+  class ViberVideo
+    # URL pointing to the video resource.
+    attr_accessor :url
 
-    # After how many minutes this channel is considered as failed and the next channel is attempted.       Only one of \"ttl\" and \"validity\" can be used.
-    attr_accessor :validity
+    # URL pointing to the video thumbnail resource.
+    attr_accessor :thumbnail
 
-    # After how many seconds this channel is considered as failed and the next channel is attempted.       Only one of \"ttl\" and \"validity\" can be used.
-    attr_accessor :ttl
+    # Size of the video file in bytes. Cannot be larger than 200MB.
+    attr_accessor :file_size
 
-    # Plaintext content for Viber
-    attr_accessor :text
-
-    # URL for the embedded image    Valid combinations:    1) image_url,    2) text, image_url, button_url, button_text
-    attr_accessor :image_url
-
-    # URL of the button, must be specified along with ''text'', ''button_text'' and ''image_url'' (optional)
-    attr_accessor :button_url
-
-    # Must be specified along with ''text'', ''button_url'', ''button_text'', ''image_url'' (optional)
-    attr_accessor :button_text
-
-    # The channel used to deliver the message
-    attr_accessor :channel
-
-    attr_accessor :video
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    # Duration of the video in seconds. Cannot be longer than 600 seconds.
+    attr_accessor :duration
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'sender' => :'sender',
-        :'validity' => :'validity',
-        :'ttl' => :'ttl',
-        :'text' => :'text',
-        :'image_url' => :'image_url',
-        :'button_url' => :'button_url',
-        :'button_text' => :'button_text',
-        :'channel' => :'channel',
-        :'video' => :'video'
+        :'url' => :'url',
+        :'thumbnail' => :'thumbnail',
+        :'file_size' => :'file_size',
+        :'duration' => :'duration'
       }
     end
 
@@ -87,15 +46,10 @@ module MessenteApi
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'sender' => :'String',
-        :'validity' => :'Integer',
-        :'ttl' => :'Integer',
-        :'text' => :'String',
-        :'image_url' => :'String',
-        :'button_url' => :'String',
-        :'button_text' => :'String',
-        :'channel' => :'String',
-        :'video' => :'ViberVideo'
+        :'url' => :'String',
+        :'thumbnail' => :'String',
+        :'file_size' => :'Integer',
+        :'duration' => :'Array<WhatsAppParameter>'
       }
     end
 
@@ -109,53 +63,41 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::Viber` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::ViberVideo` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::Viber`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::ViberVideo`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'sender')
-        self.sender = attributes[:'sender']
-      end
-
-      if attributes.key?(:'validity')
-        self.validity = attributes[:'validity']
-      end
-
-      if attributes.key?(:'ttl')
-        self.ttl = attributes[:'ttl']
-      end
-
-      if attributes.key?(:'text')
-        self.text = attributes[:'text']
-      end
-
-      if attributes.key?(:'image_url')
-        self.image_url = attributes[:'image_url']
-      end
-
-      if attributes.key?(:'button_url')
-        self.button_url = attributes[:'button_url']
-      end
-
-      if attributes.key?(:'button_text')
-        self.button_text = attributes[:'button_text']
-      end
-
-      if attributes.key?(:'channel')
-        self.channel = attributes[:'channel']
+      if attributes.key?(:'url')
+        self.url = attributes[:'url']
       else
-        self.channel = 'viber'
+        self.url = nil
       end
 
-      if attributes.key?(:'video')
-        self.video = attributes[:'video']
+      if attributes.key?(:'thumbnail')
+        self.thumbnail = attributes[:'thumbnail']
+      else
+        self.thumbnail = nil
+      end
+
+      if attributes.key?(:'file_size')
+        self.file_size = attributes[:'file_size']
+      else
+        self.file_size = nil
+      end
+
+      if attributes.key?(:'duration')
+        if (value = attributes[:'duration']).is_a?(Array)
+          self.duration = value
+        end
+      else
+        self.duration = nil
       end
     end
 
@@ -164,6 +106,22 @@ module MessenteApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @url.nil?
+        invalid_properties.push('invalid value for "url", url cannot be nil.')
+      end
+
+      if @thumbnail.nil?
+        invalid_properties.push('invalid value for "thumbnail", thumbnail cannot be nil.')
+      end
+
+      if @file_size.nil?
+        invalid_properties.push('invalid value for "file_size", file_size cannot be nil.')
+      end
+
+      if @duration.nil?
+        invalid_properties.push('invalid value for "duration", duration cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -171,19 +129,11 @@ module MessenteApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      channel_validator = EnumAttributeValidator.new('String', ["viber"])
-      return false unless channel_validator.valid?(@channel)
+      return false if @url.nil?
+      return false if @thumbnail.nil?
+      return false if @file_size.nil?
+      return false if @duration.nil?
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] channel Object to be assigned
-    def channel=(channel)
-      validator = EnumAttributeValidator.new('String', ["viber"])
-      unless validator.valid?(channel)
-        fail ArgumentError, "invalid value for \"channel\", must be one of #{validator.allowable_values}."
-      end
-      @channel = channel
     end
 
     # Checks equality by comparing each attribute.
@@ -191,15 +141,10 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          sender == o.sender &&
-          validity == o.validity &&
-          ttl == o.ttl &&
-          text == o.text &&
-          image_url == o.image_url &&
-          button_url == o.button_url &&
-          button_text == o.button_text &&
-          channel == o.channel &&
-          video == o.video
+          url == o.url &&
+          thumbnail == o.thumbnail &&
+          file_size == o.file_size &&
+          duration == o.duration
     end
 
     # @see the `==` method
@@ -211,7 +156,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [sender, validity, ttl, text, image_url, button_url, button_text, channel, video].hash
+      [url, thumbnail, file_size, duration].hash
     end
 
     # Builds the object from hash
