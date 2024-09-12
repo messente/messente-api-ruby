@@ -49,7 +49,7 @@ module MessenteApi
         :'url' => :'String',
         :'thumbnail' => :'String',
         :'file_size' => :'Integer',
-        :'duration' => :'Array<WhatsAppParameter>'
+        :'duration' => :'Integer'
       }
     end
 
@@ -93,9 +93,7 @@ module MessenteApi
       end
 
       if attributes.key?(:'duration')
-        if (value = attributes[:'duration']).is_a?(Array)
-          self.duration = value
-        end
+        self.duration = attributes[:'duration']
       else
         self.duration = nil
       end
