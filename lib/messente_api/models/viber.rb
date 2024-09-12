@@ -40,8 +40,6 @@ module MessenteApi
     # The channel used to deliver the message
     attr_accessor :channel
 
-    attr_accessor :video
-
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -74,8 +72,7 @@ module MessenteApi
         :'image_url' => :'image_url',
         :'button_url' => :'button_url',
         :'button_text' => :'button_text',
-        :'channel' => :'channel',
-        :'video' => :'video'
+        :'channel' => :'channel'
       }
     end
 
@@ -94,8 +91,7 @@ module MessenteApi
         :'image_url' => :'String',
         :'button_url' => :'String',
         :'button_text' => :'String',
-        :'channel' => :'String',
-        :'video' => :'ViberVideo'
+        :'channel' => :'String'
       }
     end
 
@@ -153,10 +149,6 @@ module MessenteApi
       else
         self.channel = 'viber'
       end
-
-      if attributes.key?(:'video')
-        self.video = attributes[:'video']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -198,8 +190,7 @@ module MessenteApi
           image_url == o.image_url &&
           button_url == o.button_url &&
           button_text == o.button_text &&
-          channel == o.channel &&
-          video == o.video
+          channel == o.channel
     end
 
     # @see the `==` method
@@ -211,7 +202,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [sender, validity, ttl, text, image_url, button_url, button_text, channel, video].hash
+      [sender, validity, ttl, text, image_url, button_url, button_text, channel].hash
     end
 
     # Builds the object from hash
