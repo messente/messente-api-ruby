@@ -11,5 +11,5 @@ Generator version: 7.6.0
 =end
 
 module MessenteApi
-  VERSION = '2.1.0'
+  VERSION = '2.2.0'
 end
