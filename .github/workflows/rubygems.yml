@@ -1,5 +1,8 @@
 name: Publish Ruby
 
+on:
+  push
+
 jobs:
   push:
     name: Push gem to RubyGems.org
