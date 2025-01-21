@@ -1,7 +1,9 @@
 name: Publish Ruby
 
 on:
-  push
+  push:
+    tags:
+      - '*'
 
 jobs:
   push:
