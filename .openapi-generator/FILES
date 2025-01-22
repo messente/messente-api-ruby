@@ -74,6 +74,7 @@ docs/WhatsAppLanguage.md
 docs/WhatsAppMedia.md
 docs/WhatsAppParameter.md
 docs/WhatsAppTemplate.md
+docs/WhatsAppText.md
 git_push.sh
 lib/messente_api.rb
 lib/messente_api/api/blacklist_api.rb
@@ -146,6 +147,7 @@ lib/messente_api/models/whats_app_language.rb
 lib/messente_api/models/whats_app_media.rb
 lib/messente_api/models/whats_app_parameter.rb
 lib/messente_api/models/whats_app_template.rb
+lib/messente_api/models/whats_app_text.rb
 lib/messente_api/version.rb
 messente_api.gemspec
 spec/spec_helper.rb

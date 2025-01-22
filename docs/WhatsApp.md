@@ -8,6 +8,7 @@
 | **validity** | **Integer** | After how many minutes this channel is   considered as failed and the next channel is attempted | [optional] |
 | **ttl** | **Integer** | After how many seconds this channel is considered as failed and the next channel is attempted.       Only one of \&quot;ttl\&quot; and \&quot;validity\&quot; can be used. | [optional] |
 | **template** | [**WhatsAppTemplate**](WhatsAppTemplate.md) |  | [optional] |
+| **text** | [**WhatsAppText**](WhatsAppText.md) |  | [optional] |
 | **channel** | **String** | The channel used to deliver the message | [optional][default to &#39;whatsapp&#39;] |
 
 ## Example
@@ -20,6 +21,7 @@ instance = MessenteApi::WhatsApp.new(
   validity: 360,
   ttl: 21600,
   template: null,
+  text: null,
   channel: null
 )
 ```

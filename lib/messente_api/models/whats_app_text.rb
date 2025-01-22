@@ -14,55 +14,19 @@ require 'date'
 require 'time'
 
 module MessenteApi
-  # WhatsApp message content.   Only one of \"text\", \"image\", \"document\" or \"audio\" can be provided
-  class WhatsApp
-    # Phone number or alphanumeric sender name
-    attr_accessor :sender
+  # A text
+  class WhatsAppText
+    # Whether to display link preview if the message contains a hyperlink
+    attr_accessor :preview_url
 
-    # After how many minutes this channel is   considered as failed and the next channel is attempted
-    attr_accessor :validity
-
-    # After how many seconds this channel is considered as failed and the next channel is attempted.       Only one of \"ttl\" and \"validity\" can be used.
-    attr_accessor :ttl
-
-    attr_accessor :template
-
-    attr_accessor :text
-
-    # The channel used to deliver the message
-    attr_accessor :channel
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    # Plaintext content for WhatsApp, can contain URLs, emojis and formatting
+    attr_accessor :body
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'sender' => :'sender',
-        :'validity' => :'validity',
-        :'ttl' => :'ttl',
-        :'template' => :'template',
-        :'text' => :'text',
-        :'channel' => :'channel'
+        :'preview_url' => :'preview_url',
+        :'body' => :'body'
       }
     end
 
@@ -74,12 +38,8 @@ module MessenteApi
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'sender' => :'String',
-        :'validity' => :'Integer',
-        :'ttl' => :'Integer',
-        :'template' => :'WhatsAppTemplate',
-        :'text' => :'WhatsAppText',
-        :'channel' => :'String'
+        :'preview_url' => :'Boolean',
+        :'body' => :'String'
       }
     end
 
@@ -93,41 +53,27 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::WhatsApp` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::WhatsAppText` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::WhatsApp`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::WhatsAppText`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'sender')
-        self.sender = attributes[:'sender']
-      end
-
-      if attributes.key?(:'validity')
-        self.validity = attributes[:'validity']
-      end
-
-      if attributes.key?(:'ttl')
-        self.ttl = attributes[:'ttl']
-      end
-
-      if attributes.key?(:'template')
-        self.template = attributes[:'template']
-      end
-
-      if attributes.key?(:'text')
-        self.text = attributes[:'text']
-      end
-
-      if attributes.key?(:'channel')
-        self.channel = attributes[:'channel']
+      if attributes.key?(:'preview_url')
+        self.preview_url = attributes[:'preview_url']
       else
-        self.channel = 'whatsapp'
+        self.preview_url = true
+      end
+
+      if attributes.key?(:'body')
+        self.body = attributes[:'body']
+      else
+        self.body = nil
       end
     end
 
@@ -136,6 +82,10 @@ module MessenteApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @body.nil?
+        invalid_properties.push('invalid value for "body", body cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -143,19 +93,8 @@ module MessenteApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      channel_validator = EnumAttributeValidator.new('String', ["whatsapp"])
-      return false unless channel_validator.valid?(@channel)
+      return false if @body.nil?
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] channel Object to be assigned
-    def channel=(channel)
-      validator = EnumAttributeValidator.new('String', ["whatsapp"])
-      unless validator.valid?(channel)
-        fail ArgumentError, "invalid value for \"channel\", must be one of #{validator.allowable_values}."
-      end
-      @channel = channel
     end
 
     # Checks equality by comparing each attribute.
@@ -163,12 +102,8 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          sender == o.sender &&
-          validity == o.validity &&
-          ttl == o.ttl &&
-          template == o.template &&
-          text == o.text &&
-          channel == o.channel
+          preview_url == o.preview_url &&
+          body == o.body
     end
 
     # @see the `==` method
@@ -180,7 +115,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [sender, validity, ttl, template, text, channel].hash
+      [preview_url, body].hash
     end
 
     # Builds the object from hash

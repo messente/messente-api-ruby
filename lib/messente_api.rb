@@ -76,6 +76,7 @@ require 'messente_api/models/whats_app_language'
 require 'messente_api/models/whats_app_media'
 require 'messente_api/models/whats_app_parameter'
 require 'messente_api/models/whats_app_template'
+require 'messente_api/models/whats_app_text'
 
 # APIs
 require 'messente_api/api/blacklist_api'

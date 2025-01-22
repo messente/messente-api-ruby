@@ -32,6 +32,12 @@ module MessenteApi
 
     attr_accessor :video
 
+    # A coupon code.
+    attr_accessor :coupon_code
+
+    # A payload.
+    attr_accessor :payload
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -41,7 +47,9 @@ module MessenteApi
         :'date_time' => :'date_time',
         :'image' => :'image',
         :'document' => :'document',
-        :'video' => :'video'
+        :'video' => :'video',
+        :'coupon_code' => :'coupon_code',
+        :'payload' => :'payload'
       }
     end
 
@@ -59,7 +67,9 @@ module MessenteApi
         :'date_time' => :'WhatsAppDatetime',
         :'image' => :'WhatsAppMedia',
         :'document' => :'WhatsAppMedia',
-        :'video' => :'WhatsAppMedia'
+        :'video' => :'WhatsAppMedia',
+        :'coupon_code' => :'String',
+        :'payload' => :'String'
       }
     end
 
@@ -113,6 +123,14 @@ module MessenteApi
       if attributes.key?(:'video')
         self.video = attributes[:'video']
       end
+
+      if attributes.key?(:'coupon_code')
+        self.coupon_code = attributes[:'coupon_code']
+      end
+
+      if attributes.key?(:'payload')
+        self.payload = attributes[:'payload']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -146,7 +164,9 @@ module MessenteApi
           date_time == o.date_time &&
           image == o.image &&
           document == o.document &&
-          video == o.video
+          video == o.video &&
+          coupon_code == o.coupon_code &&
+          payload == o.payload
     end
 
     # @see the `==` method
@@ -158,7 +178,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, text, currency, date_time, image, document, video].hash
+      [type, text, currency, date_time, image, document, video, coupon_code, payload].hash
     end
 
     # Builds the object from hash
