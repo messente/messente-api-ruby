@@ -2,17 +2,16 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **errors** | [**Array&lt;ErrorItemOmnichannel&gt;**](ErrorItemOmnichannel.md) | An array of errors |  |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**errors** | [**Array&lt;ErrorItemOmnichannel&gt;**](ErrorItemOmnichannel.md) | An array of errors | 
 
-## Example
+## Code Sample
 
 ```ruby
-require 'messente_api'
+require 'MessenteApi'
 
-instance = MessenteApi::ErrorOmnichannel.new(
-  errors: null
-)
+instance = MessenteApi::ErrorOmnichannel.new(errors: null)
 ```
+
 
