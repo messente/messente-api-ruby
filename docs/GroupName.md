@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | **String** | The name of the group | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **name** | **String** | The name of the group |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'MessenteApi'
+require 'messente_api'
 
-instance = MessenteApi::GroupName.new(name: null)
+instance = MessenteApi::GroupName.new(
+  name: null
+)
 ```
-
 
