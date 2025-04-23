@@ -65,6 +65,14 @@ Messente API Library provides the operations described below to access the featu
 
 1. Requests statistics reports for each country [`create_statistics_report`](docs/StatisticsApi.md#create_statistics_report)
 
+### WhatsAppTemplatesApi
+
+1. Creates a WhatsApp template [`create_whatsapp_template`](docs/WhatsAppTemplatesApi.md#create_whatsapp_template)
+1. Deletes a WhatsApp template [`delete_whatsapp_template`](docs/WhatsAppTemplatesApi.md#delete_whatsapp_template)
+1. Requests a WhatsApp template with the given ID [`get_whatsapp_template_by_id`](docs/WhatsAppTemplatesApi.md#get_whatsapp_template_by_id)
+1. Requests a list of WhatsApp templates [`list_whatsapp_templates`](docs/WhatsAppTemplatesApi.md#list_whatsapp_templates)
+1. Updates a WhatsApp template [`update_whatsapp_template`](docs/WhatsAppTemplatesApi.md#update_whatsapp_template)
+
 ## Auth
 
 **Type**: HTTP basic authentication

@@ -14,22 +14,59 @@ require 'date'
 require 'time'
 
 module MessenteApi
-  # Whatsapp Cloud API template
-  class WhatsAppTemplate
-    # Name of the template
-    attr_accessor :name
+  # Whatsapp button object.
+  class WhatsappTemplateButton
+    attr_accessor :type
 
-    attr_accessor :language
+    attr_accessor :otp_type
 
-    # List of template components
-    attr_accessor :components
+    # Text to be autofilled in the OTP field
+    attr_accessor :autofill_text
+
+    # List of supported apps for the button
+    attr_accessor :supported_apps
+
+    # Text content of the button
+    attr_accessor :text
+
+    # Phone number for the button
+    attr_accessor :phone_number
+
+    # URL for the button
+    attr_accessor :url
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'language' => :'language',
-        :'components' => :'components'
+        :'type' => :'type',
+        :'otp_type' => :'otp_type',
+        :'autofill_text' => :'autofill_text',
+        :'supported_apps' => :'supported_apps',
+        :'text' => :'text',
+        :'phone_number' => :'phone_number',
+        :'url' => :'url'
       }
     end
 
@@ -41,9 +78,13 @@ module MessenteApi
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'language' => :'WhatsAppLanguage',
-        :'components' => :'Array<WhatsAppComponent>'
+        :'type' => :'WhatsappButtonType',
+        :'otp_type' => :'WhatsappOtpButtonType',
+        :'autofill_text' => :'String',
+        :'supported_apps' => :'Array<WhatsappSupportedApp>',
+        :'text' => :'String',
+        :'phone_number' => :'String',
+        :'url' => :'String'
       }
     end
 
@@ -57,35 +98,45 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::WhatsAppTemplate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::WhatsappTemplateButton` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::WhatsAppTemplate`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::WhatsappTemplateButton`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      else
-        self.name = nil
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
       end
 
-      if attributes.key?(:'language')
-        self.language = attributes[:'language']
-      else
-        self.language = nil
+      if attributes.key?(:'otp_type')
+        self.otp_type = attributes[:'otp_type']
       end
 
-      if attributes.key?(:'components')
-        if (value = attributes[:'components']).is_a?(Array)
-          self.components = value
+      if attributes.key?(:'autofill_text')
+        self.autofill_text = attributes[:'autofill_text']
+      end
+
+      if attributes.key?(:'supported_apps')
+        if (value = attributes[:'supported_apps']).is_a?(Array)
+          self.supported_apps = value
         end
-      else
-        self.components = nil
+      end
+
+      if attributes.key?(:'text')
+        self.text = attributes[:'text']
+      end
+
+      if attributes.key?(:'phone_number')
+        self.phone_number = attributes[:'phone_number']
+      end
+
+      if attributes.key?(:'url')
+        self.url = attributes[:'url']
       end
     end
 
@@ -94,16 +145,16 @@ module MessenteApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      if !@text.nil? && @text.to_s.length > 25
+        invalid_properties.push('invalid value for "text", the character length must be smaller than or equal to 25.')
       end
 
-      if @language.nil?
-        invalid_properties.push('invalid value for "language", language cannot be nil.')
+      if !@phone_number.nil? && @phone_number.to_s.length > 20
+        invalid_properties.push('invalid value for "phone_number", the character length must be smaller than or equal to 20.')
       end
 
-      if @components.nil?
-        invalid_properties.push('invalid value for "components", components cannot be nil.')
+      if !@url.nil? && @url.to_s.length > 2000
+        invalid_properties.push('invalid value for "url", the character length must be smaller than or equal to 2000.')
       end
 
       invalid_properties
@@ -113,10 +164,52 @@ module MessenteApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @name.nil?
-      return false if @language.nil?
-      return false if @components.nil?
+      return false if !@text.nil? && @text.to_s.length > 25
+      return false if !@phone_number.nil? && @phone_number.to_s.length > 20
+      return false if !@url.nil? && @url.to_s.length > 2000
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] text Value to be assigned
+    def text=(text)
+      if text.nil?
+        fail ArgumentError, 'text cannot be nil'
+      end
+
+      if text.to_s.length > 25
+        fail ArgumentError, 'invalid value for "text", the character length must be smaller than or equal to 25.'
+      end
+
+      @text = text
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] phone_number Value to be assigned
+    def phone_number=(phone_number)
+      if phone_number.nil?
+        fail ArgumentError, 'phone_number cannot be nil'
+      end
+
+      if phone_number.to_s.length > 20
+        fail ArgumentError, 'invalid value for "phone_number", the character length must be smaller than or equal to 20.'
+      end
+
+      @phone_number = phone_number
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] url Value to be assigned
+    def url=(url)
+      if url.nil?
+        fail ArgumentError, 'url cannot be nil'
+      end
+
+      if url.to_s.length > 2000
+        fail ArgumentError, 'invalid value for "url", the character length must be smaller than or equal to 2000.'
+      end
+
+      @url = url
     end
 
     # Checks equality by comparing each attribute.
@@ -124,9 +217,13 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          language == o.language &&
-          components == o.components
+          type == o.type &&
+          otp_type == o.otp_type &&
+          autofill_text == o.autofill_text &&
+          supported_apps == o.supported_apps &&
+          text == o.text &&
+          phone_number == o.phone_number &&
+          url == o.url
     end
 
     # @see the `==` method
@@ -138,7 +235,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, language, components].hash
+      [type, otp_type, autofill_text, supported_apps, text, phone_number, url].hash
     end
 
     # Builds the object from hash

@@ -14,20 +14,50 @@ require 'date'
 require 'time'
 
 module MessenteApi
-  # Whatsapp Cloud API template
-  class WhatsAppTemplate
+  # Request to create a WhatsApp template
+  class WhatsappCreateTemplateRequest
     # Name of the template
     attr_accessor :name
 
+    attr_accessor :category
+
+    # Allow category change
+    attr_accessor :allow_category_change
+
+    # Language of the template
     attr_accessor :language
 
     # List of template components
     attr_accessor :components
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'name',
+        :'category' => :'category',
+        :'allow_category_change' => :'allow_category_change',
         :'language' => :'language',
         :'components' => :'components'
       }
@@ -42,8 +72,10 @@ module MessenteApi
     def self.openapi_types
       {
         :'name' => :'String',
-        :'language' => :'WhatsAppLanguage',
-        :'components' => :'Array<WhatsAppComponent>'
+        :'category' => :'WhatsappTemplateCategory',
+        :'allow_category_change' => :'Boolean',
+        :'language' => :'String',
+        :'components' => :'Array<WhatsappTemplateComponent>'
       }
     end
 
@@ -57,13 +89,13 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::WhatsAppTemplate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::WhatsappCreateTemplateRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::WhatsAppTemplate`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::WhatsappCreateTemplateRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -72,6 +104,18 @@ module MessenteApi
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'category')
+        self.category = attributes[:'category']
+      else
+        self.category = nil
+      end
+
+      if attributes.key?(:'allow_category_change')
+        self.allow_category_change = attributes[:'allow_category_change']
+      else
+        self.allow_category_change = false
       end
 
       if attributes.key?(:'language')
@@ -98,6 +142,10 @@ module MessenteApi
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
+      if @category.nil?
+        invalid_properties.push('invalid value for "category", category cannot be nil.')
+      end
+
       if @language.nil?
         invalid_properties.push('invalid value for "language", language cannot be nil.')
       end
@@ -114,6 +162,7 @@ module MessenteApi
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @name.nil?
+      return false if @category.nil?
       return false if @language.nil?
       return false if @components.nil?
       true
@@ -125,6 +174,8 @@ module MessenteApi
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
+          category == o.category &&
+          allow_category_change == o.allow_category_change &&
           language == o.language &&
           components == o.components
     end
@@ -138,7 +189,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, language, components].hash
+      [name, category, allow_category_change, language, components].hash
     end
 
     # Builds the object from hash

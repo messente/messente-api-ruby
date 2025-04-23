@@ -14,22 +14,19 @@ require 'date'
 require 'time'
 
 module MessenteApi
-  # Whatsapp Cloud API template
-  class WhatsAppTemplate
-    # Name of the template
-    attr_accessor :name
+  # WhatsApp paging cursors object.
+  class WhatsappPagingCursors
+    # The template before the first template in the current list
+    attr_accessor :before
 
-    attr_accessor :language
-
-    # List of template components
-    attr_accessor :components
+    # The template after the last template in the current list
+    attr_accessor :after
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'language' => :'language',
-        :'components' => :'components'
+        :'before' => :'before',
+        :'after' => :'after'
       }
     end
 
@@ -41,9 +38,8 @@ module MessenteApi
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'language' => :'WhatsAppLanguage',
-        :'components' => :'Array<WhatsAppComponent>'
+        :'before' => :'String',
+        :'after' => :'String'
       }
     end
 
@@ -57,35 +53,23 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::WhatsAppTemplate` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::WhatsappPagingCursors` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::WhatsAppTemplate`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::WhatsappPagingCursors`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      else
-        self.name = nil
+      if attributes.key?(:'before')
+        self.before = attributes[:'before']
       end
 
-      if attributes.key?(:'language')
-        self.language = attributes[:'language']
-      else
-        self.language = nil
-      end
-
-      if attributes.key?(:'components')
-        if (value = attributes[:'components']).is_a?(Array)
-          self.components = value
-        end
-      else
-        self.components = nil
+      if attributes.key?(:'after')
+        self.after = attributes[:'after']
       end
     end
 
@@ -94,18 +78,6 @@ module MessenteApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @language.nil?
-        invalid_properties.push('invalid value for "language", language cannot be nil.')
-      end
-
-      if @components.nil?
-        invalid_properties.push('invalid value for "components", components cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -113,9 +85,6 @@ module MessenteApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @name.nil?
-      return false if @language.nil?
-      return false if @components.nil?
       true
     end
 
@@ -124,9 +93,8 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          language == o.language &&
-          components == o.components
+          before == o.before &&
+          after == o.after
     end
 
     # @see the `==` method
@@ -138,7 +106,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, language, components].hash
+      [before, after].hash
     end
 
     # Builds the object from hash
