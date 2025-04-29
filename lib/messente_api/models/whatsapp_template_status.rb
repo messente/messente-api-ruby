@@ -16,12 +16,17 @@ require 'time'
 module MessenteApi
   class WhatsappTemplateStatus
     APPROVED = "approved".freeze
+    IN_APPEAL = "in_appeal".freeze
     REJECTED = "rejected".freeze
     PENDING = "pending".freeze
     PENDING_DELETION = "pending_deletion".freeze
+    DELETED = "deleted".freeze
+    DISABLED = "disabled".freeze
+    PAUSED = "paused".freeze
+    LIMIT_EXCEEDED = "limit_exceeded".freeze
 
     def self.all_vars
-      @all_vars ||= [APPROVED, REJECTED, PENDING, PENDING_DELETION].freeze
+      @all_vars ||= [APPROVED, IN_APPEAL, REJECTED, PENDING, PENDING_DELETION, DELETED, DISABLED, PAUSED, LIMIT_EXCEEDED].freeze
     end
 
     # Builds the enum from string
