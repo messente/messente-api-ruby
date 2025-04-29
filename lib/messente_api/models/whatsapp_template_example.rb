@@ -38,7 +38,7 @@ module MessenteApi
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'header_text' => :'Array<Array<String>>',
+        :'header_text' => :'Array<String>',
         :'body_text' => :'Array<Array<String>>'
       }
     end

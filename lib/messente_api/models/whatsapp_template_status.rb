@@ -18,9 +18,10 @@ module MessenteApi
     APPROVED = "approved".freeze
     REJECTED = "rejected".freeze
     PENDING = "pending".freeze
+    PENDING_DELETION = "pending_deletion".freeze
 
     def self.all_vars
-      @all_vars ||= [APPROVED, REJECTED, PENDING].freeze
+      @all_vars ||= [APPROVED, REJECTED, PENDING, PENDING_DELETION].freeze
     end
 
     # Builds the enum from string

@@ -19,9 +19,12 @@ module MessenteApi
     PHONE_NUMBER = "phone_number".freeze
     OTP = "otp".freeze
     URL = "url".freeze
+    CATALOG = "catalog".freeze
+    FLOW = "flow".freeze
+    COPY_CODE = "copy_code".freeze
 
     def self.all_vars
-      @all_vars ||= [QUICK_REPLY, PHONE_NUMBER, OTP, URL].freeze
+      @all_vars ||= [QUICK_REPLY, PHONE_NUMBER, OTP, URL, CATALOG, FLOW, COPY_CODE].freeze
     end
 
     # Builds the enum from string
