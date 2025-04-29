@@ -21,9 +21,6 @@ module MessenteApi
 
     attr_accessor :category
 
-    # Allow category change
-    attr_accessor :allow_category_change
-
     # Language of the template
     attr_accessor :language
 
@@ -57,7 +54,6 @@ module MessenteApi
       {
         :'name' => :'name',
         :'category' => :'category',
-        :'allow_category_change' => :'allow_category_change',
         :'language' => :'language',
         :'components' => :'components'
       }
@@ -73,7 +69,6 @@ module MessenteApi
       {
         :'name' => :'String',
         :'category' => :'WhatsappTemplateCategory',
-        :'allow_category_change' => :'Boolean',
         :'language' => :'String',
         :'components' => :'Array<WhatsappTemplateComponent>'
       }
@@ -110,12 +105,6 @@ module MessenteApi
         self.category = attributes[:'category']
       else
         self.category = nil
-      end
-
-      if attributes.key?(:'allow_category_change')
-        self.allow_category_change = attributes[:'allow_category_change']
-      else
-        self.allow_category_change = false
       end
 
       if attributes.key?(:'language')
@@ -175,7 +164,6 @@ module MessenteApi
       self.class == o.class &&
           name == o.name &&
           category == o.category &&
-          allow_category_change == o.allow_category_change &&
           language == o.language &&
           components == o.components
     end
@@ -189,7 +177,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, category, allow_category_change, language, components].hash
+      [name, category, language, components].hash
     end
 
     # Builds the object from hash
