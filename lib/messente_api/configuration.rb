@@ -251,6 +251,20 @@ module MessenteApi
             key: 'Authorization',
             value: basic_auth_token
           },
+        'apiUsername' =>
+          {
+            type: 'api_key',
+            in: 'query',
+            key: 'username',
+            value: api_key_with_prefix('username')
+          },
+        'apiPassword' =>
+          {
+            type: 'api_key',
+            in: 'query',
+            key: 'password',
+            value: api_key_with_prefix('password')
+          },
       }
     end
 
@@ -266,6 +280,30 @@ module MessenteApi
 
     def operation_server_settings
       {
+        "AccountBalanceApi.get_account_balance": [
+          {
+          url: "https://api2.messente.com",
+          description: "Override base path for account balance API",
+          }
+        ],
+        "AccountBalanceApi.get_account_balance_using_post": [
+          {
+          url: "https://api2.messente.com",
+          description: "Override base path for account balance API",
+          }
+        ],
+        "PricingApi.get_pricelist": [
+          {
+          url: "https://api2.messente.com",
+          description: "Override base path for account balance API",
+          }
+        ],
+        "PricingApi.get_prices": [
+          {
+          url: "https://api2.messente.com",
+          description: "Override base path for account balance API",
+          }
+        ],
       }
     end
 

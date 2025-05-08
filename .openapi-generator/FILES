@@ -7,6 +7,7 @@
 Gemfile
 README.md
 Rakefile
+docs/AccountBalanceApi.md
 docs/BlacklistApi.md
 docs/BulkMessagingApi.md
 docs/BulkOmniMessageCreateSuccessResponse.md
@@ -52,7 +53,10 @@ docs/OmniMessageCreateSuccessResponse.md
 docs/Omnimessage.md
 docs/OmnimessageApi.md
 docs/OmnimessageMessagesInner.md
+docs/Price.md
 docs/PriceInfo.md
+docs/PriceNetworksInner.md
+docs/PricingApi.md
 docs/Priority.md
 docs/SMS.md
 docs/StatisticsApi.md
@@ -95,6 +99,7 @@ docs/WhatsappTemplateStatus.md
 docs/WhatsappUpdateTemplateRequest.md
 git_push.sh
 lib/messente_api.rb
+lib/messente_api/api/account_balance_api.rb
 lib/messente_api/api/blacklist_api.rb
 lib/messente_api/api/bulk_messaging_api.rb
 lib/messente_api/api/contacts_api.rb
@@ -102,6 +107,7 @@ lib/messente_api/api/delivery_report_api.rb
 lib/messente_api/api/groups_api.rb
 lib/messente_api/api/number_lookup_api.rb
 lib/messente_api/api/omnimessage_api.rb
+lib/messente_api/api/pricing_api.rb
 lib/messente_api/api/statistics_api.rb
 lib/messente_api/api/whats_app_templates_api.rb
 lib/messente_api/api_client.rb
@@ -145,7 +151,9 @@ lib/messente_api/models/numbers_to_investigate.rb
 lib/messente_api/models/omni_message_create_success_response.rb
 lib/messente_api/models/omnimessage.rb
 lib/messente_api/models/omnimessage_messages_inner.rb
+lib/messente_api/models/price.rb
 lib/messente_api/models/price_info.rb
+lib/messente_api/models/price_networks_inner.rb
 lib/messente_api/models/priority.rb
 lib/messente_api/models/sms.rb
 lib/messente_api/models/statistics_report.rb
