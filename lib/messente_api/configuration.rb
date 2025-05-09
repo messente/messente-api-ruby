@@ -292,16 +292,28 @@ module MessenteApi
           description: "Override base path for account balance API",
           }
         ],
+        "NumberVerificationApi.verify_number": [
+          {
+          url: "https://api2.messente.com",
+          description: "Override base path for number verification API",
+          }
+        ],
+        "NumberVerificationApi.verify_pin": [
+          {
+          url: "https://api2.messente.com",
+          description: "Override base path for number verification API",
+          }
+        ],
         "PricingApi.get_pricelist": [
           {
           url: "https://api2.messente.com",
-          description: "Override base path for account balance API",
+          description: "Override base path for pricing API",
           }
         ],
         "PricingApi.get_prices": [
           {
           url: "https://api2.messente.com",
-          description: "Override base path for account balance API",
+          description: "Override base path for pricing API",
           }
         ],
       }

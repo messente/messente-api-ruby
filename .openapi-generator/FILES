@@ -48,6 +48,7 @@ docs/MessageResult.md
 docs/MobileNetwork.md
 docs/NumberLookupApi.md
 docs/NumberToBlacklist.md
+docs/NumberVerificationApi.md
 docs/NumbersToInvestigate.md
 docs/OmniMessageCreateSuccessResponse.md
 docs/Omnimessage.md
@@ -106,6 +107,7 @@ lib/messente_api/api/contacts_api.rb
 lib/messente_api/api/delivery_report_api.rb
 lib/messente_api/api/groups_api.rb
 lib/messente_api/api/number_lookup_api.rb
+lib/messente_api/api/number_verification_api.rb
 lib/messente_api/api/omnimessage_api.rb
 lib/messente_api/api/pricing_api.rb
 lib/messente_api/api/statistics_api.rb
