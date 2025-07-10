@@ -111,7 +111,7 @@ end
 api_instance = MessenteApi::PricingApi.new
 username = 'username_example' # String | The API username
 password = 'password_example' # String | The API password
-country = 'country_example' # String | The country code, for which to get the prices
+country = 'EE' # String | The country code, for which to get the prices
 opts = {
   format: 'format_example' # String | The format of the response. Can be either 'json' or 'xml'. If not specified, defaults to 'json'.
 }
