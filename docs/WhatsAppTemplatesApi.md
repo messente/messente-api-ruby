@@ -83,7 +83,7 @@ end
 
 ## delete_whatsapp_template
 
-> Hash&lt;String, Object&gt; delete_whatsapp_template(waba_id, name, opts)
+> Object delete_whatsapp_template(waba_id, name, opts)
 
 Deletes a WhatsApp template
 
@@ -119,7 +119,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> delete_whatsapp_template_with_http_info(waba_id, name, opts)
+> <Array(Object, Integer, Hash)> delete_whatsapp_template_with_http_info(waba_id, name, opts)
 
 ```ruby
 begin
@@ -127,7 +127,7 @@ begin
   data, status_code, headers = api_instance.delete_whatsapp_template_with_http_info(waba_id, name, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Hash&lt;String, Object&gt;
+  p data # => Object
 rescue MessenteApi::ApiError => e
   puts "Error when calling WhatsAppTemplatesApi->delete_whatsapp_template_with_http_info: #{e}"
 end
@@ -143,7 +143,7 @@ end
 
 ### Return type
 
-**Hash&lt;String, Object&gt;**
+**Object**
 
 ### Authorization
 
@@ -313,7 +313,7 @@ end
 
 ## update_whatsapp_template
 
-> Hash&lt;String, Object&gt; update_whatsapp_template(waba_id, template_id, whatsapp_update_template_request)
+> Object update_whatsapp_template(waba_id, template_id, whatsapp_update_template_request)
 
 Updates a WhatsApp template
 
@@ -347,7 +347,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> update_whatsapp_template_with_http_info(waba_id, template_id, whatsapp_update_template_request)
+> <Array(Object, Integer, Hash)> update_whatsapp_template_with_http_info(waba_id, template_id, whatsapp_update_template_request)
 
 ```ruby
 begin
@@ -355,7 +355,7 @@ begin
   data, status_code, headers = api_instance.update_whatsapp_template_with_http_info(waba_id, template_id, whatsapp_update_template_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Hash&lt;String, Object&gt;
+  p data # => Object
 rescue MessenteApi::ApiError => e
   puts "Error when calling WhatsAppTemplatesApi->update_whatsapp_template_with_http_info: #{e}"
 end
@@ -371,7 +371,7 @@ end
 
 ### Return type
 
-**Hash&lt;String, Object&gt;**
+**Object**
 
 ### Authorization
 

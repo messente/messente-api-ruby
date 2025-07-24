@@ -96,7 +96,7 @@ module MessenteApi
     # @param name [String] The name of the template to delete
     # @param [Hash] opts the optional parameters
     # @option opts [String] :hsm_id The ID of the template to delete
-    # @return [Hash<String, Object>]
+    # @return [Object]
     def delete_whatsapp_template(waba_id, name, opts = {})
       data, _status_code, _headers = delete_whatsapp_template_with_http_info(waba_id, name, opts)
       data
@@ -107,7 +107,7 @@ module MessenteApi
     # @param name [String] The name of the template to delete
     # @param [Hash] opts the optional parameters
     # @option opts [String] :hsm_id The ID of the template to delete
-    # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_whatsapp_template_with_http_info(waba_id, name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WhatsAppTemplatesApi.delete_whatsapp_template ...'
@@ -140,7 +140,7 @@ module MessenteApi
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Hash<String, Object>'
+      return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['basicAuth']
@@ -327,7 +327,7 @@ module MessenteApi
     # @param template_id [String] The ID of the template to update
     # @param whatsapp_update_template_request [WhatsappUpdateTemplateRequest] The template data to be updated
     # @param [Hash] opts the optional parameters
-    # @return [Hash<String, Object>]
+    # @return [Object]
     def update_whatsapp_template(waba_id, template_id, whatsapp_update_template_request, opts = {})
       data, _status_code, _headers = update_whatsapp_template_with_http_info(waba_id, template_id, whatsapp_update_template_request, opts)
       data
@@ -338,7 +338,7 @@ module MessenteApi
     # @param template_id [String] The ID of the template to update
     # @param whatsapp_update_template_request [WhatsappUpdateTemplateRequest] The template data to be updated
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def update_whatsapp_template_with_http_info(waba_id, template_id, whatsapp_update_template_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WhatsAppTemplatesApi.update_whatsapp_template ...'
@@ -374,7 +374,7 @@ module MessenteApi
       post_body = opts[:debug_body] || @api_client.object_to_http_body(whatsapp_update_template_request)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Hash<String, Object>'
+      return_type = opts[:debug_return_type] || 'Object'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['basicAuth']

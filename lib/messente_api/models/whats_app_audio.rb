@@ -14,70 +14,23 @@ require 'date'
 require 'time'
 
 module MessenteApi
-  # WhatsApp message content.   Only one of \"text\", \"image\", \"document\" or \"audio\" can be provided
-  class WhatsApp
-    # Phone number or alphanumeric sender name
-    attr_accessor :sender
+  # WhatsApp audio content. Either \"id\" or \"link\" must be provided, but not both.
+  class WhatsAppAudio
+    # Unique identifier for the audio file.
+    attr_accessor :id
 
-    # After how many minutes this channel is   considered as failed and the next channel is attempted
-    attr_accessor :validity
+    # MIME type of the audio file.
+    attr_accessor :mime_type
 
-    # After how many seconds this channel is considered as failed and the next channel is attempted.       Only one of \"ttl\" and \"validity\" can be used.
-    attr_accessor :ttl
-
-    attr_accessor :template
-
-    # The channel used to deliver the message
-    attr_accessor :channel
-
-    attr_accessor :text
-
-    attr_accessor :image
-
-    attr_accessor :video
-
-    attr_accessor :audio
-
-    attr_accessor :document
-
-    attr_accessor :sticker
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    # URL link to the audio file.
+    attr_accessor :link
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'sender' => :'sender',
-        :'validity' => :'validity',
-        :'ttl' => :'ttl',
-        :'template' => :'template',
-        :'channel' => :'channel',
-        :'text' => :'text',
-        :'image' => :'image',
-        :'video' => :'video',
-        :'audio' => :'audio',
-        :'document' => :'document',
-        :'sticker' => :'sticker'
+        :'id' => :'id',
+        :'mime_type' => :'mime_type',
+        :'link' => :'link'
       }
     end
 
@@ -89,23 +42,18 @@ module MessenteApi
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'sender' => :'String',
-        :'validity' => :'Integer',
-        :'ttl' => :'Integer',
-        :'template' => :'WhatsAppTemplate',
-        :'channel' => :'String',
-        :'text' => :'WhatsAppText',
-        :'image' => :'WhatsAppImage',
-        :'video' => :'WhatsAppVideo',
-        :'audio' => :'WhatsAppAudio',
-        :'document' => :'WhatsAppDocument',
-        :'sticker' => :'WhatsAppSticker'
+        :'id' => :'String',
+        :'mime_type' => :'String',
+        :'link' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'id',
+        :'mime_type',
+        :'link'
       ])
     end
 
@@ -113,61 +61,27 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::WhatsApp` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::WhatsAppAudio` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::WhatsApp`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::WhatsAppAudio`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'sender')
-        self.sender = attributes[:'sender']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'validity')
-        self.validity = attributes[:'validity']
+      if attributes.key?(:'mime_type')
+        self.mime_type = attributes[:'mime_type']
       end
 
-      if attributes.key?(:'ttl')
-        self.ttl = attributes[:'ttl']
-      end
-
-      if attributes.key?(:'template')
-        self.template = attributes[:'template']
-      end
-
-      if attributes.key?(:'channel')
-        self.channel = attributes[:'channel']
-      else
-        self.channel = 'whatsapp'
-      end
-
-      if attributes.key?(:'text')
-        self.text = attributes[:'text']
-      end
-
-      if attributes.key?(:'image')
-        self.image = attributes[:'image']
-      end
-
-      if attributes.key?(:'video')
-        self.video = attributes[:'video']
-      end
-
-      if attributes.key?(:'audio')
-        self.audio = attributes[:'audio']
-      end
-
-      if attributes.key?(:'document')
-        self.document = attributes[:'document']
-      end
-
-      if attributes.key?(:'sticker')
-        self.sticker = attributes[:'sticker']
+      if attributes.key?(:'link')
+        self.link = attributes[:'link']
       end
     end
 
@@ -183,19 +97,7 @@ module MessenteApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      channel_validator = EnumAttributeValidator.new('String', ["whatsapp"])
-      return false unless channel_validator.valid?(@channel)
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] channel Object to be assigned
-    def channel=(channel)
-      validator = EnumAttributeValidator.new('String', ["whatsapp"])
-      unless validator.valid?(channel)
-        fail ArgumentError, "invalid value for \"channel\", must be one of #{validator.allowable_values}."
-      end
-      @channel = channel
     end
 
     # Checks equality by comparing each attribute.
@@ -203,17 +105,9 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          sender == o.sender &&
-          validity == o.validity &&
-          ttl == o.ttl &&
-          template == o.template &&
-          channel == o.channel &&
-          text == o.text &&
-          image == o.image &&
-          video == o.video &&
-          audio == o.audio &&
-          document == o.document &&
-          sticker == o.sticker
+          id == o.id &&
+          mime_type == o.mime_type &&
+          link == o.link
     end
 
     # @see the `==` method
@@ -225,7 +119,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [sender, validity, ttl, template, channel, text, image, video, audio, document, sticker].hash
+      [id, mime_type, link].hash
     end
 
     # Builds the object from hash
