@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** | Name of the template |  |
 | **language** | [**WhatsAppLanguage**](WhatsAppLanguage.md) |  |  |
-| **components** | [**Array&lt;WhatsAppComponent&gt;**](WhatsAppComponent.md) | List of template components | [optional] |
+| **components** | [**Array&lt;WhatsAppComponent&gt;**](WhatsAppComponent.md) | List of template components |  |
 
 ## Example
 

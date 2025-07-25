@@ -1,7 +1,7 @@
 # Messente API Library
 
 - Messente API version: 2.0.0
-- Ruby gem version: 2.3.0
+- Ruby gem version: 2.4.0
 
 [Messente](https://messente.com) is a global provider of messaging and user verification services.  * Send and receive SMS, Viber, WhatsApp and Telegram messages. * Manage contacts and groups. * Fetch detailed info about phone numbers. * Blacklist phone numbers to make sure you&#39;re not sending any unwanted messages.  Messente builds [tools](https://messente.com/documentation) to help organizations connect their services to people anywhere in the world.
 
@@ -17,6 +17,11 @@ Messente API has the following features:
 - Phonebook ([external docs](https://messente.com/documentation/phonebook-api)).
 
 Messente API Library provides the operations described below to access the features.
+
+### AccountBalanceApi
+
+1. Get account balance [`get_account_balance`](docs/AccountBalanceApi.md#get_account_balance)
+1. Get account balance [`get_account_balance_using_post`](docs/AccountBalanceApi.md#get_account_balance_using_post)
 
 ### BlacklistApi
 
@@ -56,14 +61,32 @@ Messente API Library provides the operations described below to access the featu
 
 1. Requests info about phone numbers [`fetch_info`](docs/NumberLookupApi.md#fetch_info)
 
+### NumberVerificationApi
+
+1. verify number [`verify_number`](docs/NumberVerificationApi.md#verify_number)
+1. verified the PIN code entered by the user. [`verify_pin`](docs/NumberVerificationApi.md#verify_pin)
+
 ### OmnimessageApi
 
 1. Cancels a scheduled Omnimessage [`cancel_scheduled_message`](docs/OmnimessageApi.md#cancel_scheduled_message)
 1. Sends an Omnimessage [`send_omnimessage`](docs/OmnimessageApi.md#send_omnimessage)
 
+### PricingApi
+
+1. Get pricelist for account [`get_pricelist`](docs/PricingApi.md#get_pricelist)
+1. Get pricing for a specific country [`get_prices`](docs/PricingApi.md#get_prices)
+
 ### StatisticsApi
 
 1. Requests statistics reports for each country [`create_statistics_report`](docs/StatisticsApi.md#create_statistics_report)
+
+### WhatsAppTemplatesApi
+
+1. Creates a WhatsApp template [`create_whatsapp_template`](docs/WhatsAppTemplatesApi.md#create_whatsapp_template)
+1. Deletes a WhatsApp template [`delete_whatsapp_template`](docs/WhatsAppTemplatesApi.md#delete_whatsapp_template)
+1. Requests a WhatsApp template with the given ID [`get_whatsapp_template_by_id`](docs/WhatsAppTemplatesApi.md#get_whatsapp_template_by_id)
+1. Requests a list of WhatsApp templates [`list_whatsapp_templates`](docs/WhatsAppTemplatesApi.md#list_whatsapp_templates)
+1. Updates a WhatsApp template [`update_whatsapp_template`](docs/WhatsAppTemplatesApi.md#update_whatsapp_template)
 
 ## Auth
 
