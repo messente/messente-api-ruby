@@ -14,23 +14,39 @@ require 'date'
 require 'time'
 
 module MessenteApi
-  # A container for statistics report settings
-  class StatisticsReportSettings
-    # Start date for the report
-    attr_accessor :start_date
+  # RCS media object.
+  class RcsMedia
+    attr_accessor :height
 
-    # End date for the report
-    attr_accessor :end_date
+    attr_accessor :content_info
 
-    # Optional list of message types (sms, viber, whatsapp, rcs, hlr)
-    attr_accessor :message_types
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'start_date' => :'start_date',
-        :'end_date' => :'end_date',
-        :'message_types' => :'message_types'
+        :'height' => :'height',
+        :'content_info' => :'content_info'
       }
     end
 
@@ -42,9 +58,8 @@ module MessenteApi
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'start_date' => :'Date',
-        :'end_date' => :'Date',
-        :'message_types' => :'Array<String>'
+        :'height' => :'RcsMediaHeight',
+        :'content_info' => :'RcsContentInfo'
       }
     end
 
@@ -58,33 +73,27 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::StatisticsReportSettings` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::RcsMedia` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::StatisticsReportSettings`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::RcsMedia`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'start_date')
-        self.start_date = attributes[:'start_date']
+      if attributes.key?(:'height')
+        self.height = attributes[:'height']
       else
-        self.start_date = nil
+        self.height = nil
       end
 
-      if attributes.key?(:'end_date')
-        self.end_date = attributes[:'end_date']
+      if attributes.key?(:'content_info')
+        self.content_info = attributes[:'content_info']
       else
-        self.end_date = nil
-      end
-
-      if attributes.key?(:'message_types')
-        if (value = attributes[:'message_types']).is_a?(Array)
-          self.message_types = value
-        end
+        self.content_info = nil
       end
     end
 
@@ -93,12 +102,12 @@ module MessenteApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @start_date.nil?
-        invalid_properties.push('invalid value for "start_date", start_date cannot be nil.')
+      if @height.nil?
+        invalid_properties.push('invalid value for "height", height cannot be nil.')
       end
 
-      if @end_date.nil?
-        invalid_properties.push('invalid value for "end_date", end_date cannot be nil.')
+      if @content_info.nil?
+        invalid_properties.push('invalid value for "content_info", content_info cannot be nil.')
       end
 
       invalid_properties
@@ -108,8 +117,8 @@ module MessenteApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @start_date.nil?
-      return false if @end_date.nil?
+      return false if @height.nil?
+      return false if @content_info.nil?
       true
     end
 
@@ -118,9 +127,8 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          start_date == o.start_date &&
-          end_date == o.end_date &&
-          message_types == o.message_types
+          height == o.height &&
+          content_info == o.content_info
     end
 
     # @see the `==` method
@@ -132,7 +140,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [start_date, end_date, message_types].hash
+      [height, content_info].hash
     end
 
     # Builds the object from hash

@@ -95,7 +95,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::OmnimessageApi.new
-omnimessage = MessenteApi::Omnimessage.new({to: 'to_example', messages: [MessenteApi::SMS.new({text: 'Hello world!'})]}) # Omnimessage | Omnimessage to be sent
+omnimessage = MessenteApi::Omnimessage.new({to: 'to_example', messages: [MessenteApi::OmnimessageMessagesInner.new({sender: 'sender_example', text: 'text_example'})]}) # Omnimessage | Omnimessage to be sent
 
 begin
   # Sends an Omnimessage

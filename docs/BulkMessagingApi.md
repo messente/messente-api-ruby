@@ -26,7 +26,7 @@ MessenteApi.configure do |config|
 end
 
 api_instance = MessenteApi::BulkMessagingApi.new
-bulk_omnimessage = MessenteApi::BulkOmnimessage.new({messages: [MessenteApi::Omnimessage.new({to: 'to_example', messages: [MessenteApi::SMS.new({text: 'Hello world!'})]})]}) # BulkOmnimessage | Bulk Omnimessage to be sent
+bulk_omnimessage = MessenteApi::BulkOmnimessage.new({messages: [MessenteApi::Omnimessage.new({to: 'to_example', messages: [MessenteApi::OmnimessageMessagesInner.new({sender: 'sender_example', text: 'text_example'})]})]}) # BulkOmnimessage | Bulk Omnimessage to be sent
 
 begin
   # Sends a bulk Omnimessage
