@@ -14,28 +14,29 @@ require 'date'
 require 'time'
 
 module MessenteApi
-  # Telegram message content
-  class Telegram
+  # RCS message object. Exactly one of 'text', 'content_info' or 'rich_card' must be provided.
+  class Rcs
+    # The channel used to deliver the message
+    attr_accessor :channel
+
     # Phone number or alphanumeric sender name
     attr_accessor :sender
 
-    # After how many minutes this channel is considered as failed and the next channel is attempted
+    # After how many minutes this channel is considered as failed and the next channel is attempted.Only one of \"ttl\" and \"validity\" can be used.
     attr_accessor :validity
 
-    # Plaintext content for Telegram
+    # After how many seconds this channel is considered as failed and the next channel is attempted. Only one of \"ttl\" and \"validity\" can be used.
+    attr_accessor :ttl
+
+    # Text content of the RCS message
     attr_accessor :text
 
-    # URL for the embedded image. Mutually exclusive with \"document_url\" and \"audio_url\"
-    attr_accessor :image_url
+    # List of suggestions to include with the message
+    attr_accessor :suggestions
 
-    # URL for the embedded image. Mutually exclusive with \"audio_url\" and \"image_url\"
-    attr_accessor :document_url
+    attr_accessor :rich_card
 
-    # URL for the embedded image. Mutually exclusive with \"document_url\" and \"image_url\"
-    attr_accessor :audio_url
-
-    # The channel used to deliver the message
-    attr_accessor :channel
+    attr_accessor :content_info
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -62,13 +63,14 @@ module MessenteApi
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'channel' => :'channel',
         :'sender' => :'sender',
         :'validity' => :'validity',
+        :'ttl' => :'ttl',
         :'text' => :'text',
-        :'image_url' => :'image_url',
-        :'document_url' => :'document_url',
-        :'audio_url' => :'audio_url',
-        :'channel' => :'channel'
+        :'suggestions' => :'suggestions',
+        :'rich_card' => :'rich_card',
+        :'content_info' => :'content_info'
       }
     end
 
@@ -80,13 +82,14 @@ module MessenteApi
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'channel' => :'String',
         :'sender' => :'String',
         :'validity' => :'Integer',
+        :'ttl' => :'Integer',
         :'text' => :'String',
-        :'image_url' => :'String',
-        :'document_url' => :'String',
-        :'audio_url' => :'String',
-        :'channel' => :'String'
+        :'suggestions' => :'Array<RcsSuggestion>',
+        :'rich_card' => :'RcsRichCard',
+        :'content_info' => :'RcsContentInfo'
       }
     end
 
@@ -100,45 +103,53 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::Telegram` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::Rcs` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::Telegram`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::Rcs`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'channel')
+        self.channel = attributes[:'channel']
+      else
+        self.channel = 'rcs'
+      end
+
       if attributes.key?(:'sender')
         self.sender = attributes[:'sender']
+      else
+        self.sender = nil
       end
 
       if attributes.key?(:'validity')
         self.validity = attributes[:'validity']
       end
 
+      if attributes.key?(:'ttl')
+        self.ttl = attributes[:'ttl']
+      end
+
       if attributes.key?(:'text')
         self.text = attributes[:'text']
       end
 
-      if attributes.key?(:'image_url')
-        self.image_url = attributes[:'image_url']
+      if attributes.key?(:'suggestions')
+        if (value = attributes[:'suggestions']).is_a?(Array)
+          self.suggestions = value
+        end
       end
 
-      if attributes.key?(:'document_url')
-        self.document_url = attributes[:'document_url']
+      if attributes.key?(:'rich_card')
+        self.rich_card = attributes[:'rich_card']
       end
 
-      if attributes.key?(:'audio_url')
-        self.audio_url = attributes[:'audio_url']
-      end
-
-      if attributes.key?(:'channel')
-        self.channel = attributes[:'channel']
-      else
-        self.channel = 'telegram'
+      if attributes.key?(:'content_info')
+        self.content_info = attributes[:'content_info']
       end
     end
 
@@ -147,6 +158,18 @@ module MessenteApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @sender.nil?
+        invalid_properties.push('invalid value for "sender", sender cannot be nil.')
+      end
+
+      if !@text.nil? && @text.to_s.length > 3072
+        invalid_properties.push('invalid value for "text", the character length must be smaller than or equal to 3072.')
+      end
+
+      if !@suggestions.nil? && @suggestions.length > 11
+        invalid_properties.push('invalid value for "suggestions", number of items must be less than or equal to 11.')
+      end
+
       invalid_properties
     end
 
@@ -154,19 +177,50 @@ module MessenteApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      channel_validator = EnumAttributeValidator.new('String', ["telegram"])
+      channel_validator = EnumAttributeValidator.new('String', ["rcs"])
       return false unless channel_validator.valid?(@channel)
+      return false if @sender.nil?
+      return false if !@text.nil? && @text.to_s.length > 3072
+      return false if !@suggestions.nil? && @suggestions.length > 11
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] channel Object to be assigned
     def channel=(channel)
-      validator = EnumAttributeValidator.new('String', ["telegram"])
+      validator = EnumAttributeValidator.new('String', ["rcs"])
       unless validator.valid?(channel)
         fail ArgumentError, "invalid value for \"channel\", must be one of #{validator.allowable_values}."
       end
       @channel = channel
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] text Value to be assigned
+    def text=(text)
+      if text.nil?
+        fail ArgumentError, 'text cannot be nil'
+      end
+
+      if text.to_s.length > 3072
+        fail ArgumentError, 'invalid value for "text", the character length must be smaller than or equal to 3072.'
+      end
+
+      @text = text
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] suggestions Value to be assigned
+    def suggestions=(suggestions)
+      if suggestions.nil?
+        fail ArgumentError, 'suggestions cannot be nil'
+      end
+
+      if suggestions.length > 11
+        fail ArgumentError, 'invalid value for "suggestions", number of items must be less than or equal to 11.'
+      end
+
+      @suggestions = suggestions
     end
 
     # Checks equality by comparing each attribute.
@@ -174,13 +228,14 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          channel == o.channel &&
           sender == o.sender &&
           validity == o.validity &&
+          ttl == o.ttl &&
           text == o.text &&
-          image_url == o.image_url &&
-          document_url == o.document_url &&
-          audio_url == o.audio_url &&
-          channel == o.channel
+          suggestions == o.suggestions &&
+          rich_card == o.rich_card &&
+          content_info == o.content_info
     end
 
     # @see the `==` method
@@ -192,7 +247,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [sender, validity, text, image_url, document_url, audio_url, channel].hash
+      [channel, sender, validity, ttl, text, suggestions, rich_card, content_info].hash
     end
 
     # Builds the object from hash

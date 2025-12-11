@@ -14,23 +14,22 @@ require 'date'
 require 'time'
 
 module MessenteApi
-  # A container for statistics report settings
-  class StatisticsReportSettings
-    # Start date for the report
-    attr_accessor :start_date
+  # Action to view a location on a map.
+  class RcsViewLocationAction
+    attr_accessor :lat_long
 
-    # End date for the report
-    attr_accessor :end_date
+    # The label of the pin dropped at latLong.
+    attr_accessor :label
 
-    # Optional list of message types (sms, viber, whatsapp, rcs, hlr)
-    attr_accessor :message_types
+    # (Optional, only supported on Android Messages clients) Instead of specifying a latLong (and optionally, a label), the agent can specify a query string. For default map apps that support search functionality (including Google Maps), tapping this suggested action results in a location search centered around the user's current location.              For instance, setting the query string to \"Growing Tree Bank\" will show all Growing Tree Bank locations in the user's vicinity. Setting the query string to \"1600 Amphitheater Parkway, Mountain View, CA 94043\" will select that specific address, regardless of the user's location.       
+    attr_accessor :query
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'start_date' => :'start_date',
-        :'end_date' => :'end_date',
-        :'message_types' => :'message_types'
+        :'lat_long' => :'lat_long',
+        :'label' => :'label',
+        :'query' => :'query'
       }
     end
 
@@ -42,15 +41,17 @@ module MessenteApi
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'start_date' => :'Date',
-        :'end_date' => :'Date',
-        :'message_types' => :'Array<String>'
+        :'lat_long' => :'RcsLatLng',
+        :'label' => :'String',
+        :'query' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'label',
+        :'query'
       ])
     end
 
@@ -58,33 +59,27 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::StatisticsReportSettings` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::RcsViewLocationAction` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::StatisticsReportSettings`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::RcsViewLocationAction`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'start_date')
-        self.start_date = attributes[:'start_date']
-      else
-        self.start_date = nil
+      if attributes.key?(:'lat_long')
+        self.lat_long = attributes[:'lat_long']
       end
 
-      if attributes.key?(:'end_date')
-        self.end_date = attributes[:'end_date']
-      else
-        self.end_date = nil
+      if attributes.key?(:'label')
+        self.label = attributes[:'label']
       end
 
-      if attributes.key?(:'message_types')
-        if (value = attributes[:'message_types']).is_a?(Array)
-          self.message_types = value
-        end
+      if attributes.key?(:'query')
+        self.query = attributes[:'query']
       end
     end
 
@@ -93,14 +88,6 @@ module MessenteApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @start_date.nil?
-        invalid_properties.push('invalid value for "start_date", start_date cannot be nil.')
-      end
-
-      if @end_date.nil?
-        invalid_properties.push('invalid value for "end_date", end_date cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -108,8 +95,6 @@ module MessenteApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @start_date.nil?
-      return false if @end_date.nil?
       true
     end
 
@@ -118,9 +103,9 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          start_date == o.start_date &&
-          end_date == o.end_date &&
-          message_types == o.message_types
+          lat_long == o.lat_long &&
+          label == o.label &&
+          query == o.query
     end
 
     # @see the `==` method
@@ -132,7 +117,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [start_date, end_date, message_types].hash
+      [lat_long, label, query].hash
     end
 
     # Builds the object from hash
