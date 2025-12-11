@@ -14,14 +14,12 @@ require 'date'
 require 'time'
 
 module MessenteApi
-  class Channel
-    SMS = "sms".freeze
-    VIBER = "viber".freeze
-    WHATSAPP = "whatsapp".freeze
-    RCS = "rcs".freeze
+  class RcsCardOrientation
+    VERTICAL = "VERTICAL".freeze
+    HORIZONTAL = "HORIZONTAL".freeze
 
     def self.all_vars
-      @all_vars ||= [SMS, VIBER, WHATSAPP, RCS].freeze
+      @all_vars ||= [VERTICAL, HORIZONTAL].freeze
     end
 
     # Builds the enum from string
@@ -35,8 +33,8 @@ module MessenteApi
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      return value if Channel.all_vars.include?(value)
-      raise "Invalid ENUM value #{value} for class #Channel"
+      return value if RcsCardOrientation.all_vars.include?(value)
+      raise "Invalid ENUM value #{value} for class #RcsCardOrientation"
     end
   end
 end

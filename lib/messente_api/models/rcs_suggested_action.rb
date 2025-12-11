@@ -14,23 +14,39 @@ require 'date'
 require 'time'
 
 module MessenteApi
-  # A container for statistics report settings
-  class StatisticsReportSettings
-    # Start date for the report
-    attr_accessor :start_date
+  # RCS suggested action.
+  class RcsSuggestedAction
+    # The text of the suggested action. Exactly one of the action fields (types) must be provided.
+    attr_accessor :text
 
-    # End date for the report
-    attr_accessor :end_date
+    # The postback data associated with the suggested action. This is sent back to the sender when the user selects the suggested action.
+    attr_accessor :postback_data
 
-    # Optional list of message types (sms, viber, whatsapp, rcs, hlr)
-    attr_accessor :message_types
+    # The fallback URL to open if the suggested action is not supported.
+    attr_accessor :fallback_url
+
+    attr_accessor :dial_action
+
+    attr_accessor :view_location_action
+
+    attr_accessor :create_calendar_event_action
+
+    attr_accessor :open_url_action
+
+    # This action does not have any properties. It simply triggers the share location action.
+    attr_accessor :share_location_action
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'start_date' => :'start_date',
-        :'end_date' => :'end_date',
-        :'message_types' => :'message_types'
+        :'text' => :'text',
+        :'postback_data' => :'postback_data',
+        :'fallback_url' => :'fallback_url',
+        :'dial_action' => :'dial_action',
+        :'view_location_action' => :'view_location_action',
+        :'create_calendar_event_action' => :'create_calendar_event_action',
+        :'open_url_action' => :'open_url_action',
+        :'share_location_action' => :'share_location_action'
       }
     end
 
@@ -42,15 +58,21 @@ module MessenteApi
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'start_date' => :'Date',
-        :'end_date' => :'Date',
-        :'message_types' => :'Array<String>'
+        :'text' => :'String',
+        :'postback_data' => :'String',
+        :'fallback_url' => :'String',
+        :'dial_action' => :'RcsDialAction',
+        :'view_location_action' => :'RcsViewLocationAction',
+        :'create_calendar_event_action' => :'RcsCreateCalendarEventAction',
+        :'open_url_action' => :'RcsOpenUrlAction',
+        :'share_location_action' => :'Object'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'fallback_url',
       ])
     end
 
@@ -58,33 +80,51 @@ module MessenteApi
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::StatisticsReportSettings` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MessenteApi::RcsSuggestedAction` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::StatisticsReportSettings`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MessenteApi::RcsSuggestedAction`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'start_date')
-        self.start_date = attributes[:'start_date']
+      if attributes.key?(:'text')
+        self.text = attributes[:'text']
       else
-        self.start_date = nil
+        self.text = nil
       end
 
-      if attributes.key?(:'end_date')
-        self.end_date = attributes[:'end_date']
+      if attributes.key?(:'postback_data')
+        self.postback_data = attributes[:'postback_data']
       else
-        self.end_date = nil
+        self.postback_data = nil
       end
 
-      if attributes.key?(:'message_types')
-        if (value = attributes[:'message_types']).is_a?(Array)
-          self.message_types = value
-        end
+      if attributes.key?(:'fallback_url')
+        self.fallback_url = attributes[:'fallback_url']
+      end
+
+      if attributes.key?(:'dial_action')
+        self.dial_action = attributes[:'dial_action']
+      end
+
+      if attributes.key?(:'view_location_action')
+        self.view_location_action = attributes[:'view_location_action']
+      end
+
+      if attributes.key?(:'create_calendar_event_action')
+        self.create_calendar_event_action = attributes[:'create_calendar_event_action']
+      end
+
+      if attributes.key?(:'open_url_action')
+        self.open_url_action = attributes[:'open_url_action']
+      end
+
+      if attributes.key?(:'share_location_action')
+        self.share_location_action = attributes[:'share_location_action']
       end
     end
 
@@ -93,12 +133,24 @@ module MessenteApi
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @start_date.nil?
-        invalid_properties.push('invalid value for "start_date", start_date cannot be nil.')
+      if @text.nil?
+        invalid_properties.push('invalid value for "text", text cannot be nil.')
       end
 
-      if @end_date.nil?
-        invalid_properties.push('invalid value for "end_date", end_date cannot be nil.')
+      if @text.to_s.length > 25
+        invalid_properties.push('invalid value for "text", the character length must be smaller than or equal to 25.')
+      end
+
+      if @postback_data.nil?
+        invalid_properties.push('invalid value for "postback_data", postback_data cannot be nil.')
+      end
+
+      if @postback_data.to_s.length > 2048
+        invalid_properties.push('invalid value for "postback_data", the character length must be smaller than or equal to 2048.')
+      end
+
+      if !@fallback_url.nil? && @fallback_url.to_s.length > 2048
+        invalid_properties.push('invalid value for "fallback_url", the character length must be smaller than or equal to 2048.')
       end
 
       invalid_properties
@@ -108,9 +160,50 @@ module MessenteApi
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @start_date.nil?
-      return false if @end_date.nil?
+      return false if @text.nil?
+      return false if @text.to_s.length > 25
+      return false if @postback_data.nil?
+      return false if @postback_data.to_s.length > 2048
+      return false if !@fallback_url.nil? && @fallback_url.to_s.length > 2048
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] text Value to be assigned
+    def text=(text)
+      if text.nil?
+        fail ArgumentError, 'text cannot be nil'
+      end
+
+      if text.to_s.length > 25
+        fail ArgumentError, 'invalid value for "text", the character length must be smaller than or equal to 25.'
+      end
+
+      @text = text
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] postback_data Value to be assigned
+    def postback_data=(postback_data)
+      if postback_data.nil?
+        fail ArgumentError, 'postback_data cannot be nil'
+      end
+
+      if postback_data.to_s.length > 2048
+        fail ArgumentError, 'invalid value for "postback_data", the character length must be smaller than or equal to 2048.'
+      end
+
+      @postback_data = postback_data
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] fallback_url Value to be assigned
+    def fallback_url=(fallback_url)
+      if !fallback_url.nil? && fallback_url.to_s.length > 2048
+        fail ArgumentError, 'invalid value for "fallback_url", the character length must be smaller than or equal to 2048.'
+      end
+
+      @fallback_url = fallback_url
     end
 
     # Checks equality by comparing each attribute.
@@ -118,9 +211,14 @@ module MessenteApi
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          start_date == o.start_date &&
-          end_date == o.end_date &&
-          message_types == o.message_types
+          text == o.text &&
+          postback_data == o.postback_data &&
+          fallback_url == o.fallback_url &&
+          dial_action == o.dial_action &&
+          view_location_action == o.view_location_action &&
+          create_calendar_event_action == o.create_calendar_event_action &&
+          open_url_action == o.open_url_action &&
+          share_location_action == o.share_location_action
     end
 
     # @see the `==` method
@@ -132,7 +230,7 @@ module MessenteApi
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [start_date, end_date, message_types].hash
+      [text, postback_data, fallback_url, dial_action, view_location_action, create_calendar_event_action, open_url_action, share_location_action].hash
     end
 
     # Builds the object from hash
