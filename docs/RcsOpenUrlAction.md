@@ -5,9 +5,9 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **url** | **String** | The URL to open. |  |
-| **description** | **String** | A description of the URL being opened. |  |
+| **description** | **String** | A description of the URL being opened. | [optional] |
 | **application** | [**RcsOpenUrlApplication**](RcsOpenUrlApplication.md) |  |  |
-| **webview_view_mode** | [**RcsWebviewViewMode**](RcsWebviewViewMode.md) |  |  |
+| **webview_view_mode** | [**RcsWebviewViewMode**](RcsWebviewViewMode.md) |  | [optional] |
 
 ## Example
 

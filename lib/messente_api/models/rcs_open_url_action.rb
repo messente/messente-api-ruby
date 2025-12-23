@@ -102,8 +102,6 @@ module MessenteApi
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
-      else
-        self.description = nil
       end
 
       if attributes.key?(:'application')
@@ -114,8 +112,6 @@ module MessenteApi
 
       if attributes.key?(:'webview_view_mode')
         self.webview_view_mode = attributes[:'webview_view_mode']
-      else
-        self.webview_view_mode = nil
       end
     end
 
@@ -132,16 +128,8 @@ module MessenteApi
         invalid_properties.push('invalid value for "url", the character length must be smaller than or equal to 2048.')
       end
 
-      if @description.nil?
-        invalid_properties.push('invalid value for "description", description cannot be nil.')
-      end
-
       if @application.nil?
         invalid_properties.push('invalid value for "application", application cannot be nil.')
-      end
-
-      if @webview_view_mode.nil?
-        invalid_properties.push('invalid value for "webview_view_mode", webview_view_mode cannot be nil.')
       end
 
       invalid_properties
@@ -153,9 +141,7 @@ module MessenteApi
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @url.nil?
       return false if @url.to_s.length > 2048
-      return false if @description.nil?
       return false if @application.nil?
-      return false if @webview_view_mode.nil?
       true
     end
 
