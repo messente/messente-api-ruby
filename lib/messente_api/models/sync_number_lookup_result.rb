@@ -180,7 +180,7 @@ module MessenteApi
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @number.nil?
-      status_validator = EnumAttributeValidator.new('String', ["ON", "OFF", "INVALID", "UNKNOWN"])
+      status_validator = EnumAttributeValidator.new('String', ["true", "false", "INVALID", "UNKNOWN"])
       return false unless status_validator.valid?(@status)
       true
     end
@@ -188,7 +188,7 @@ module MessenteApi
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('String', ["ON", "OFF", "INVALID", "UNKNOWN"])
+      validator = EnumAttributeValidator.new('String', ["true", "false", "INVALID", "UNKNOWN"])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end
