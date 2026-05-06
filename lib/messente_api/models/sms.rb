@@ -161,7 +161,7 @@ module MessenteApi
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @text.nil?
-      autoconvert_validator = EnumAttributeValidator.new('String', ["full", "on", "off"])
+      autoconvert_validator = EnumAttributeValidator.new('String', ["full", "true", "false"])
       return false unless autoconvert_validator.valid?(@autoconvert)
       channel_validator = EnumAttributeValidator.new('String', ["sms"])
       return false unless channel_validator.valid?(@channel)
@@ -171,7 +171,7 @@ module MessenteApi
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] autoconvert Object to be assigned
     def autoconvert=(autoconvert)
-      validator = EnumAttributeValidator.new('String', ["full", "on", "off"])
+      validator = EnumAttributeValidator.new('String', ["full", "true", "false"])
       unless validator.valid?(autoconvert)
         fail ArgumentError, "invalid value for \"autoconvert\", must be one of #{validator.allowable_values}."
       end
