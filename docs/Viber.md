@@ -8,11 +8,13 @@
 | **validity** | **Integer** | After how many minutes this channel is considered as failed and the next channel is attempted.       Only one of \&quot;ttl\&quot; and \&quot;validity\&quot; can be used. | [optional] |
 | **ttl** | **Integer** | After how many seconds this channel is considered as failed and the next channel is attempted.       Only one of \&quot;ttl\&quot; and \&quot;validity\&quot; can be used. | [optional] |
 | **text** | **String** | Plaintext content for Viber | [optional] |
-| **image_url** | **String** | URL for the embedded image    Valid combinations:    1) image_url,    2) text, image_url, button_url, button_text | [optional] |
+| **image_url** | **String** | URL for the embedded image. | [optional] |
 | **button_url** | **String** | URL of the button, must be specified along with &#39;&#39;text&#39;&#39;, &#39;&#39;button_text&#39;&#39; and &#39;&#39;image_url&#39;&#39; (optional) | [optional] |
 | **button_text** | **String** | Must be specified along with &#39;&#39;text&#39;&#39;, &#39;&#39;button_url&#39;&#39;, &#39;&#39;button_text&#39;&#39;, &#39;&#39;image_url&#39;&#39; (optional) | [optional] |
 | **channel** | **String** | The channel used to deliver the message | [optional][default to &#39;viber&#39;] |
 | **video** | [**ViberVideo**](ViberVideo.md) |  | [optional] |
+| **template** | [**ViberTemplate**](ViberTemplate.md) |  | [optional] |
+| **carousel** | [**ViberCarousel**](ViberCarousel.md) |  | [optional] |
 
 ## Example
 
@@ -28,7 +30,9 @@ instance = MessenteApi::Viber.new(
   button_url: null,
   button_text: null,
   channel: null,
-  video: null
+  video: null,
+  template: null,
+  carousel: null
 )
 ```
 
