@@ -90,6 +90,10 @@ docs/SyncNumberLookupResult.md
 docs/SyncNumberLookupSuccess.md
 docs/TextStore.md
 docs/Viber.md
+docs/ViberCarousel.md
+docs/ViberCarouselButton.md
+docs/ViberCarouselItem.md
+docs/ViberTemplate.md
 docs/ViberVideo.md
 docs/WhatsApp.md
 docs/WhatsAppAudio.md
@@ -212,6 +216,10 @@ lib/messente_api/models/sync_number_lookup_result.rb
 lib/messente_api/models/sync_number_lookup_success.rb
 lib/messente_api/models/text_store.rb
 lib/messente_api/models/viber.rb
+lib/messente_api/models/viber_carousel.rb
+lib/messente_api/models/viber_carousel_button.rb
+lib/messente_api/models/viber_carousel_item.rb
+lib/messente_api/models/viber_template.rb
 lib/messente_api/models/viber_video.rb
 lib/messente_api/models/whats_app.rb
 lib/messente_api/models/whats_app_audio.rb
